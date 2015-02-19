@@ -5,4 +5,4 @@ my Master's degree thesis and scripts
 
 - test_data: contains test PDB files
 
-- thesis: folder contains .tex sources, thesis text in markdown and all images
+- thesis: folder contains .tex sources, thesis notes in markdown and all images

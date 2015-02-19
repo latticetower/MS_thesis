@@ -2,8 +2,9 @@ from Bio.PDB import *
 import numpy as np
 import timeit
 import logging
+import os
 
-logging.basicConfig(filename='logs/triangulator.log',level=logging.DEBUG)
+logging.basicConfig(filename="logs/" + os.path.splitext(os.path.basename(__file__))[0] + ".log", level=logging.DEBUG)
 
 
 
@@ -71,7 +72,7 @@ def process_chain(points, points_no = 9):
     #print(p[0].get_coord()[1])
     tri = Delaunay(p)
     #print(tri.simplices)
-    return (p0, tri.simplices)
+    return (p0, tri)
 
 def get_simplices_1(l) : return [l[: i] + l[i + 1:] for i in range(0, len(l))]
 
@@ -84,10 +85,12 @@ def get_point_projection_to_plane(tri, p):
     projection_v = normal_v1 + normal_v2 - vector_to_axis(normal_v1, normal_v2)
     return projection_v + tri[0]
 
-def select_by_some_value(l, select_func, reduce_func = lambda x, y: (x[0], (x[1] + y[1]))):
-    some_value = select_func(l, key = lambda x: x[0])[0]
-    some_values = filter(lambda x: x[0] == some_value, l)
-    #return reduce(reduce_func, some_values)
+def select_by_some_value(values,
+            select_func = lambda x: min(x, key = lambda y: y[0]),
+            compare_func = lambda x, y: x[0] == y[0]
+            ):
+    some_value = select_func(values)
+    some_values = filter(lambda x: compare_func(some_value, x), values)
     return some_values
 
 # returns [(<distance>, [<points from triangle>])]
@@ -184,8 +187,8 @@ def get_tetrahedra(simplex, points) : return (map(lambda x: points[x], simplex))
 def hausdorff_distance(surface1, surface2):
     distances = [
         x
-        for simplex1 in surface1[1]
-        for simplex2 in surface2[1]
+        for simplex1 in surface1[1].simplices
+        for simplex2 in surface2[1].simplices
         for x in find_distance(
             get_tetrahedra(simplex1, surface1[0]),
             get_tetrahedra(simplex2, surface2[0])
@@ -201,7 +204,6 @@ def hausdorff_distance(surface1, surface2):
             for aa1 in atoms_to_aa(x[1][0])
             for aa2 in atoms_to_aa(x[1][1])
         ]))
-    #print res
     return res
 
 
