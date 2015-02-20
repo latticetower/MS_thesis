@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from Bio.PDB import *
 import numpy as np
 import timeit
@@ -68,10 +70,10 @@ def process_chain(points, points_no = 9):
     #p = np.array(points[:points_no])
     #print(p[0].get_coord()[1])
     tri = Delaunay(p)
-    #print(tri.simplices)
+    #print(tri.vertices)
     return (p0, tri)
 
-def get_simplices_1(l) : return [l[: i] + l[i + 1:] for i in range(0, len(l))]
+def get_simplices_1(l) : return [np.hstack((l[: i], l[i + 1:])) for i in range(0, len(l))]
 
 def get_point_projection_to_plane(tri, p):
     v0 = p - tri[0]
@@ -92,19 +94,19 @@ def select_by_some_value(values,
 
 # returns [(<distance>, [<points from triangle>])]
 @accumulated
-def find_distance_to_triangle(triangle, point):
-    tri = map(lambda x: x.get_vector(), triangle)
+def find_distance_to_triangle(triangle, surface1, point):
+    tri = map(lambda x: surface1[x].get_vector(), triangle)
     p = point.get_vector()
     p0 = get_point_projection_to_plane(tri, p)
     from math import copysign
     line_segments = get_simplices_1(triangle)
     cmp_result = 0
     for line_segment in line_segments:
-        v1 = p0 - line_segment[0].get_vector()
-        v2 = line_segment[1].get_vector() - line_segment[0].get_vector()
+        v1 = p0 - surface1[line_segment[0]].get_vector()
+        v2 = surface1[line_segment[1]].get_vector() - surface1[line_segment[0]].get_vector()
         res = cmp(v1 ** v2, 0)
         if (res == 0):
-            norm_v = p - line_segment[0] - v1
+            norm_v = p - surface1[line_segment[0]] - v1
             #print((norm_v.norm(), [line_segment[0], line_segment[1]]))
             return [(norm_v.norm(), [line_segment[0], line_segment[1]])]
         if (cmp_result == 0):
@@ -113,8 +115,8 @@ def find_distance_to_triangle(triangle, point):
         if (cmp_result != res):
             values = [
                 (   vector_to_axis(
-                        line[1].get_vector() - line[0].get_vector(),
-                        p - line[0].get_vector()
+                        surface1[line[1]].get_vector() - surface1[line[0]].get_vector(),
+                        p - surface1[line[0]].get_vector()
                     ).norm(),
                     [
                         line[0],
@@ -123,18 +125,18 @@ def find_distance_to_triangle(triangle, point):
                 )
                 for line in line_segments
             ]
-            return select_by_some_value(values, min)
+            return select_by_some_value(values)
             #return min_value #todo: check if possible more than 2 values with the same dist
         #for all segments cross product has 1 sign - it means that point projection lays inside of triangle
     return [((p0 - p).norm(), triangle)]
 
 # returns [(<distance>, ([<points from surf1>], [<points from surf2>]))]
 @accumulated
-def find_distance_between_line_segments(line_segment1, line_segment2):
-    p1 = line_segment1[0].get_vector()
-    v1 = line_segment1[1].get_vector() - line_segment1[0].get_vector()
-    p2 = line_segment2[0].get_vector()
-    v2 = line_segment2[1].get_vector() - line_segment2[0].get_vector()
+def find_distance_between_line_segments(line_segment1, surface1, line_segment2, surface2):
+    p1 = surface1[line_segment1[0]].get_vector()
+    v1 = surface1[line_segment1[1]].get_vector() - surface1[line_segment1[0]].get_vector()
+    p2 = surface2[line_segment2[0]].get_vector()
+    v2 = surface2[line_segment2[1]].get_vector() - surface2[line_segment2[0]].get_vector()
     dist = (v2 * v2) * (v1 * v1) - (v1 * v2) * (v1 * v2)
     if (dist == 0):
         return (vector_to_axis(v1, p2 - p1).norm(), (line_segment1, line_segment2))
@@ -146,35 +148,36 @@ def find_distance_between_line_segments(line_segment1, line_segment2):
 
 # returns [(<distance>, ([<points from surf1>], [<points from surf2>]))]
 @accumulated
-def find_distance_between_triangles(triangle1, triangle2):
+def find_distance_between_triangles(triangle1, surface1, triangle2, surface2):
     distances1 = [
             (x[0], ([point], x[1]))
             for point in triangle1
-            for x in find_distance_to_triangle(triangle2, point)
+            for x in find_distance_to_triangle(triangle2, surface2, surface1[point])
         ]
     distances2 = [
             (x[0], (x[1], [point]))
-            for point in triangle1
-            for x in find_distance_to_triangle(triangle2, point)
+            for point in triangle2
+            for x in find_distance_to_triangle(triangle1, surface1, surface2[point])
         ]
     distances3 = [
                 x
                 for line_segment1 in get_simplices_1(triangle1)
                 for line_segment2 in get_simplices_1(triangle2)
-                for x in find_distance_between_line_segments(line_segment1, line_segment2)
+                for x in find_distance_between_line_segments(line_segment1, surface1, line_segment2, surface2)
             ]
-    return select_by_some_value(distances1 + distances2 + distances3, min)
+    return select_by_some_value(distances1 + distances2 + distances3)
 
 #method returns tuple - nearest distance and corresponding tuple of arrays of atoms from 1st and second tetrahedra
 # returns [(<distance>, ([<points from surf1>], [<points from surf2>]))]
-def find_distance(tetrahedra1, tetrahedra2):
+def find_distance(tetrahedra1, surface1, tetrahedra2, surface2):
+    #print((tetrahedra1[1:2]))
     dist =  [
             x
             for triangle1 in get_simplices_1(tetrahedra1)
             for triangle2 in get_simplices_1(tetrahedra2)
-            for x in find_distance_between_triangles(triangle1, triangle2)
+            for x in find_distance_between_triangles(triangle1, surface1, triangle2, surface2)
         ]
-    ret = select_by_some_value(dist, min)
+    ret = select_by_some_value(dist)
     return ret
 
 def get_tetrahedra(simplex, points) : return (map(lambda x: points[x], simplex))
@@ -187,19 +190,19 @@ def hausdorff_distance(surface1, surface2):
         for simplex1 in surface1[1].simplices
         for simplex2 in surface2[1].simplices
         for x in find_distance(
-            get_tetrahedra(simplex1, surface1[0]),
-            get_tetrahedra(simplex2, surface2[0])
+            simplex1, surface1[0],
+            simplex2, surface2[0]
             )
     ]
-    nearest_atoms = select_by_some_value(distances, min)
-    def atoms_to_aa(atoms) :
-        return list(set([a.get_parent().get_id()[1] for a in atoms]))
+    nearest_atoms = select_by_some_value(distances)
+    def atoms_to_aa(surface, atoms) :
+        return list(set([surface[a].get_parent().get_id()[1] for a in atoms]))
     res = list(set(
         [
             (x[0],(aa1, aa2))
             for x in nearest_atoms
-            for aa1 in atoms_to_aa(x[1][0])
-            for aa2 in atoms_to_aa(x[1][1])
+            for aa1 in atoms_to_aa(surface1[0], x[1][0])
+            for aa2 in atoms_to_aa(surface2[0], x[1][1])
         ]))
     return res
 
