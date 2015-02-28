@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from triangulator import *
-#import ala_scan
+import ala_scan
 
 if __name__ == "__main__":
     pair_of_chains = read_pdb_info('../test_data/2OSL.pdb')
