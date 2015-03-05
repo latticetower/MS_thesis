@@ -1,0 +1,3 @@
+Алгоритм предназначен для усиления сцепленности с антигеном при направленном мутагенезе моноклональных антител.
+
+In this master degree thesis, one of the classical methods of directed mutagenesis is utilized to improve binding of monoclonal antibody to the corresponding antigen. The main difference from classical alanine scanning is in fact that mutagenesis is performed not for all amino acids of docking region, but only for most significant ones. 'The significance' is measured by relative distances between atoms of antibody chain and antigen chain.  Different methods of relative distances measuring are explored and compared.
