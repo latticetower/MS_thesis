@@ -64,7 +64,6 @@ def read_pdb_info(filename, chain1= 'L', chain2 = 'H'):
 def construct_vertex_dict(triangulation):
     point_no = len(triangulation.points)
     result = [ set() for i in range(point_no)]
-    #print(result)
     for i in xrange(len(triangulation.simplices)):
         simplex = triangulation.simplices[i]
         for a in simplex:
@@ -77,6 +76,15 @@ def construct_edge_dict(triangulation):
     for i in xrange(len(triangulation.simplices)):
         simplex = triangulation.simplices[i]
         for a in get_simplices_2(simplex):
+            if not result.has_key(a):
+                result[a] = set()
+            result[a].add(i)
+    return result
+def construct_triangle_dict(triangulation):
+    result = {}
+    for i in xrange(len(triangulation.simplices)):
+        simplex = triangulation.simplices[i]
+        for a in get_triangles(simplex):
             if not result.has_key(a):
                 result[a] = set()
             result[a].add(i)
@@ -95,12 +103,14 @@ def process_chain(points, points_no = 9):
     tri = Delaunay(p)
     by_vertex = construct_vertex_dict(tri)
     by_edge = construct_edge_dict(tri)
+    by_triangle = construct_triangle_dict(tri)
     #print(tri.vertices)
-    return (p0, tri, by_vertex, by_edge)
+    return (p0, tri, by_vertex, by_edge, by_triangle)
 
 def get_simplices_1(l) : return [np.hstack((l[: i], l[i + 1:])) for i in range(0, len(l))]
 
 def get_simplices_2(l) : return [tuple({l[i], l[j]}) for i in range(0, len(l)) for j in range(len(l)) if i!=j]
+def get_triangles(l) : return [tuple({l[i], l[j], l[k]}) for i in range(0, len(l)) for j in range(len(l)) for k in range(0, len(l)) if i!=j and i!=k and j!=k]
 
 def get_point_projection_to_plane(tri, p):
     v0 = p - tri[0]
@@ -122,7 +132,6 @@ def select_by_some_value(values,
 # returns [(<distance>, tuple(<points from triangle>))]
 @accumulated
 def find_distance_to_triangle(triangle, surface1, point):
-    #print(surface1)
     tri = map(lambda x: surface1[x].get_vector(), triangle)
     p = point.get_vector()
     p0 = get_point_projection_to_plane(tri, p)
@@ -135,7 +144,6 @@ def find_distance_to_triangle(triangle, surface1, point):
         res = cmp(v1 ** v2, 0)
         if (res == 0):
             norm_v = p - surface1[line_segment[0]] - v1
-            #print((norm_v.norm(), [line_segment[0], line_segment[1]]))
             return [(norm_v.norm(), tuple(set([line_segment[0], line_segment[1]])))]
         if (cmp_result == 0):
             cmp_result = res
@@ -197,35 +205,54 @@ def find_distance_between_triangles(triangle1, surface1, triangle2, surface2):
 
 #helper method - returns set of all unvisited neighbours for given tetrahedra
 #construct data from tuple returned by process_chain
-def get_all_neighbours(tetrahedras, surface, visited):
+def get_all_neighbours(tetrahedras, surface, visited, nearest_vertices):
     result = set()
-    for t in tetrahedras:
-        tetrahedra = surface[1].simplices[t]
-        for v in tetrahedra:
-            for neighbour in surface[2][v]:
-                if not visited[neighbour]:
-                    result.add(neighbour)
+    for nv in nearest_vertices:
+        if len(nv) == 3:
+            #get all tetrahedras by triangle
+            for x in surface[4][nv]: result.add(x)
+        if len(nv) == 2:
+            #get all tetrahedras by line segment
+            for x in surface[3][nv]: result.add(x)
+        if len(nv) == 1:
+            #get all tetrahedras by point
+            for x in surface[2][nv]: result.add(x)
     return result
+    #result = set()
+    #for t in tetrahedras:
+    #    tetrahedra = surface[1].simplices[t]
+    #    for v in tetrahedra:
+    #        for neighbour in surface[2][v]:
+    #            if not visited[neighbour]:
+    #                result.add(neighbour)
+    #return result
 
 #TODO: in progress
 # returns tetrahedras list with minimal length
 # returns (distance, tetrahedras)
 #tetrahedras is not actual tetrahedras, it's just index in simplices obj
-def check_neighbour_ridges(tetrahedras, surface1, given_tetrahedra, surface2, visited_tetrahedras, start_distance):
-    #print(tetrahedras)
-    neighbours = get_all_neighbours(tetrahedras, surface1, visited_tetrahedras)
+def check_neighbour_ridges(tetrahedras, surface1, given_tetrahedra, surface2, visited_tetrahedras, start_distance_info):
+    start_distance = start_distance_info[0][0]
+    nearest_vertices = map(lambda x: x[1][0], start_distance_info)
+    neighbours = get_all_neighbours(tetrahedras, surface1, visited_tetrahedras, nearest_vertices)
     nearest_tetrahedras = set()
-    min_dist = start_distance
+    min_dist = start_distance_info
     for t in neighbours:
+        if visited_tetrahedras[t]:
+            continue
         neighbour = surface1[1].simplices[t]
         visited_tetrahedras[t] = True
         data = find_distance(neighbour, surface1[0], given_tetrahedra, surface2[0])
-        dist = data[0][0]
-        #print(dist)
-        if dist < min_dist:
+        dist = data
+        if dist[0][0] < min_dist[0][0]:
+            min_dist = dist
             nearest_tetrahedras = set()
+        if dist[0][0] == min_dist[0][0]:
+            for x in list(dist):
+                min_dist.append(x)
+            min_dist = list(set(min_dist))
         nearest_tetrahedras.add(t)
-    return (min_dist, tuple(nearest_tetrahedras))
+    return (min_dist, nearest_tetrahedras)
     #TODO: add list or some object with list of all visited vertices
     #TODO: check if neighbours of all edges are
 
@@ -236,26 +263,21 @@ def find_nearest_ridges(tetrahedras, surface1, given_tetrahedra, surface2):
     start_tetrahedra = tetrahedras[0]
     visited_tetrahedras = [False for x in xrange(len(tetrahedras))]
     visited_tetrahedras[0] = True
-    #print(given_tetrahedra)
-    #print(find_distance(start_tetrahedra, surface1[0], given_tetrahedra, surface2[0]))
-    #start_tetrahedra = {}
-    start_distance = find_distance(start_tetrahedra, surface1[0], given_tetrahedra, surface2[0])
-    print(start_distance)
-    start_distance = start_distance[0][0]
+    start_distance_info = find_distance(start_tetrahedra, surface1[0], given_tetrahedra, surface2[0])
     start_neighbours = {0}
     while(True):
-        (neighbour_distance, candidates) = check_neighbour_ridges(start_neighbours, surface1, given_tetrahedra, surface2, visited_tetrahedras, start_distance)
-        if neighbour_distance > start_distance:
+        (neighbour_distance_info, candidates) = check_neighbour_ridges(start_neighbours, surface1, given_tetrahedra, surface2, visited_tetrahedras, start_distance_info)
+        if neighbour_distance_info[0][0] > start_distance_info[0][0]:
             break
-        if neighbour_distance < start_distance:
-            start_distance = neighbour_distance
+        if neighbour_distance_info[0][0] < start_distance_info[0][0]:
+            start_distance_info = neighbour_distance_info
             start_neighbours = candidates
         else:
             if (len(candidates) == 0):
                 break
             for i in candidates:
                 start_neighbours.add(i)
-    return (start_distance, start_neighbours)
+    return (start_distance_info[0][0], start_neighbours)
 
 
 #TODO: in progress
@@ -271,11 +293,6 @@ def find_some_ridge(tetrahedras, surface1, given_tetrahedra, surface2):
 # returns [(<distance>, ([<points from surf1>], [<points from surf2>]))]
 @accumulated
 def find_distance(tetrahedra1, surface1, tetrahedra2, surface2):
-    #print(tetrahedra1)
-    #print(tetrahedra2)
-    #print(surface1)
-    #print(surface2)
-    #print((tetrahedra1[1:2]))
     dist =  list(set([
             x
             for triangle1 in get_simplices_1(tetrahedra1)
