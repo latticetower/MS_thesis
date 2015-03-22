@@ -11,3 +11,8 @@ In silico Ala-scan - теоретическая версия экспериме�
 -  Для пары поверхностей, приближенных трехмерными триангуляциями и соответствующих паре цепочек, определение пар самых близких и самых удаленных пар точек (с использованием расстояния Хаусдорфа).
 
 Были написаны тесты, подтверждающие корректность работы классов.
+
+-----------------------------------------------------------------------------
+
+From July to August 2014, i was intern in BIOCAD. The internship was in Bioinformatics Group, whose main goal is to apply computer-based design to drug development thus reducing its cost in terms of time and money.
+My main task was to design and to implement (in Scala) selective in-silico alanine scanning with distance-based aminoacids filtration. I continued to develop that project as my Master of Sciense thesis.
