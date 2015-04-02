@@ -9,5 +9,21 @@
 # (Тулы) Rosetta
 
 - как выглядит протокол ала-скана в розетте?
+
+нашла статью с описанием
+
 - что такое интерфейс?
+
+All residues having at least one side-chain atom within a sphere of 5 Å
+radius of the site of mutation were repacked.
+All other amino acid side chains were left in the conformations
+observed in the parent crystal structures.
+
+в протоколе вызывается метод is_interface(i),  ну и в зависимости от условия выше определяется, будет ли подвергаться мутагенезу амк или нет.
+
 - почему мы не берем его как есть, а вместо этого пишем свой велосипед?
+
+как сейчас определяются SDR?
+
+по расстоянию.
+ (нашла статью).
