@@ -1,0 +1,165 @@
+unprocessed:
+pdb_folder/1dvf.pdb
+7, E5.2, D1.3, P, 1dvf, T, -10.8, None, None
+{'1': {'other_details': 'igg1, kappa', 'molecule': 'fv d1.3', 'misc': '', 'engineered': 'yes', 'chain': 'a'}, '3': {'other_details': 'igg1, kappa', 'molecule': 'fv e5.2', 'misc': '', 'engineered': 'yes', 'chain': 'c'}, '2': {'other_details': 'igg1, kappa', 'molecule': 'fv d1.3', 'misc': '', 'engineered': 'yes', 'chain': 'b'}, '4': {'other_details': 'igg1, kappa', 'molecule': 'fv e5.2', 'misc': '', 'engineered': 'yes', 'chain': 'd'}}
+------
+unprocessed:
+pdb_folder/1rcb.pdb
+9, IL-4, IL4-BP, P, 1rcb, F, -13.2, 13000000.0, 0.0021
+{'1': {'molecule': 'interleukin-4', 'misc': '', 'engineered': 'yes', 'chain': 'a'}}
+------
+unprocessed:
+pdb_folder/1rhg.pdb
+10, hG-CSF, hG-CSFbp, P, 1rhg, F, -12.1, None, None
+{'1': {'molecule': 'granulocyte colony-stimulating factor', 'misc': '', 'engineered': 'yes', 'chain': 'a, b, c'}}
+------
+unprocessed:
+pdb_folder/1il6.pdb
+15, IL-6, IL-6R, P, 1il6, F, None, None, None
+{'1': {'molecule': 'interleukin-6', 'misc': '', 'chain': 'a'}}
+------
+unprocessed:
+pdb_folder/1il6.pdb
+16, IL-6, mAb8, P, 1il6, F, None, None, None
+{'1': {'molecule': 'interleukin-6', 'misc': '', 'chain': 'a'}}
+------
+unprocessed:
+pdb_folder/1nt3.pdb
+17, NT-3, gp75, P, 1nt3, F, -13.0, None, None
+{'1': {'molecule': 'protein (neurotrophin-3)', 'engineered': 'yes', 'misc': '', 'synonym': 'nt-3, nt3', 'chain': 'a'}}
+------
+unprocessed:
+pdb_folder/1nt3.pdb
+18, NT-3, trkC, P, 1nt3, F, None, None, None
+{'1': {'molecule': 'protein (neurotrophin-3)', 'engineered': 'yes', 'misc': '', 'synonym': 'nt-3, nt3', 'chain': 'a'}}
+------
+unprocessed:
+pdb_folder/3ink.pdb
+19, IL-2 (human), IL-2 receptor, P, 3ink, F, -13.86, None, None
+{'1': {'molecule': 'interleukin-2', 'misc': '', 'engineered': 'yes', 'chain': 'c, d'}}
+------
+unprocessed:
+pdb_folder/1cbw.pdb
+20, BPTI, Chymotrypsin, P, 1cbw, T, -10.7, 170000.0, 0.0018
+{'1': {'molecule': 'bovine chymotrypsin', 'misc': '', 'ec_number': '3.4.21.1', 'chain': 'a, f', 'ec': '3.4.21.1'}, '3': {'molecule': 'bovine chymotrypsin', 'misc': '', 'ec_number': '3.4.21.1', 'chain': 'c, h', 'ec': '3.4.21.1'}, '2': {'molecule': 'bovine chymotrypsin', 'misc': '', 'ec_number': '3.4.21.1', 'chain': 'b, g', 'ec': '3.4.21.1'}, '4': {'molecule': 'bpti', 'misc': '', 'synonym': 'basic pancreatic trypsin inhibitor', 'chain': 'd, i'}}
+------
+unprocessed:
+pdb_folder/1ahw.pdb
+22, Tissue Factor, Fab 5G9, P, 1ahw, T, -11.5, None, None
+{'1': {'fragment': 'light chain residues 1 - 214', 'molecule': 'immunoglobulin fab 5g9 (light chain)', 'misc': '', 'synonym': 'fab, fab light chain, fab heavy chain', 'chain': 'a, d'}, '3': {'synonym': 'tf, thromboplastin, coagulation factor iii', 'chain': 'c, f', 'fragment': 'extracellular domain', 'misc': '', 'molecule': 'tissue factor', 'engineered': 'yes'}, '2': {'fragment': 'heavy chain residues 1 - 214', 'molecule': 'immunoglobulin fab 5g9 (heavy chain)', 'misc': '', 'synonym': 'fab, fab light chain, fab heavy chain', 'chain': 'b, e'}}
+------
+unprocessed:
+pdb_folder/1cdc.pdb
+23, CD2, CD48, P, 1cdc, F, -5.53, None, None
+{'1': {'molecule': 'cd2', 'engineered': 'yes', 'misc': '', 'synonym': 'lfa-2', 'chain': 'b, a'}}
+------
+unprocessed:
+pdb_folder/1vfb.pdb
+24, HEL, D1.3, P, 1vfb, T, -8.23, None, None
+{'1': {'molecule': 'igg1-kappa d1.3 fv (light chain)', 'misc': '', 'engineered': 'yes', 'chain': 'a'}, '3': {'molecule': 'hen egg white lysozyme', 'misc': '', 'engineered': 'yes', 'chain': 'c'}, '2': {'molecule': 'igg1-kappa d1.3 fv (heavy chain)', 'misc': '', 'engineered': 'yes', 'chain': 'b'}}
+------
+unprocessed:
+pdb_folder/5ebx.pdb
+29, Erabutoxin A, AChR, P, 5ebx, F, -13.7, None, None
+{'1': {'molecule': 'erabutoxin a', 'misc': '', 'engineered': 'yes', 'chain': 'a'}}
+------
+unprocessed:
+pdb_folder/5ebx.pdb
+30, Erabutoxin A, Ma2-3, P, 5ebx, F, -11.9, None, None
+{'1': {'molecule': 'erabutoxin a', 'misc': '', 'engineered': 'yes', 'chain': 'a'}}
+------
+unprocessed:
+pdb_folder/1dan.pdb
+31, Tissue Factor, Factor VIIa, P, 1dan, T, -11.2, 340000.0, 0.0021
+{'1': {'chain': 'l', 'misc': '', 'molecule': 'blood coagulation factor viia light chain', 'ec_number': '3.4.21.21', 'engineered': 'yes', 'ec': '3.4.21.21'}, '3': {'molecule': 'soluble tissue factor', 'misc': '', 'engineered': 'yes', 'chain': 't'}, '2': {'chain': 'h', 'misc': '', 'molecule': 'blood coagulation factor viia heavy chain', 'ec_number': '3.4.21.21', 'engineered': 'yes', 'ec': '3.4.21.21'}, '4': {'molecule': 'soluble tissue factor', 'misc': '', 'engineered': 'yes', 'chain': 'u'}}
+------
+unprocessed:
+pdb_folder/2gf1.pdb
+32, IGF-1, IGFbp-1, P, 2gf1, F, -12.6, 670000.0, 0.00028
+{'1': {'molecule': 'insulin-like growth factor i', 'misc': '', 'engineered': 'yes', 'chain': 'a'}}
+------
+unprocessed:
+pdb_folder/3hfm.pdb
+38, HEL, HYHEL-10, P, 3hfm, T, -13.7, 1430000.0, 0.0001
+{'1': {'molecule': 'hyhel-10 igg1 fab (light chain)', 'misc': '', 'engineered': 'yes', 'chain': 'l'}, '3': {'chain': 'y', 'misc': '', 'molecule': 'hen egg white lysozyme', 'ec_number': '3.2.1.17', 'engineered': 'yes', 'ec': '3.2.1.17'}, '2': {'molecule': 'hyhel-10 igg1 fab (heavy chain)', 'misc': '', 'engineered': 'yes', 'chain': 'h'}}
+------
+unprocessed:
+pdb_folder/1gc1.pdb
+41, CD4, gp120, P, 1gc1, T, -11.4, None, None
+{'1': {'chain': 'g', 'fragment': 'core', 'misc': '', 'molecule': 'envelope protein gp120', 'engineered': 'yes', 'mutation': 'yes'}, '3': {'chain': 'l', 'fragment': 'antigen-binding fragment, fab', 'misc': '', 'molecule': 'antibody 17b', 'engineered': 'yes', 'other_details': 'monoclonal antibody 17b binds to a cd4-induced site ongp120 '}, '2': {'chain': 'c', 'fragment': 'd1d2, n-terminal two domain fragment', 'misc': '', 'molecule': 'cd4', 'engineered': 'yes', 'mutation': 'yes'}, '4': {'chain': 'h', 'fragment': 'antigen-binding fragment, fab', 'misc': '', 'molecule': 'antibody 17b', 'engineered': 'yes', 'other_details': 'monoclonal antibody 17b binds to a cd4-induced site ongp120 '}}
+------
+unprocessed:
+pdb_folder/3hfm.pdb
+43, HYHEL-10, HEL, P, 3hfm, T, -11.6, None, None
+{'1': {'molecule': 'hyhel-10 igg1 fab (light chain)', 'misc': '', 'engineered': 'yes', 'chain': 'l'}, '3': {'chain': 'y', 'misc': '', 'molecule': 'hen egg white lysozyme', 'ec_number': '3.2.1.17', 'engineered': 'yes', 'ec': '3.2.1.17'}, '2': {'molecule': 'hyhel-10 igg1 fab (heavy chain)', 'misc': '', 'engineered': 'yes', 'chain': 'h'}}
+------
+unprocessed:
+pdb_folder/1vfb.pdb
+44, D1.3, HEL, P, 1vfb, T, -10.4, None, None
+{'1': {'molecule': 'igg1-kappa d1.3 fv (light chain)', 'misc': '', 'engineered': 'yes', 'chain': 'a'}, '3': {'molecule': 'hen egg white lysozyme', 'misc': '', 'engineered': 'yes', 'chain': 'c'}, '2': {'molecule': 'igg1-kappa d1.3 fv (heavy chain)', 'misc': '', 'engineered': 'yes', 'chain': 'b'}}
+------
+unprocessed:
+pdb_folder/1dvf.pdb
+55, D1.3, E5.2, P, 1dvf, T, -10.8, None, None
+{'1': {'other_details': 'igg1, kappa', 'molecule': 'fv d1.3', 'misc': '', 'engineered': 'yes', 'chain': 'a'}, '3': {'other_details': 'igg1, kappa', 'molecule': 'fv e5.2', 'misc': '', 'engineered': 'yes', 'chain': 'c'}, '2': {'other_details': 'igg1, kappa', 'molecule': 'fv d1.3', 'misc': '', 'engineered': 'yes', 'chain': 'b'}, '4': {'other_details': 'igg1, kappa', 'molecule': 'fv e5.2', 'misc': '', 'engineered': 'yes', 'chain': 'd'}}
+------
+unprocessed:
+pdb_folder/4fgf.pdb
+56, bFGF, FGFR1b, P, 4fgf, F, -13.3, None, None
+{'1': {'molecule': 'basic fibroblast growth factor', 'misc': '', 'engineered': 'yes', 'chain': 'a'}}
+------
+unprocessed:
+pdb_folder/1dan.pdb
+79, Factor VII, Tissue Factor, P, 1dan, T, -11.38, 160000.0, 0.00057
+{'1': {'chain': 'l', 'misc': '', 'molecule': 'blood coagulation factor viia light chain', 'ec_number': '3.4.21.21', 'engineered': 'yes', 'ec': '3.4.21.21'}, '3': {'molecule': 'soluble tissue factor', 'misc': '', 'engineered': 'yes', 'chain': 't'}, '2': {'chain': 'h', 'misc': '', 'molecule': 'blood coagulation factor viia heavy chain', 'ec_number': '3.4.21.21', 'engineered': 'yes', 'ec': '3.4.21.21'}, '4': {'molecule': 'soluble tissue factor', 'misc': '', 'engineered': 'yes', 'chain': 'u'}}
+------
+unprocessed:
+pdb_folder/3il8.pdb
+82, IL-8, IL-8R, P, 3il8, F, None, None, None
+{'1': {'molecule': 'interleukin-8', 'misc': '', 'engineered': 'yes', 'chain': 'a'}}
+------
+unprocessed:
+pdb_folder/2gf1.pdb
+83, IGF-1, IGF-1R, P, 2gf1, F, -11.1, 480000.0, 0.0028
+{'1': {'molecule': 'insulin-like growth factor i', 'misc': '', 'engineered': 'yes', 'chain': 'a'}}
+------
+unprocessed:
+pdb_folder/1pne.pdb
+86, bovine profilin I, rabbit actin, P, 1pne, F, -7.61, None, None
+{'1': {'molecule': 'profilin', 'misc': '', 'engineered': 'yes', 'chain': 'a'}}
+------
+unprocessed:
+pdb_folder/1mnm.pdb
+90, Mcm1, Mcm1 binding site DNA, D, 1mnm, T, None, None, None
+{'1': {'molecule': 'dna (ste6 operator dna)', 'misc': '', 'engineered': 'yes', 'chain': 'e'}, '3': {'synonym': 'pheromone receptor transcription factor', 'chain': 'a, b', 'fragment': 'residues 1 - 100', 'misc': '', 'molecule': 'protein (mcm1 transcriptional regulator)', 'engineered': 'yes'}, '2': {'molecule': 'dna (ste6 operator dna)', 'misc': '', 'engineered': 'yes', 'chain': 'f'}, '4': {'synonym': 'mating-type protein alpha-2', 'chain': 'c, d', 'fragment': 'residues 113 - 189', 'misc': '', 'molecule': 'protein (mat alpha-2 transcriptional repressor)', 'engineered': 'yes'}}
+------
+unprocessed:
+pdb_folder/1ulo.pdb
+92, Endoglucanase C, Avicel, S, 1ulo, F, None, None, None
+{'1': {'synonym': 'cenc, endo-1,4-beta-glucanase c', 'chain': 'a', 'fragment': 'n-terminal cellulose-binding domain', 'misc': '', 'molecule': 'endoglucanase c', 'ec_number': '3.2.1.4', 'ec': '3.2.1.4', 'engineered': 'yes'}}
+------
+unprocessed:
+pdb_folder/1ulo.pdb
+93, Endoglucanase C, b-glucan, S, 1ulo, F, None, None, None
+{'1': {'synonym': 'cenc, endo-1,4-beta-glucanase c', 'chain': 'a', 'fragment': 'n-terminal cellulose-binding domain', 'misc': '', 'molecule': 'endoglucanase c', 'ec_number': '3.2.1.4', 'ec': '3.2.1.4', 'engineered': 'yes'}}
+------
+unprocessed:
+pdb_folder/1vde.pdb
+94, PI-SceI, PI-SceI recognition site, D, 1vde, F, None, None, None
+{'1': {'chain': 'a, b', 'misc': '', 'molecule': 'pi-scei', 'ec_number': '3.6.1.34', 'engineered': 'yes', 'ec': '3.6.1.34'}}
+------
+unprocessed:
+pdb_folder/1bdt.pdb
+97, P22 Arc, L1 half site, D, 1bdt, T, None, None, None
+{'1': {'molecule': "dna (5'-d(*tp*ap*tp*ap*gp*tp*ap*gp*ap*gp*tp*gp*cp*tp*tp*cp*tp*ap*tp *cp*ap*t)-3') ", 'misc': '', 'engineered': 'yes', 'chain': 'e'}, '3': {'molecule': 'protein (gene-regulating protein arc)', 'misc': '', 'engineered': 'yes', 'chain': 'a, b, c, d'}, '2': {'molecule': "dna (5'-d(*ap*ap*tp*gp*ap*tp*ap*gp*ap*ap*gp*cp*ap*cp*tp*cp*tp*ap*cp *tp*ap*t)-3') ", 'misc': '', 'engineered': 'yes', 'chain': 'f'}}
+------
+unprocessed:
+pdb_folder/1wap.pdb
+96, TRAP, tryptophan, S, 1wap, T, None, None, None
+{'1': {'molecule': 'trp rna-binding attenuation protein', 'misc': '', 'engineered': 'yes', 'chain': 'a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u,v '}}
+------
+unprocessed:
+pdb_folder/1wap.pdb
+95, TRAP, trp leader RNA, D, 1wap, F, None, None, None
+{'1': {'molecule': 'trp rna-binding attenuation protein', 'misc': '', 'engineered': 'yes', 'chain': 'a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u,v '}}
+------

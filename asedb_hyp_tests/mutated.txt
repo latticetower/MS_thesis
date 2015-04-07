@@ -1,0 +1,2231 @@
+
+{'1': {'molecule': 'human growth hormone', 'misc': '', 'engineered': 'yes', 'chain': 'a'}, '2': {'molecule': 'human growth hormone receptor (hghbp)', 'misc': '', 'engineered': 'yes', 'chain': 'b, c'}}
+pdb = '3hhr', sysId = 1, mutated = 'hGH', 2 = 'hGHbp, site1'
+
+at position 26: 
+5.44752550125 (ddG = -0.2): <Residue ASP het=  resseq=26 icode= >
+at position 65: 
+5.94613695145 (ddG = -0.5): <Residue GLU het=  resseq=65 icode= >
+at position 56: 
+5.46800231934 (ddG = 0.4): <Residue GLU het=  resseq=56 icode= >
+at position 14: 
+6.3261179924 (ddG = 0.1): <Residue MET het=  resseq=14 icode= >
+at position 29: 
+6.08640289307 (ddG = -0.6): <Residue GLN het=  resseq=29 icode= >
+at position 183: 
+5.96133947372 (ddG = 0.5): <Residue ARG het=  resseq=183 icode= >
+at position 51: 
+5.23919677734 (ddG = 0.3): <Residue SER het=  resseq=51 icode= >
+{'1': {'molecule': 'ribonuclease inhibitor', 'misc': '', 'engineered': 'yes', 'chain': 'a, d'}, '2': {'molecule': 'angiogenin', 'engineered': 'yes', 'misc': '', 'ec': '3.1.27.-', 'chain': 'b, e'}}
+pdb = '1a4y', sysId = 2, mutated = 'Angiogenin', 2 = 'RNase inhibitor'
+
+{'1': {'molecule': 'ribonuclease inhibitor', 'misc': '', 'engineered': 'yes', 'chain': 'a, d'}, '2': {'molecule': 'angiogenin', 'engineered': 'yes', 'misc': '', 'ec': '3.1.27.-', 'chain': 'b, e'}}
+pdb = '1a4y', sysId = 3, mutated = 'RNase inhibitor', 2 = 'Angiogenin'
+
+{'1': {'molecule': 'barnase', 'engineered': 'yes', 'misc': '', 'ec': '3.1.27.-', 'chain': 'a, b, c'}, '2': {'molecule': 'barstar', 'misc': '', 'engineered': 'yes', 'chain': 'd, e, f'}}
+pdb = '1brs', sysId = 5, mutated = 'Barnase', 2 = 'Barstar'
+
+{'1': {'molecule': 'barnase', 'engineered': 'yes', 'misc': '', 'ec': '3.1.27.-', 'chain': 'a, b, c'}, '2': {'molecule': 'barstar', 'misc': '', 'engineered': 'yes', 'chain': 'd, e, f'}}
+pdb = '1brs', sysId = 6, mutated = 'Barstar', 2 = 'Barnase'
+
+{'1': {'chain': 'e', 'misc': '', 'molecule': 'beta-trypsin', 'ec_number': '3.4.21.4', 'engineered': 'yes', 'ec': '3.4.21.4'}, '2': {'molecule': 'trypsin inhibitor', 'misc': '', 'engineered': 'yes', 'chain': 'i'}}
+pdb = '2ptc', sysId = 21, mutated = 'BPTI', 2 = 'Trypsin'
+
+{'1': {'molecule': 'protein (colicin e9 immunity protein)', 'misc': '', 'engineered': 'yes', 'chain': 'a'}, '2': {'fragment': 'dnase domain, residues 450-581', 'molecule': 'protein (colicin e9)', 'misc': '', 'engineered': 'yes', 'chain': 'b'}}
+pdb = '1bxi', sysId = 35, mutated = 'Im9', 2 = 'E9 DNase'
+
+at position 26: 
+5.94215250015 (ddG = 0.34): <Residue ASP het=  resseq=26 icode= >
+at position 60: 
+7.93282079697 (ddG = 0.51): <Residue ASP het=  resseq=60 icode= >
+at position 45: 
+8.53949260712 (ddG = 0.21): <Residue GLU het=  resseq=45 icode= >
+at position 32: 
+6.4018945694 (ddG = 0.22): <Residue GLU het=  resseq=32 icode= >
+at position 31: 
+6.07083177567 (ddG = 0.31): <Residue GLU het=  resseq=31 icode= >
+at position 42: 
+7.37724542618 (ddG = 0.66): <Residue GLU het=  resseq=42 icode= >
+at position 35: 
+6.29121494293 (ddG = 0.19): <Residue LYS het=  resseq=35 icode= >
+at position 36: 
+7.04834461212 (ddG = 0.91): <Residue LEU het=  resseq=36 icode= >
+at position 69: 
+12.4663009644 (ddG = 0.28): <Residue ASN het=  resseq=69 icode= >
+at position 44: 
+9.18342590332 (ddG = 0.3): <Residue THR het=  resseq=44 icode= >
+{'1': {'molecule': 'igg1-kappa 4d5 fv (light chain)', 'misc': '', 'engineered': 'yes', 'chain': 'a, c'}, '2': {'molecule': 'igg1-kappa 4d5 fv (heavy chain)', 'misc': '', 'engineered': 'yes', 'chain': 'b, d'}}
+pdb = '1fvc', sysId = 42, mutated = 'Ab hu4D5-5', 2 = 'p185HER2'
+
+{'1': {'molecule': 'human growth hormone', 'misc': '', 'engineered': 'yes', 'chain': 'a'}, '2': {'molecule': 'human growth hormone receptor (hghbp)', 'misc': '', 'engineered': 'yes', 'chain': 'b, c'}}
+pdb = '3hhr', sysId = 45, mutated = 'hGHbp, site 1', 2 = 'hGH'
+
+{'1': {'molecule': 'human growth hormone', 'misc': '', 'engineered': 'yes', 'chain': 'a'}, '2': {'molecule': 'human growth hormone receptor (hghbp)', 'misc': '', 'engineered': 'yes', 'chain': 'b, c'}}
+pdb = '3hhr', sysId = 46, mutated = 'hGHbp', 2 = 'mAb12B8'
+
+{'1': {'molecule': 'human growth hormone', 'misc': '', 'engineered': 'yes', 'chain': 'a'}, '2': {'molecule': 'human growth hormone receptor (hghbp)', 'misc': '', 'engineered': 'yes', 'chain': 'b, c'}}
+pdb = '3hhr', sysId = 47, mutated = 'hGHbp', 2 = 'mAb13E1'
+
+{'1': {'molecule': 'human growth hormone', 'misc': '', 'engineered': 'yes', 'chain': 'a'}, '2': {'molecule': 'human growth hormone receptor (hghbp)', 'misc': '', 'engineered': 'yes', 'chain': 'b, c'}}
+pdb = '3hhr', sysId = 48, mutated = 'hGHbp', 2 = 'mAb263'
+
+{'1': {'molecule': 'human growth hormone', 'misc': '', 'engineered': 'yes', 'chain': 'a'}, '2': {'molecule': 'human growth hormone receptor (hghbp)', 'misc': '', 'engineered': 'yes', 'chain': 'b, c'}}
+pdb = '3hhr', sysId = 49, mutated = 'hGHbp', 2 = 'mAb3B7'
+
+{'1': {'molecule': 'human growth hormone', 'misc': '', 'engineered': 'yes', 'chain': 'a'}, '2': {'molecule': 'human growth hormone receptor (hghbp)', 'misc': '', 'engineered': 'yes', 'chain': 'b, c'}}
+pdb = '3hhr', sysId = 50, mutated = 'hGHbp', 2 = 'mAb3D9'
+
+{'1': {'molecule': 'human growth hormone', 'misc': '', 'engineered': 'yes', 'chain': 'a'}, '2': {'molecule': 'human growth hormone receptor (hghbp)', 'misc': '', 'engineered': 'yes', 'chain': 'b, c'}}
+pdb = '3hhr', sysId = 51, mutated = 'hGHbp', 2 = 'mAb5'
+
+{'1': {'molecule': 'human growth hormone', 'misc': '', 'engineered': 'yes', 'chain': 'a'}, '2': {'molecule': 'human growth hormone receptor (hghbp)', 'misc': '', 'engineered': 'yes', 'chain': 'b, c'}}
+pdb = '3hhr', sysId = 52, mutated = 'hGH', 2 = 'hPRLbp +Zn'
+
+at position 26: 
+5.44752550125 (ddG = 0.38): <Residue ASP het=  resseq=26 icode= >
+at position 56: 
+5.46800231934 (ddG = -0.12): <Residue GLU het=  resseq=56 icode= >
+at position 66: 
+5.57506322861 (ddG = 0.07): <Residue GLU het=  resseq=66 icode= >
+at position 65: 
+5.94613695145 (ddG = 0.54): <Residue GLU het=  resseq=65 icode= >
+at position 10: 
+6.09443283081 (ddG = 0.0): <Residue PHE het=  resseq=10 icode= >
+at position 10: 
+6.09443283081 (ddG = 0.0): <Residue PHE het=  resseq=10 icode= >
+at position 54: 
+11.0967626572 (ddG = 0.21): <Residue PHE het=  resseq=54 icode= >
+at position 58: 
+9.72555541992 (ddG = 1.71): <Residue ILE het=  resseq=58 icode= >
+at position 70: 
+9.54010009766 (ddG = 0.24): <Residue LYS het=  resseq=70 icode= >
+at position 73: 
+13.8179712296 (ddG = 0.35): <Residue LEU het=  resseq=73 icode= >
+at position 59: 
+9.23703575134 (ddG = 0.16): <Residue PRO het=  resseq=59 icode= >
+at position 69: 
+8.98706817627 (ddG = -0.21): <Residue GLN het=  resseq=69 icode= >
+at position 181: 
+7.31920146942 (ddG = 0.0): <Residue GLN het=  resseq=181 icode= >
+at position 183: 
+5.96133947372 (ddG = 0.56): <Residue ARG het=  resseq=183 icode= >
+at position 184: 
+9.08034038544 (ddG = -0.12): <Residue SER het=  resseq=184 icode= >
+at position 57: 
+11.2678089142 (ddG = 0.03): <Residue SER het=  resseq=57 icode= >
+at position 55: 
+9.96909141541 (ddG = 0.24): <Residue SER het=  resseq=55 icode= >
+at position 71: 
+11.2111654282 (ddG = 0.61): <Residue SER het=  resseq=71 icode= >
+at position 180: 
+6.43714666367 (ddG = -0.29): <Residue VAL het=  resseq=180 icode= >
+at position 185: 
+7.80759382248 (ddG = 0.28): <Residue VAL het=  resseq=185 icode= >
+at position 160: 
+6.15717887878 (ddG = 0.21): <Residue TYR het=  resseq=160 icode= >
+{'1': {'molecule': 'human growth hormone', 'misc': '', 'engineered': 'yes', 'chain': 'a'}, '2': {'molecule': 'human growth hormone receptor (hghbp)', 'misc': '', 'engineered': 'yes', 'chain': 'b, c'}}
+pdb = '3hhr', sysId = 53, mutated = 'hGH', 2 = 'hPRLbp -Zn'
+
+at position 58: 
+9.72555541992 (ddG = 1.77): <Residue ILE het=  resseq=58 icode= >
+{'1': {'molecule': 'human growth hormone', 'misc': '', 'engineered': 'yes', 'chain': 'a'}, '2': {'molecule': 'human growth hormone receptor (hghbp)', 'misc': '', 'engineered': 'yes', 'chain': 'b, c'}}
+pdb = '3hhr', sysId = 54, mutated = 'hGH', 2 = 'hGHbp, site?'
+
+at position 66: 
+5.57506322861 (ddG = 0.43): <Residue GLU het=  resseq=66 icode= >
+at position 54: 
+11.0967626572 (ddG = 0.87): <Residue PHE het=  resseq=54 icode= >
+at position 10: 
+6.09443283081 (ddG = 1.04): <Residue PHE het=  resseq=10 icode= >
+at position 58: 
+9.72555541992 (ddG = 1.64): <Residue ILE het=  resseq=58 icode= >
+at position 70: 
+9.54010009766 (ddG = 0.52): <Residue LYS het=  resseq=70 icode= >
+at position 73: 
+13.8179712296 (ddG = -0.2): <Residue LEU het=  resseq=73 icode= >
+at position 6: 
+8.34678649902 (ddG = 0.6): <Residue LEU het=  resseq=6 icode= >
+at position 59: 
+9.23703575134 (ddG = 0.38): <Residue PRO het=  resseq=59 icode= >
+at position 5: 
+6.1304473877 (ddG = 0.43): <Residue PRO het=  resseq=5 icode= >
+at position 69: 
+8.98706817627 (ddG = -0.05): <Residue GLN het=  resseq=69 icode= >
+at position 181: 
+7.31920146942 (ddG = 0.27): <Residue GLN het=  resseq=181 icode= >
+at position 184: 
+9.08034038544 (ddG = -0.05): <Residue SER het=  resseq=184 icode= >
+at position 55: 
+9.96909141541 (ddG = 0.11): <Residue SER het=  resseq=55 icode= >
+at position 57: 
+11.2678089142 (ddG = 0.2): <Residue SER het=  resseq=57 icode= >
+at position 7: 
+7.85964393616 (ddG = 0.34): <Residue SER het=  resseq=7 icode= >
+at position 71: 
+11.2111654282 (ddG = 0.41): <Residue SER het=  resseq=71 icode= >
+at position 180: 
+6.43714666367 (ddG = 0.0): <Residue VAL het=  resseq=180 icode= >
+at position 185: 
+7.80759382248 (ddG = 0.87): <Residue VAL het=  resseq=185 icode= >
+{'1': {'molecule': 'human growth hormone', 'misc': '', 'engineered': 'yes', 'chain': 'a'}, '2': {'molecule': 'human growth hormone receptor (hghbp)', 'misc': '', 'engineered': 'yes', 'chain': 'b, c'}}
+pdb = '3hhr', sysId = 58, mutated = 'hGH', 2 = 'Mab 1'
+
+at position 26: 
+5.44752550125 (ddG = 0.0): <Residue ASP het=  resseq=26 icode= >
+at position 107: 
+13.1270713806 (ddG = 0.0): <Residue ASP het=  resseq=107 icode= >
+at position 112: 
+6.82008886337 (ddG = 0.0): <Residue ASP het=  resseq=112 icode= >
+at position 130: 
+13.6661653519 (ddG = 0.0): <Residue ASP het=  resseq=130 icode= >
+at position 30: 
+10.9448013306 (ddG = 0.0): <Residue GLU het=  resseq=30 icode= >
+at position 32: 
+5.58416891098 (ddG = 0.0): <Residue GLU het=  resseq=32 icode= >
+at position 118: 
+6.04233074188 (ddG = 0.0): <Residue GLU het=  resseq=118 icode= >
+at position 129: 
+14.4220466614 (ddG = 0.0): <Residue GLU het=  resseq=129 icode= >
+at position 10: 
+6.09443283081 (ddG = 0.0): <Residue PHE het=  resseq=10 icode= >
+at position 31: 
+12.0208969116 (ddG = 0.0): <Residue PHE het=  resseq=31 icode= >
+at position 126: 
+9.83057117462 (ddG = 0.0): <Residue GLY het=  resseq=126 icode= >
+at position 121: 
+5.62726688385 (ddG = 0.0): <Residue ILE het=  resseq=121 icode= >
+at position 115: 
+5.86499929428 (ddG = 0.0): <Residue LYS het=  resseq=115 icode= >
+at position 20: 
+6.53833246231 (ddG = 0.0): <Residue LEU het=  resseq=20 icode= >
+at position 23: 
+5.88571119308 (ddG = 0.0): <Residue LEU het=  resseq=23 icode= >
+at position 113: 
+6.18010377884 (ddG = 0.0): <Residue LEU het=  resseq=113 icode= >
+at position 124: 
+5.94157314301 (ddG = 0.0): <Residue LEU het=  resseq=124 icode= >
+at position 128: 
+11.2195224762 (ddG = 0.0): <Residue LEU het=  resseq=128 icode= >
+at position 6: 
+8.34678649902 (ddG = 1.99): <Residue LEU het=  resseq=6 icode= >
+at position 14: 
+6.3261179924 (ddG = 0.0): <Residue MET het=  resseq=14 icode= >
+at position 14: 
+6.3261179924 (ddG = 0.0): <Residue MET het=  resseq=14 icode= >
+at position 125: 
+8.86822509766 (ddG = 0.0): <Residue MET het=  resseq=125 icode= >
+at position 109: 
+6.98991632462 (ddG = 0.0): <Residue ASN het=  resseq=109 icode= >
+at position 133: 
+20.2001037598 (ddG = 0.0): <Residue PRO het=  resseq=133 icode= >
+at position 5: 
+6.1304473877 (ddG = 3.11): <Residue PRO het=  resseq=5 icode= >
+at position 29: 
+6.08640289307 (ddG = 0.0): <Residue GLN het=  resseq=29 icode= >
+at position 122: 
+7.27553462982 (ddG = 0.0): <Residue GLN het=  resseq=122 icode= >
+at position 137: 
+15.7606039047 (ddG = 0.0): <Residue GLN het=  resseq=137 icode= >
+at position 181: 
+7.31920146942 (ddG = 0.0): <Residue GLN het=  resseq=181 icode= >
+at position 134: 
+16.4364967346 (ddG = 0.0): <Residue ARG het=  resseq=134 icode= >
+at position 183: 
+5.96133947372 (ddG = 0.0): <Residue ARG het=  resseq=183 icode= >
+at position 127: 
+5.34436273575 (ddG = 3.11): <Residue ARG het=  resseq=127 icode= >
+at position 7: 
+7.85964393616 (ddG = 0.0): <Residue SER het=  resseq=7 icode= >
+at position 106: 
+10.0189085007 (ddG = 0.0): <Residue SER het=  resseq=106 icode= >
+at position 108: 
+10.05356884 (ddG = 0.0): <Residue SER het=  resseq=108 icode= >
+at position 132: 
+16.0927810669 (ddG = 0.0): <Residue SER het=  resseq=132 icode= >
+at position 184: 
+9.08034038544 (ddG = 0.0): <Residue SER het=  resseq=184 icode= >
+at position 27: 
+9.27767562866 (ddG = 0.0): <Residue THR het=  resseq=27 icode= >
+at position 135: 
+19.6195487976 (ddG = 0.0): <Residue THR het=  resseq=135 icode= >
+at position 110: 
+10.6539754868 (ddG = 0.0): <Residue VAL het=  resseq=110 icode= >
+at position 180: 
+6.43714666367 (ddG = 0.0): <Residue VAL het=  resseq=180 icode= >
+at position 185: 
+7.80759382248 (ddG = 0.0): <Residue VAL het=  resseq=185 icode= >
+at position 111: 
+10.1774988174 (ddG = 0.0): <Residue TYR het=  resseq=111 icode= >
+{'1': {'molecule': 'human growth hormone', 'misc': '', 'engineered': 'yes', 'chain': 'a'}, '2': {'molecule': 'human growth hormone receptor (hghbp)', 'misc': '', 'engineered': 'yes', 'chain': 'b, c'}}
+pdb = '3hhr', sysId = 59, mutated = 'hGH', 2 = 'Mab10'
+
+at position 107: 
+13.1270713806 (ddG = 0.0): <Residue ASP het=  resseq=107 icode= >
+at position 112: 
+6.82008886337 (ddG = 0.0): <Residue ASP het=  resseq=112 icode= >
+at position 130: 
+13.6661653519 (ddG = 3.64): <Residue ASP het=  resseq=130 icode= >
+at position 56: 
+5.46800231934 (ddG = 0.0): <Residue GLU het=  resseq=56 icode= >
+at position 66: 
+5.57506322861 (ddG = 0.0): <Residue GLU het=  resseq=66 icode= >
+at position 74: 
+12.2467737198 (ddG = 0.0): <Residue GLU het=  resseq=74 icode= >
+at position 118: 
+6.04233074188 (ddG = 0.0): <Residue GLU het=  resseq=118 icode= >
+at position 65: 
+5.94613695145 (ddG = 0.81): <Residue GLU het=  resseq=65 icode= >
+at position 129: 
+14.4220466614 (ddG = 0.81): <Residue GLU het=  resseq=129 icode= >
+at position 10: 
+6.09443283081 (ddG = -0.71): <Residue PHE het=  resseq=10 icode= >
+at position 54: 
+11.0967626572 (ddG = 0.0): <Residue PHE het=  resseq=54 icode= >
+at position 126: 
+9.83057117462 (ddG = 1.29): <Residue GLY het=  resseq=126 icode= >
+at position 58: 
+9.72555541992 (ddG = 0.0): <Residue ILE het=  resseq=58 icode= >
+at position 121: 
+5.62726688385 (ddG = 0.0): <Residue ILE het=  resseq=121 icode= >
+at position 70: 
+9.54010009766 (ddG = 0.0): <Residue LYS het=  resseq=70 icode= >
+at position 115: 
+5.86499929428 (ddG = 0.0): <Residue LYS het=  resseq=115 icode= >
+at position 6: 
+8.34678649902 (ddG = 0.0): <Residue LEU het=  resseq=6 icode= >
+at position 52: 
+6.60687828064 (ddG = 0.0): <Residue LEU het=  resseq=52 icode= >
+at position 73: 
+13.8179712296 (ddG = 0.0): <Residue LEU het=  resseq=73 icode= >
+at position 113: 
+6.18010377884 (ddG = 0.0): <Residue LEU het=  resseq=113 icode= >
+at position 124: 
+5.94157314301 (ddG = 0.0): <Residue LEU het=  resseq=124 icode= >
+at position 128: 
+11.2195224762 (ddG = 0.0): <Residue LEU het=  resseq=128 icode= >
+at position 177: 
+7.00778055191 (ddG = 0.0): <Residue LEU het=  resseq=177 icode= >
+at position 14: 
+6.3261179924 (ddG = 0.0): <Residue MET het=  resseq=14 icode= >
+at position 14: 
+6.3261179924 (ddG = 0.0): <Residue MET het=  resseq=14 icode= >
+at position 125: 
+8.86822509766 (ddG = 0.0): <Residue MET het=  resseq=125 icode= >
+at position 109: 
+6.98991632462 (ddG = 0.0): <Residue ASN het=  resseq=109 icode= >
+at position 5: 
+6.1304473877 (ddG = 0.0): <Residue PRO het=  resseq=5 icode= >
+at position 59: 
+9.23703575134 (ddG = 0.0): <Residue PRO het=  resseq=59 icode= >
+at position 133: 
+20.2001037598 (ddG = 3.64): <Residue PRO het=  resseq=133 icode= >
+at position 122: 
+7.27553462982 (ddG = 0.0): <Residue GLN het=  resseq=122 icode= >
+at position 137: 
+15.7606039047 (ddG = 0.0): <Residue GLN het=  resseq=137 icode= >
+at position 181: 
+7.31920146942 (ddG = 0.0): <Residue GLN het=  resseq=181 icode= >
+at position 69: 
+8.98706817627 (ddG = 0.41): <Residue GLN het=  resseq=69 icode= >
+at position 134: 
+16.4364967346 (ddG = 0.0): <Residue ARG het=  resseq=134 icode= >
+at position 183: 
+5.96133947372 (ddG = 0.0): <Residue ARG het=  resseq=183 icode= >
+at position 127: 
+5.34436273575 (ddG = 3.64): <Residue ARG het=  resseq=127 icode= >
+at position 7: 
+7.85964393616 (ddG = 0.0): <Residue SER het=  resseq=7 icode= >
+at position 51: 
+5.23919677734 (ddG = 0.0): <Residue SER het=  resseq=51 icode= >
+at position 55: 
+9.96909141541 (ddG = 0.0): <Residue SER het=  resseq=55 icode= >
+at position 57: 
+11.2678089142 (ddG = 0.0): <Residue SER het=  resseq=57 icode= >
+at position 71: 
+11.2111654282 (ddG = 0.0): <Residue SER het=  resseq=71 icode= >
+at position 106: 
+10.0189085007 (ddG = 0.0): <Residue SER het=  resseq=106 icode= >
+at position 108: 
+10.05356884 (ddG = 0.0): <Residue SER het=  resseq=108 icode= >
+at position 184: 
+9.08034038544 (ddG = 0.0): <Residue SER het=  resseq=184 icode= >
+at position 132: 
+16.0927810669 (ddG = 3.64): <Residue SER het=  resseq=132 icode= >
+at position 50: 
+7.66657304764 (ddG = 0.0): <Residue THR het=  resseq=50 icode= >
+at position 60: 
+5.09510326385 (ddG = 0.0): <Residue THR het=  resseq=60 icode= >
+at position 135: 
+19.6195487976 (ddG = 0.0): <Residue THR het=  resseq=135 icode= >
+at position 110: 
+10.6539754868 (ddG = 0.0): <Residue VAL het=  resseq=110 icode= >
+at position 180: 
+6.43714666367 (ddG = 0.0): <Residue VAL het=  resseq=180 icode= >
+at position 185: 
+7.80759382248 (ddG = 0.0): <Residue VAL het=  resseq=185 icode= >
+at position 111: 
+10.1774988174 (ddG = 0.0): <Residue TYR het=  resseq=111 icode= >
+{'1': {'molecule': 'human growth hormone', 'misc': '', 'engineered': 'yes', 'chain': 'a'}, '2': {'molecule': 'human growth hormone receptor (hghbp)', 'misc': '', 'engineered': 'yes', 'chain': 'b, c'}}
+pdb = '3hhr', sysId = 60, mutated = 'hGH', 2 = 'Mab 11'
+
+at position 130: 
+13.6661653519 (ddG = 0.0): <Residue ASP het=  resseq=130 icode= >
+at position 154: 
+17.2448711395 (ddG = 0.0): <Residue ASP het=  resseq=154 icode= >
+at position 147: 
+18.2177791595 (ddG = 0.41): <Residue ASP het=  resseq=147 icode= >
+at position 32: 
+5.58416891098 (ddG = 0.0): <Residue GLU het=  resseq=32 icode= >
+at position 33: 
+9.07580184937 (ddG = 0.0): <Residue GLU het=  resseq=33 icode= >
+at position 39: 
+7.56096792221 (ddG = 0.0): <Residue GLU het=  resseq=39 icode= >
+at position 56: 
+5.46800231934 (ddG = 0.0): <Residue GLU het=  resseq=56 icode= >
+at position 65: 
+5.94613695145 (ddG = 0.0): <Residue GLU het=  resseq=65 icode= >
+at position 66: 
+5.57506322861 (ddG = 0.0): <Residue GLU het=  resseq=66 icode= >
+at position 74: 
+12.2467737198 (ddG = 0.0): <Residue GLU het=  resseq=74 icode= >
+at position 44: 
+6.65271759033 (ddG = 0.0): <Residue PHE het=  resseq=44 icode= >
+at position 54: 
+11.0967626572 (ddG = 0.0): <Residue PHE het=  resseq=54 icode= >
+at position 146: 
+16.2177753448 (ddG = 0.0): <Residue PHE het=  resseq=146 icode= >
+at position 139: 
+17.3670425415 (ddG = 3.64): <Residue PHE het=  resseq=139 icode= >
+at position 36: 
+9.52777099609 (ddG = 0.0): <Residue ILE het=  resseq=36 icode= >
+at position 58: 
+9.72555541992 (ddG = 0.0): <Residue ILE het=  resseq=58 icode= >
+at position 138: 
+14.6554365158 (ddG = 0.0): <Residue ILE het=  resseq=138 icode= >
+at position 38: 
+6.37299108505 (ddG = 0.0): <Residue LYS het=  resseq=38 icode= >
+at position 70: 
+9.54010009766 (ddG = 0.0): <Residue LYS het=  resseq=70 icode= >
+at position 145: 
+17.0945167542 (ddG = 0.41): <Residue LYS het=  resseq=145 icode= >
+at position 52: 
+6.60687828064 (ddG = 0.0): <Residue LEU het=  resseq=52 icode= >
+at position 73: 
+13.8179712296 (ddG = 0.0): <Residue LEU het=  resseq=73 icode= >
+at position 47: 
+5.22500610352 (ddG = 0.0): <Residue ASN het=  resseq=47 icode= >
+at position 59: 
+9.23703575134 (ddG = 0.0): <Residue PRO het=  resseq=59 icode= >
+at position 133: 
+20.2001037598 (ddG = 0.0): <Residue PRO het=  resseq=133 icode= >
+at position 40: 
+8.67508602142 (ddG = 0.0): <Residue GLN het=  resseq=40 icode= >
+at position 69: 
+8.98706817627 (ddG = 0.0): <Residue GLN het=  resseq=69 icode= >
+at position 137: 
+15.7606039047 (ddG = 0.41): <Residue GLN het=  resseq=137 icode= >
+at position 49: 
+7.8213801384 (ddG = 0.64): <Residue GLN het=  resseq=49 icode= >
+at position 141: 
+19.2688369751 (ddG = 3.64): <Residue GLN het=  resseq=141 icode= >
+at position 134: 
+16.4364967346 (ddG = 0.0): <Residue ARG het=  resseq=134 icode= >
+at position 43: 
+6.58551645279 (ddG = 0.0): <Residue SER het=  resseq=43 icode= >
+at position 51: 
+5.23919677734 (ddG = 0.0): <Residue SER het=  resseq=51 icode= >
+at position 55: 
+9.96909141541 (ddG = 0.0): <Residue SER het=  resseq=55 icode= >
+at position 57: 
+11.2678089142 (ddG = 0.0): <Residue SER het=  resseq=57 icode= >
+at position 71: 
+11.2111654282 (ddG = 0.0): <Residue SER het=  resseq=71 icode= >
+at position 132: 
+16.0927810669 (ddG = 0.0): <Residue SER het=  resseq=132 icode= >
+at position 144: 
+13.9512500763 (ddG = 0.0): <Residue SER het=  resseq=144 icode= >
+at position 50: 
+7.66657304764 (ddG = 0.0): <Residue THR het=  resseq=50 icode= >
+at position 60: 
+5.09510326385 (ddG = 0.0): <Residue THR het=  resseq=60 icode= >
+at position 135: 
+19.6195487976 (ddG = 0.0): <Residue THR het=  resseq=135 icode= >
+at position 142: 
+15.9945039749 (ddG = 0.0): <Residue THR het=  resseq=142 icode= >
+at position 35: 
+14.0388708115 (ddG = 0.0): <Residue TYR het=  resseq=35 icode= >
+at position 143: 
+17.0662536621 (ddG = 3.64): <Residue TYR het=  resseq=143 icode= >
+{'1': {'molecule': 'human growth hormone', 'misc': '', 'engineered': 'yes', 'chain': 'a'}, '2': {'molecule': 'human growth hormone receptor (hghbp)', 'misc': '', 'engineered': 'yes', 'chain': 'b, c'}}
+pdb = '3hhr', sysId = 61, mutated = 'hGH', 2 = 'Mab 12'
+
+at position 154: 
+17.2448711395 (ddG = 0.0): <Residue ASP het=  resseq=154 icode= >
+at position 169: 
+6.02687311172 (ddG = 0.0): <Residue ASP het=  resseq=169 icode= >
+at position 56: 
+5.46800231934 (ddG = 0.0): <Residue GLU het=  resseq=56 icode= >
+at position 66: 
+5.57506322861 (ddG = 0.0): <Residue GLU het=  resseq=66 icode= >
+at position 74: 
+12.2467737198 (ddG = 0.0): <Residue GLU het=  resseq=74 icode= >
+at position 65: 
+5.94613695145 (ddG = 0.64): <Residue GLU het=  resseq=65 icode= >
+at position 10: 
+6.09443283081 (ddG = 0.0): <Residue PHE het=  resseq=10 icode= >
+at position 54: 
+11.0967626572 (ddG = 0.0): <Residue PHE het=  resseq=54 icode= >
+at position 166: 
+8.51856231689 (ddG = 0.0): <Residue PHE het=  resseq=166 icode= >
+at position 58: 
+9.72555541992 (ddG = 0.0): <Residue ILE het=  resseq=58 icode= >
+at position 70: 
+9.54010009766 (ddG = 0.0): <Residue LYS het=  resseq=70 icode= >
+at position 158: 
+14.3092088699 (ddG = 0.0): <Residue LYS het=  resseq=158 icode= >
+at position 6: 
+8.34678649902 (ddG = 0.0): <Residue LEU het=  resseq=6 icode= >
+at position 52: 
+6.60687828064 (ddG = 0.0): <Residue LEU het=  resseq=52 icode= >
+at position 73: 
+13.8179712296 (ddG = 0.0): <Residue LEU het=  resseq=73 icode= >
+at position 156: 
+14.226272583 (ddG = 0.0): <Residue LEU het=  resseq=156 icode= >
+at position 157: 
+12.7109012604 (ddG = 0.0): <Residue LEU het=  resseq=157 icode= >
+at position 162: 
+11.5790147781 (ddG = 0.0): <Residue LEU het=  resseq=162 icode= >
+at position 163: 
+8.69772720337 (ddG = 0.0): <Residue LEU het=  resseq=163 icode= >
+at position 177: 
+7.00778055191 (ddG = 0.0): <Residue LEU het=  resseq=177 icode= >
+at position 14: 
+6.3261179924 (ddG = 0.0): <Residue MET het=  resseq=14 icode= >
+at position 14: 
+6.3261179924 (ddG = 0.0): <Residue MET het=  resseq=14 icode= >
+at position 170: 
+6.89661693573 (ddG = 0.0): <Residue MET het=  resseq=170 icode= >
+at position 159: 
+12.676905632 (ddG = 0.0): <Residue ASN het=  resseq=159 icode= >
+at position 5: 
+6.1304473877 (ddG = 0.0): <Residue PRO het=  resseq=5 icode= >
+at position 59: 
+9.23703575134 (ddG = 0.0): <Residue PRO het=  resseq=59 icode= >
+at position 69: 
+8.98706817627 (ddG = 0.0): <Residue GLN het=  resseq=69 icode= >
+at position 181: 
+7.31920146942 (ddG = 0.0): <Residue GLN het=  resseq=181 icode= >
+at position 183: 
+5.96133947372 (ddG = 3.64): <Residue ARG het=  resseq=183 icode= >
+at position 7: 
+7.85964393616 (ddG = 0.0): <Residue SER het=  resseq=7 icode= >
+at position 51: 
+5.23919677734 (ddG = 0.0): <Residue SER het=  resseq=51 icode= >
+at position 55: 
+9.96909141541 (ddG = 0.0): <Residue SER het=  resseq=55 icode= >
+at position 57: 
+11.2678089142 (ddG = 0.0): <Residue SER het=  resseq=57 icode= >
+at position 71: 
+11.2111654282 (ddG = 0.0): <Residue SER het=  resseq=71 icode= >
+at position 184: 
+9.08034038544 (ddG = 0.0): <Residue SER het=  resseq=184 icode= >
+at position 50: 
+7.66657304764 (ddG = 0.0): <Residue THR het=  resseq=50 icode= >
+at position 60: 
+5.09510326385 (ddG = 0.0): <Residue THR het=  resseq=60 icode= >
+at position 173: 
+6.33326148987 (ddG = 0.0): <Residue VAL het=  resseq=173 icode= >
+at position 180: 
+6.43714666367 (ddG = 0.0): <Residue VAL het=  resseq=180 icode= >
+at position 185: 
+7.80759382248 (ddG = 0.94): <Residue VAL het=  resseq=185 icode= >
+at position 160: 
+6.15717887878 (ddG = 0.0): <Residue TYR het=  resseq=160 icode= >
+{'1': {'molecule': 'human growth hormone', 'misc': '', 'engineered': 'yes', 'chain': 'a'}, '2': {'molecule': 'human growth hormone receptor (hghbp)', 'misc': '', 'engineered': 'yes', 'chain': 'b, c'}}
+pdb = '3hhr', sysId = 62, mutated = 'hGH', 2 = 'Mab 13'
+
+at position 154: 
+17.2448711395 (ddG = 0.0): <Residue ASP het=  resseq=154 icode= >
+at position 169: 
+6.02687311172 (ddG = 0.0): <Residue ASP het=  resseq=169 icode= >
+at position 56: 
+5.46800231934 (ddG = 0.0): <Residue GLU het=  resseq=56 icode= >
+at position 65: 
+5.94613695145 (ddG = 0.0): <Residue GLU het=  resseq=65 icode= >
+at position 74: 
+12.2467737198 (ddG = 0.0): <Residue GLU het=  resseq=74 icode= >
+at position 66: 
+5.57506322861 (ddG = 0.41): <Residue GLU het=  resseq=66 icode= >
+at position 10: 
+6.09443283081 (ddG = 0.0): <Residue PHE het=  resseq=10 icode= >
+at position 54: 
+11.0967626572 (ddG = 0.0): <Residue PHE het=  resseq=54 icode= >
+at position 166: 
+8.51856231689 (ddG = 0.0): <Residue PHE het=  resseq=166 icode= >
+at position 58: 
+9.72555541992 (ddG = 0.0): <Residue ILE het=  resseq=58 icode= >
+at position 70: 
+9.54010009766 (ddG = 0.0): <Residue LYS het=  resseq=70 icode= >
+at position 158: 
+14.3092088699 (ddG = 0.0): <Residue LYS het=  resseq=158 icode= >
+at position 6: 
+8.34678649902 (ddG = 0.0): <Residue LEU het=  resseq=6 icode= >
+at position 52: 
+6.60687828064 (ddG = 0.0): <Residue LEU het=  resseq=52 icode= >
+at position 73: 
+13.8179712296 (ddG = 0.0): <Residue LEU het=  resseq=73 icode= >
+at position 156: 
+14.226272583 (ddG = 0.0): <Residue LEU het=  resseq=156 icode= >
+at position 157: 
+12.7109012604 (ddG = 0.0): <Residue LEU het=  resseq=157 icode= >
+at position 162: 
+11.5790147781 (ddG = 0.0): <Residue LEU het=  resseq=162 icode= >
+at position 163: 
+8.69772720337 (ddG = 0.0): <Residue LEU het=  resseq=163 icode= >
+at position 177: 
+7.00778055191 (ddG = 0.0): <Residue LEU het=  resseq=177 icode= >
+at position 14: 
+6.3261179924 (ddG = 0.0): <Residue MET het=  resseq=14 icode= >
+at position 14: 
+6.3261179924 (ddG = 0.0): <Residue MET het=  resseq=14 icode= >
+at position 170: 
+6.89661693573 (ddG = 0.0): <Residue MET het=  resseq=170 icode= >
+at position 159: 
+12.676905632 (ddG = 0.0): <Residue ASN het=  resseq=159 icode= >
+at position 5: 
+6.1304473877 (ddG = 0.0): <Residue PRO het=  resseq=5 icode= >
+at position 59: 
+9.23703575134 (ddG = 0.0): <Residue PRO het=  resseq=59 icode= >
+at position 69: 
+8.98706817627 (ddG = 0.0): <Residue GLN het=  resseq=69 icode= >
+at position 181: 
+7.31920146942 (ddG = 0.0): <Residue GLN het=  resseq=181 icode= >
+at position 183: 
+5.96133947372 (ddG = 3.64): <Residue ARG het=  resseq=183 icode= >
+at position 7: 
+7.85964393616 (ddG = 0.0): <Residue SER het=  resseq=7 icode= >
+at position 51: 
+5.23919677734 (ddG = 0.0): <Residue SER het=  resseq=51 icode= >
+at position 55: 
+9.96909141541 (ddG = 0.0): <Residue SER het=  resseq=55 icode= >
+at position 57: 
+11.2678089142 (ddG = 0.0): <Residue SER het=  resseq=57 icode= >
+at position 71: 
+11.2111654282 (ddG = 0.0): <Residue SER het=  resseq=71 icode= >
+at position 184: 
+9.08034038544 (ddG = 0.0): <Residue SER het=  resseq=184 icode= >
+at position 50: 
+7.66657304764 (ddG = 0.0): <Residue THR het=  resseq=50 icode= >
+at position 60: 
+5.09510326385 (ddG = 0.0): <Residue THR het=  resseq=60 icode= >
+at position 173: 
+6.33326148987 (ddG = 0.0): <Residue VAL het=  resseq=173 icode= >
+at position 185: 
+7.80759382248 (ddG = 0.0): <Residue VAL het=  resseq=185 icode= >
+at position 180: 
+6.43714666367 (ddG = 0.64): <Residue VAL het=  resseq=180 icode= >
+at position 160: 
+6.15717887878 (ddG = 0.0): <Residue TYR het=  resseq=160 icode= >
+{'1': {'molecule': 'human growth hormone', 'misc': '', 'engineered': 'yes', 'chain': 'a'}, '2': {'molecule': 'human growth hormone receptor (hghbp)', 'misc': '', 'engineered': 'yes', 'chain': 'b, c'}}
+pdb = '3hhr', sysId = 63, mutated = 'hGH', 2 = 'Mab 14'
+
+at position 154: 
+17.2448711395 (ddG = 0.0): <Residue ASP het=  resseq=154 icode= >
+at position 169: 
+6.02687311172 (ddG = 0.0): <Residue ASP het=  resseq=169 icode= >
+at position 56: 
+5.46800231934 (ddG = 0.0): <Residue GLU het=  resseq=56 icode= >
+at position 65: 
+5.94613695145 (ddG = 0.0): <Residue GLU het=  resseq=65 icode= >
+at position 74: 
+12.2467737198 (ddG = 0.0): <Residue GLU het=  resseq=74 icode= >
+at position 66: 
+5.57506322861 (ddG = 0.41): <Residue GLU het=  resseq=66 icode= >
+at position 10: 
+6.09443283081 (ddG = 0.0): <Residue PHE het=  resseq=10 icode= >
+at position 54: 
+11.0967626572 (ddG = 0.0): <Residue PHE het=  resseq=54 icode= >
+at position 166: 
+8.51856231689 (ddG = 0.0): <Residue PHE het=  resseq=166 icode= >
+at position 58: 
+9.72555541992 (ddG = 0.0): <Residue ILE het=  resseq=58 icode= >
+at position 70: 
+9.54010009766 (ddG = 0.0): <Residue LYS het=  resseq=70 icode= >
+at position 158: 
+14.3092088699 (ddG = 0.0): <Residue LYS het=  resseq=158 icode= >
+at position 6: 
+8.34678649902 (ddG = 0.0): <Residue LEU het=  resseq=6 icode= >
+at position 52: 
+6.60687828064 (ddG = 0.0): <Residue LEU het=  resseq=52 icode= >
+at position 156: 
+14.226272583 (ddG = 0.0): <Residue LEU het=  resseq=156 icode= >
+at position 157: 
+12.7109012604 (ddG = 0.0): <Residue LEU het=  resseq=157 icode= >
+at position 162: 
+11.5790147781 (ddG = 0.0): <Residue LEU het=  resseq=162 icode= >
+at position 163: 
+8.69772720337 (ddG = 0.0): <Residue LEU het=  resseq=163 icode= >
+at position 177: 
+7.00778055191 (ddG = 0.0): <Residue LEU het=  resseq=177 icode= >
+at position 73: 
+13.8179712296 (ddG = 0.41): <Residue LEU het=  resseq=73 icode= >
+at position 14: 
+6.3261179924 (ddG = 0.0): <Residue MET het=  resseq=14 icode= >
+at position 170: 
+6.89661693573 (ddG = 0.0): <Residue MET het=  resseq=170 icode= >
+at position 14: 
+6.3261179924 (ddG = 1.29): <Residue MET het=  resseq=14 icode= >
+at position 159: 
+12.676905632 (ddG = 0.0): <Residue ASN het=  resseq=159 icode= >
+at position 5: 
+6.1304473877 (ddG = 0.0): <Residue PRO het=  resseq=5 icode= >
+at position 59: 
+9.23703575134 (ddG = 0.0): <Residue PRO het=  resseq=59 icode= >
+at position 69: 
+8.98706817627 (ddG = 0.0): <Residue GLN het=  resseq=69 icode= >
+at position 181: 
+7.31920146942 (ddG = 0.0): <Residue GLN het=  resseq=181 icode= >
+at position 183: 
+5.96133947372 (ddG = 3.64): <Residue ARG het=  resseq=183 icode= >
+at position 7: 
+7.85964393616 (ddG = 0.0): <Residue SER het=  resseq=7 icode= >
+at position 51: 
+5.23919677734 (ddG = 0.0): <Residue SER het=  resseq=51 icode= >
+at position 55: 
+9.96909141541 (ddG = 0.0): <Residue SER het=  resseq=55 icode= >
+at position 57: 
+11.2678089142 (ddG = 0.0): <Residue SER het=  resseq=57 icode= >
+at position 71: 
+11.2111654282 (ddG = 0.0): <Residue SER het=  resseq=71 icode= >
+at position 184: 
+9.08034038544 (ddG = 0.0): <Residue SER het=  resseq=184 icode= >
+at position 50: 
+7.66657304764 (ddG = 0.0): <Residue THR het=  resseq=50 icode= >
+at position 60: 
+5.09510326385 (ddG = 0.0): <Residue THR het=  resseq=60 icode= >
+at position 173: 
+6.33326148987 (ddG = 0.0): <Residue VAL het=  resseq=173 icode= >
+at position 180: 
+6.43714666367 (ddG = 0.0): <Residue VAL het=  resseq=180 icode= >
+at position 185: 
+7.80759382248 (ddG = 0.64): <Residue VAL het=  resseq=185 icode= >
+at position 160: 
+6.15717887878 (ddG = 0.0): <Residue TYR het=  resseq=160 icode= >
+{'1': {'molecule': 'human growth hormone', 'misc': '', 'engineered': 'yes', 'chain': 'a'}, '2': {'molecule': 'human growth hormone receptor (hghbp)', 'misc': '', 'engineered': 'yes', 'chain': 'b, c'}}
+pdb = '3hhr', sysId = 64, mutated = 'hGH', 2 = 'Mab 15'
+
+at position 26: 
+5.44752550125 (ddG = 0.0): <Residue ASP het=  resseq=26 icode= >
+at position 107: 
+13.1270713806 (ddG = 0.0): <Residue ASP het=  resseq=107 icode= >
+at position 112: 
+6.82008886337 (ddG = 0.0): <Residue ASP het=  resseq=112 icode= >
+at position 130: 
+13.6661653519 (ddG = 0.0): <Residue ASP het=  resseq=130 icode= >
+at position 30: 
+10.9448013306 (ddG = 0.0): <Residue GLU het=  resseq=30 icode= >
+at position 32: 
+5.58416891098 (ddG = 0.0): <Residue GLU het=  resseq=32 icode= >
+at position 118: 
+6.04233074188 (ddG = 0.0): <Residue GLU het=  resseq=118 icode= >
+at position 129: 
+14.4220466614 (ddG = 0.0): <Residue GLU het=  resseq=129 icode= >
+at position 31: 
+12.0208969116 (ddG = 0.0): <Residue PHE het=  resseq=31 icode= >
+at position 10: 
+6.09443283081 (ddG = 0.41): <Residue PHE het=  resseq=10 icode= >
+at position 126: 
+9.83057117462 (ddG = 0.0): <Residue GLY het=  resseq=126 icode= >
+at position 121: 
+5.62726688385 (ddG = 0.0): <Residue ILE het=  resseq=121 icode= >
+at position 115: 
+5.86499929428 (ddG = 0.0): <Residue LYS het=  resseq=115 icode= >
+at position 6: 
+8.34678649902 (ddG = 0.0): <Residue LEU het=  resseq=6 icode= >
+at position 20: 
+6.53833246231 (ddG = 0.0): <Residue LEU het=  resseq=20 icode= >
+at position 23: 
+5.88571119308 (ddG = 0.0): <Residue LEU het=  resseq=23 icode= >
+at position 113: 
+6.18010377884 (ddG = 0.0): <Residue LEU het=  resseq=113 icode= >
+at position 124: 
+5.94157314301 (ddG = 0.0): <Residue LEU het=  resseq=124 icode= >
+at position 128: 
+11.2195224762 (ddG = 0.0): <Residue LEU het=  resseq=128 icode= >
+at position 14: 
+6.3261179924 (ddG = 0.0): <Residue MET het=  resseq=14 icode= >
+at position 14: 
+6.3261179924 (ddG = 0.0): <Residue MET het=  resseq=14 icode= >
+at position 125: 
+8.86822509766 (ddG = 0.0): <Residue MET het=  resseq=125 icode= >
+at position 109: 
+6.98991632462 (ddG = 0.0): <Residue ASN het=  resseq=109 icode= >
+at position 133: 
+20.2001037598 (ddG = 0.0): <Residue PRO het=  resseq=133 icode= >
+at position 5: 
+6.1304473877 (ddG = 4.05): <Residue PRO het=  resseq=5 icode= >
+at position 29: 
+6.08640289307 (ddG = 0.0): <Residue GLN het=  resseq=29 icode= >
+at position 122: 
+7.27553462982 (ddG = 0.0): <Residue GLN het=  resseq=122 icode= >
+at position 137: 
+15.7606039047 (ddG = 0.0): <Residue GLN het=  resseq=137 icode= >
+at position 181: 
+7.31920146942 (ddG = 0.0): <Residue GLN het=  resseq=181 icode= >
+at position 134: 
+16.4364967346 (ddG = 0.0): <Residue ARG het=  resseq=134 icode= >
+at position 183: 
+5.96133947372 (ddG = 0.0): <Residue ARG het=  resseq=183 icode= >
+at position 127: 
+5.34436273575 (ddG = 4.05): <Residue ARG het=  resseq=127 icode= >
+at position 7: 
+7.85964393616 (ddG = 0.0): <Residue SER het=  resseq=7 icode= >
+at position 108: 
+10.05356884 (ddG = 0.0): <Residue SER het=  resseq=108 icode= >
+at position 132: 
+16.0927810669 (ddG = 0.0): <Residue SER het=  resseq=132 icode= >
+at position 184: 
+9.08034038544 (ddG = 0.0): <Residue SER het=  resseq=184 icode= >
+at position 27: 
+9.27767562866 (ddG = 0.0): <Residue THR het=  resseq=27 icode= >
+at position 135: 
+19.6195487976 (ddG = 0.0): <Residue THR het=  resseq=135 icode= >
+at position 110: 
+10.6539754868 (ddG = 0.0): <Residue VAL het=  resseq=110 icode= >
+at position 180: 
+6.43714666367 (ddG = 0.0): <Residue VAL het=  resseq=180 icode= >
+at position 185: 
+7.80759382248 (ddG = 0.0): <Residue VAL het=  resseq=185 icode= >
+at position 111: 
+10.1774988174 (ddG = 0.0): <Residue TYR het=  resseq=111 icode= >
+{'1': {'molecule': 'human growth hormone', 'misc': '', 'engineered': 'yes', 'chain': 'a'}, '2': {'molecule': 'human growth hormone receptor (hghbp)', 'misc': '', 'engineered': 'yes', 'chain': 'b, c'}}
+pdb = '3hhr', sysId = 65, mutated = 'hGH', 2 = 'Mab 16'
+
+at position 154: 
+17.2448711395 (ddG = 0.0): <Residue ASP het=  resseq=154 icode= >
+at position 169: 
+6.02687311172 (ddG = 0.0): <Residue ASP het=  resseq=169 icode= >
+at position 56: 
+5.46800231934 (ddG = 0.0): <Residue GLU het=  resseq=56 icode= >
+at position 65: 
+5.94613695145 (ddG = 0.0): <Residue GLU het=  resseq=65 icode= >
+at position 66: 
+5.57506322861 (ddG = 0.0): <Residue GLU het=  resseq=66 icode= >
+at position 74: 
+12.2467737198 (ddG = 0.0): <Residue GLU het=  resseq=74 icode= >
+at position 10: 
+6.09443283081 (ddG = 0.0): <Residue PHE het=  resseq=10 icode= >
+at position 54: 
+11.0967626572 (ddG = 0.0): <Residue PHE het=  resseq=54 icode= >
+at position 166: 
+8.51856231689 (ddG = 0.0): <Residue PHE het=  resseq=166 icode= >
+at position 58: 
+9.72555541992 (ddG = 0.0): <Residue ILE het=  resseq=58 icode= >
+at position 158: 
+14.3092088699 (ddG = 0.0): <Residue LYS het=  resseq=158 icode= >
+at position 70: 
+9.54010009766 (ddG = 1.35): <Residue LYS het=  resseq=70 icode= >
+at position 6: 
+8.34678649902 (ddG = 0.0): <Residue LEU het=  resseq=6 icode= >
+at position 52: 
+6.60687828064 (ddG = 0.0): <Residue LEU het=  resseq=52 icode= >
+at position 73: 
+13.8179712296 (ddG = 0.0): <Residue LEU het=  resseq=73 icode= >
+at position 156: 
+14.226272583 (ddG = 0.0): <Residue LEU het=  resseq=156 icode= >
+at position 157: 
+12.7109012604 (ddG = 0.0): <Residue LEU het=  resseq=157 icode= >
+at position 162: 
+11.5790147781 (ddG = 0.0): <Residue LEU het=  resseq=162 icode= >
+at position 163: 
+8.69772720337 (ddG = 0.0): <Residue LEU het=  resseq=163 icode= >
+at position 177: 
+7.00778055191 (ddG = 0.0): <Residue LEU het=  resseq=177 icode= >
+at position 14: 
+6.3261179924 (ddG = 0.0): <Residue MET het=  resseq=14 icode= >
+at position 14: 
+6.3261179924 (ddG = 0.0): <Residue MET het=  resseq=14 icode= >
+at position 170: 
+6.89661693573 (ddG = 0.0): <Residue MET het=  resseq=170 icode= >
+at position 159: 
+12.676905632 (ddG = 0.0): <Residue ASN het=  resseq=159 icode= >
+at position 5: 
+6.1304473877 (ddG = 0.0): <Residue PRO het=  resseq=5 icode= >
+at position 59: 
+9.23703575134 (ddG = 0.0): <Residue PRO het=  resseq=59 icode= >
+at position 181: 
+7.31920146942 (ddG = 0.0): <Residue GLN het=  resseq=181 icode= >
+at position 69: 
+8.98706817627 (ddG = 0.41): <Residue GLN het=  resseq=69 icode= >
+at position 183: 
+5.96133947372 (ddG = 3.64): <Residue ARG het=  resseq=183 icode= >
+at position 7: 
+7.85964393616 (ddG = 0.0): <Residue SER het=  resseq=7 icode= >
+at position 51: 
+5.23919677734 (ddG = 0.0): <Residue SER het=  resseq=51 icode= >
+at position 55: 
+9.96909141541 (ddG = 0.0): <Residue SER het=  resseq=55 icode= >
+at position 57: 
+11.2678089142 (ddG = 0.0): <Residue SER het=  resseq=57 icode= >
+at position 71: 
+11.2111654282 (ddG = 0.0): <Residue SER het=  resseq=71 icode= >
+at position 184: 
+9.08034038544 (ddG = 0.0): <Residue SER het=  resseq=184 icode= >
+at position 50: 
+7.66657304764 (ddG = 0.0): <Residue THR het=  resseq=50 icode= >
+at position 60: 
+5.09510326385 (ddG = 0.0): <Residue THR het=  resseq=60 icode= >
+at position 173: 
+6.33326148987 (ddG = 0.0): <Residue VAL het=  resseq=173 icode= >
+at position 180: 
+6.43714666367 (ddG = 0.0): <Residue VAL het=  resseq=180 icode= >
+at position 185: 
+7.80759382248 (ddG = 0.0): <Residue VAL het=  resseq=185 icode= >
+at position 160: 
+6.15717887878 (ddG = 0.0): <Residue TYR het=  resseq=160 icode= >
+{'1': {'molecule': 'human growth hormone', 'misc': '', 'engineered': 'yes', 'chain': 'a'}, '2': {'molecule': 'human growth hormone receptor (hghbp)', 'misc': '', 'engineered': 'yes', 'chain': 'b, c'}}
+pdb = '3hhr', sysId = 66, mutated = 'hGH', 2 = 'Mab 17'
+
+at position 154: 
+17.2448711395 (ddG = 0.0): <Residue ASP het=  resseq=154 icode= >
+at position 169: 
+6.02687311172 (ddG = 0.0): <Residue ASP het=  resseq=169 icode= >
+at position 56: 
+5.46800231934 (ddG = 0.0): <Residue GLU het=  resseq=56 icode= >
+at position 65: 
+5.94613695145 (ddG = 0.0): <Residue GLU het=  resseq=65 icode= >
+at position 66: 
+5.57506322861 (ddG = 0.0): <Residue GLU het=  resseq=66 icode= >
+at position 74: 
+12.2467737198 (ddG = 0.0): <Residue GLU het=  resseq=74 icode= >
+at position 54: 
+11.0967626572 (ddG = 0.0): <Residue PHE het=  resseq=54 icode= >
+at position 166: 
+8.51856231689 (ddG = 0.0): <Residue PHE het=  resseq=166 icode= >
+at position 10: 
+6.09443283081 (ddG = 0.41): <Residue PHE het=  resseq=10 icode= >
+at position 58: 
+9.72555541992 (ddG = 0.0): <Residue ILE het=  resseq=58 icode= >
+at position 70: 
+9.54010009766 (ddG = 0.0): <Residue LYS het=  resseq=70 icode= >
+at position 158: 
+14.3092088699 (ddG = 0.0): <Residue LYS het=  resseq=158 icode= >
+at position 73: 
+13.8179712296 (ddG = 0.0): <Residue LEU het=  resseq=73 icode= >
+at position 156: 
+14.226272583 (ddG = 0.0): <Residue LEU het=  resseq=156 icode= >
+at position 157: 
+12.7109012604 (ddG = 0.0): <Residue LEU het=  resseq=157 icode= >
+at position 162: 
+11.5790147781 (ddG = 0.0): <Residue LEU het=  resseq=162 icode= >
+at position 163: 
+8.69772720337 (ddG = 0.0): <Residue LEU het=  resseq=163 icode= >
+at position 177: 
+7.00778055191 (ddG = 0.0): <Residue LEU het=  resseq=177 icode= >
+at position 6: 
+8.34678649902 (ddG = 0.41): <Residue LEU het=  resseq=6 icode= >
+at position 14: 
+6.3261179924 (ddG = 0.0): <Residue MET het=  resseq=14 icode= >
+at position 14: 
+6.3261179924 (ddG = 0.0): <Residue MET het=  resseq=14 icode= >
+at position 170: 
+6.89661693573 (ddG = 0.0): <Residue MET het=  resseq=170 icode= >
+at position 159: 
+12.676905632 (ddG = 0.0): <Residue ASN het=  resseq=159 icode= >
+at position 5: 
+6.1304473877 (ddG = 0.0): <Residue PRO het=  resseq=5 icode= >
+at position 59: 
+9.23703575134 (ddG = 0.0): <Residue PRO het=  resseq=59 icode= >
+at position 181: 
+7.31920146942 (ddG = 0.0): <Residue GLN het=  resseq=181 icode= >
+at position 69: 
+8.98706817627 (ddG = 0.41): <Residue GLN het=  resseq=69 icode= >
+at position 183: 
+5.96133947372 (ddG = 2.7): <Residue ARG het=  resseq=183 icode= >
+at position 7: 
+7.85964393616 (ddG = 0.0): <Residue SER het=  resseq=7 icode= >
+at position 55: 
+9.96909141541 (ddG = 0.0): <Residue SER het=  resseq=55 icode= >
+at position 57: 
+11.2678089142 (ddG = 0.0): <Residue SER het=  resseq=57 icode= >
+at position 71: 
+11.2111654282 (ddG = 0.0): <Residue SER het=  resseq=71 icode= >
+at position 184: 
+9.08034038544 (ddG = 0.0): <Residue SER het=  resseq=184 icode= >
+at position 60: 
+5.09510326385 (ddG = 0.0): <Residue THR het=  resseq=60 icode= >
+at position 173: 
+6.33326148987 (ddG = 0.0): <Residue VAL het=  resseq=173 icode= >
+at position 180: 
+6.43714666367 (ddG = 0.0): <Residue VAL het=  resseq=180 icode= >
+at position 185: 
+7.80759382248 (ddG = 0.0): <Residue VAL het=  resseq=185 icode= >
+at position 160: 
+6.15717887878 (ddG = 0.0): <Residue TYR het=  resseq=160 icode= >
+{'1': {'molecule': 'human growth hormone', 'misc': '', 'engineered': 'yes', 'chain': 'a'}, '2': {'molecule': 'human growth hormone receptor (hghbp)', 'misc': '', 'engineered': 'yes', 'chain': 'b, c'}}
+pdb = '3hhr', sysId = 67, mutated = 'hGH', 2 = 'Mab 18'
+
+at position 26: 
+5.44752550125 (ddG = 0.0): <Residue ASP het=  resseq=26 icode= >
+at position 147: 
+18.2177791595 (ddG = 0.0): <Residue ASP het=  resseq=147 icode= >
+at position 154: 
+17.2448711395 (ddG = 0.0): <Residue ASP het=  resseq=154 icode= >
+at position 169: 
+6.02687311172 (ddG = 0.0): <Residue ASP het=  resseq=169 icode= >
+at position 30: 
+10.9448013306 (ddG = 0.0): <Residue GLU het=  resseq=30 icode= >
+at position 32: 
+5.58416891098 (ddG = 0.0): <Residue GLU het=  resseq=32 icode= >
+at position 33: 
+9.07580184937 (ddG = 0.0): <Residue GLU het=  resseq=33 icode= >
+at position 39: 
+7.56096792221 (ddG = 1.99): <Residue GLU het=  resseq=39 icode= >
+at position 10: 
+6.09443283081 (ddG = 0.0): <Residue PHE het=  resseq=10 icode= >
+at position 31: 
+12.0208969116 (ddG = 0.0): <Residue PHE het=  resseq=31 icode= >
+at position 44: 
+6.65271759033 (ddG = 0.0): <Residue PHE het=  resseq=44 icode= >
+at position 54: 
+11.0967626572 (ddG = 0.0): <Residue PHE het=  resseq=54 icode= >
+at position 92: 
+18.9429664612 (ddG = 0.0): <Residue PHE het=  resseq=92 icode= >
+at position 97: 
+13.4964513779 (ddG = 0.0): <Residue PHE het=  resseq=97 icode= >
+at position 146: 
+16.2177753448 (ddG = 0.0): <Residue PHE het=  resseq=146 icode= >
+at position 166: 
+8.51856231689 (ddG = 0.0): <Residue PHE het=  resseq=166 icode= >
+at position 36: 
+9.52777099609 (ddG = 0.64): <Residue ILE het=  resseq=36 icode= >
+at position 158: 
+14.3092088699 (ddG = 0.0): <Residue LYS het=  resseq=158 icode= >
+at position 38: 
+6.37299108505 (ddG = 1.35): <Residue LYS het=  resseq=38 icode= >
+at position 6: 
+8.34678649902 (ddG = 0.0): <Residue LEU het=  resseq=6 icode= >
+at position 20: 
+6.53833246231 (ddG = 0.0): <Residue LEU het=  resseq=20 icode= >
+at position 23: 
+5.88571119308 (ddG = 0.0): <Residue LEU het=  resseq=23 icode= >
+at position 52: 
+6.60687828064 (ddG = 0.0): <Residue LEU het=  resseq=52 icode= >
+at position 93: 
+15.2869615555 (ddG = 0.0): <Residue LEU het=  resseq=93 icode= >
+at position 101: 
+10.8131465912 (ddG = 0.0): <Residue LEU het=  resseq=101 icode= >
+at position 156: 
+14.226272583 (ddG = 0.0): <Residue LEU het=  resseq=156 icode= >
+at position 162: 
+11.5790147781 (ddG = 0.0): <Residue LEU het=  resseq=162 icode= >
+at position 163: 
+8.69772720337 (ddG = 0.0): <Residue LEU het=  resseq=163 icode= >
+at position 177: 
+7.00778055191 (ddG = 0.0): <Residue LEU het=  resseq=177 icode= >
+at position 157: 
+12.7109012604 (ddG = 1.99): <Residue LEU het=  resseq=157 icode= >
+at position 14: 
+6.3261179924 (ddG = 0.0): <Residue MET het=  resseq=14 icode= >
+at position 14: 
+6.3261179924 (ddG = 0.0): <Residue MET het=  resseq=14 icode= >
+at position 170: 
+6.89661693573 (ddG = 0.0): <Residue MET het=  resseq=170 icode= >
+at position 47: 
+5.22500610352 (ddG = 0.0): <Residue ASN het=  resseq=47 icode= >
+at position 99: 
+16.9951839447 (ddG = 0.0): <Residue ASN het=  resseq=99 icode= >
+at position 159: 
+12.676905632 (ddG = 0.0): <Residue ASN het=  resseq=159 icode= >
+at position 5: 
+6.1304473877 (ddG = 0.0): <Residue PRO het=  resseq=5 icode= >
+at position 89: 
+17.3549900055 (ddG = 0.0): <Residue PRO het=  resseq=89 icode= >
+at position 29: 
+6.08640289307 (ddG = 0.0): <Residue GLN het=  resseq=29 icode= >
+at position 49: 
+7.8213801384 (ddG = 0.0): <Residue GLN het=  resseq=49 icode= >
+at position 91: 
+18.052192688 (ddG = 0.0): <Residue GLN het=  resseq=91 icode= >
+at position 181: 
+7.31920146942 (ddG = 0.0): <Residue GLN het=  resseq=181 icode= >
+at position 40: 
+8.67508602142 (ddG = 0.64): <Residue GLN het=  resseq=40 icode= >
+at position 94: 
+17.8468914032 (ddG = 0.0): <Residue ARG het=  resseq=94 icode= >
+at position 183: 
+5.96133947372 (ddG = 0.0): <Residue ARG het=  resseq=183 icode= >
+at position 7: 
+7.85964393616 (ddG = 0.0): <Residue SER het=  resseq=7 icode= >
+at position 43: 
+6.58551645279 (ddG = 0.0): <Residue SER het=  resseq=43 icode= >
+at position 51: 
+5.23919677734 (ddG = 0.0): <Residue SER het=  resseq=51 icode= >
+at position 95: 
+19.8917198181 (ddG = 0.0): <Residue SER het=  resseq=95 icode= >
+at position 100: 
+13.5444641113 (ddG = 0.0): <Residue SER het=  resseq=100 icode= >
+at position 106: 
+10.0189085007 (ddG = 0.0): <Residue SER het=  resseq=106 icode= >
+at position 27: 
+9.27767562866 (ddG = 0.0): <Residue THR het=  resseq=27 icode= >
+at position 50: 
+7.66657304764 (ddG = 0.0): <Residue THR het=  resseq=50 icode= >
+at position 90: 
+15.9223270416 (ddG = 0.0): <Residue VAL het=  resseq=90 icode= >
+at position 96: 
+16.0428981781 (ddG = 0.0): <Residue VAL het=  resseq=96 icode= >
+at position 102: 
+9.77597618103 (ddG = 0.0): <Residue VAL het=  resseq=102 icode= >
+at position 173: 
+6.33326148987 (ddG = 0.0): <Residue VAL het=  resseq=173 icode= >
+at position 180: 
+6.43714666367 (ddG = 0.0): <Residue VAL het=  resseq=180 icode= >
+at position 35: 
+14.0388708115 (ddG = 0.0): <Residue TYR het=  resseq=35 icode= >
+at position 160: 
+6.15717887878 (ddG = 0.41): <Residue TYR het=  resseq=160 icode= >
+{'1': {'molecule': 'human growth hormone', 'misc': '', 'engineered': 'yes', 'chain': 'a'}, '2': {'molecule': 'human growth hormone receptor (hghbp)', 'misc': '', 'engineered': 'yes', 'chain': 'b, c'}}
+pdb = '3hhr', sysId = 68, mutated = 'hGH', 2 = 'Mab 19'
+
+at position 26: 
+5.44752550125 (ddG = 0.0): <Residue ASP het=  resseq=26 icode= >
+at position 147: 
+18.2177791595 (ddG = 0.0): <Residue ASP het=  resseq=147 icode= >
+at position 154: 
+17.2448711395 (ddG = 0.0): <Residue ASP het=  resseq=154 icode= >
+at position 169: 
+6.02687311172 (ddG = 0.0): <Residue ASP het=  resseq=169 icode= >
+at position 30: 
+10.9448013306 (ddG = 0.0): <Residue GLU het=  resseq=30 icode= >
+at position 32: 
+5.58416891098 (ddG = 0.0): <Residue GLU het=  resseq=32 icode= >
+at position 33: 
+9.07580184937 (ddG = 0.0): <Residue GLU het=  resseq=33 icode= >
+at position 39: 
+7.56096792221 (ddG = 0.0): <Residue GLU het=  resseq=39 icode= >
+at position 10: 
+6.09443283081 (ddG = 0.0): <Residue PHE het=  resseq=10 icode= >
+at position 31: 
+12.0208969116 (ddG = 0.0): <Residue PHE het=  resseq=31 icode= >
+at position 44: 
+6.65271759033 (ddG = 0.0): <Residue PHE het=  resseq=44 icode= >
+at position 54: 
+11.0967626572 (ddG = 0.0): <Residue PHE het=  resseq=54 icode= >
+at position 92: 
+18.9429664612 (ddG = 0.0): <Residue PHE het=  resseq=92 icode= >
+at position 146: 
+16.2177753448 (ddG = 0.0): <Residue PHE het=  resseq=146 icode= >
+at position 166: 
+8.51856231689 (ddG = 0.0): <Residue PHE het=  resseq=166 icode= >
+at position 97: 
+13.4964513779 (ddG = 0.64): <Residue PHE het=  resseq=97 icode= >
+at position 36: 
+9.52777099609 (ddG = 1.99): <Residue ILE het=  resseq=36 icode= >
+at position 38: 
+6.37299108505 (ddG = 0.0): <Residue LYS het=  resseq=38 icode= >
+at position 158: 
+14.3092088699 (ddG = 0.0): <Residue LYS het=  resseq=158 icode= >
+at position 6: 
+8.34678649902 (ddG = 0.0): <Residue LEU het=  resseq=6 icode= >
+at position 20: 
+6.53833246231 (ddG = 0.0): <Residue LEU het=  resseq=20 icode= >
+at position 23: 
+5.88571119308 (ddG = 0.0): <Residue LEU het=  resseq=23 icode= >
+at position 52: 
+6.60687828064 (ddG = 0.0): <Residue LEU het=  resseq=52 icode= >
+at position 93: 
+15.2869615555 (ddG = 0.0): <Residue LEU het=  resseq=93 icode= >
+at position 101: 
+10.8131465912 (ddG = 0.0): <Residue LEU het=  resseq=101 icode= >
+at position 157: 
+12.7109012604 (ddG = 0.0): <Residue LEU het=  resseq=157 icode= >
+at position 162: 
+11.5790147781 (ddG = 0.0): <Residue LEU het=  resseq=162 icode= >
+at position 163: 
+8.69772720337 (ddG = 0.0): <Residue LEU het=  resseq=163 icode= >
+at position 177: 
+7.00778055191 (ddG = 0.0): <Residue LEU het=  resseq=177 icode= >
+at position 156: 
+14.226272583 (ddG = 1.35): <Residue LEU het=  resseq=156 icode= >
+at position 14: 
+6.3261179924 (ddG = 0.0): <Residue MET het=  resseq=14 icode= >
+at position 14: 
+6.3261179924 (ddG = 0.0): <Residue MET het=  resseq=14 icode= >
+at position 170: 
+6.89661693573 (ddG = 0.0): <Residue MET het=  resseq=170 icode= >
+at position 47: 
+5.22500610352 (ddG = 0.0): <Residue ASN het=  resseq=47 icode= >
+at position 99: 
+16.9951839447 (ddG = 0.0): <Residue ASN het=  resseq=99 icode= >
+at position 159: 
+12.676905632 (ddG = 0.0): <Residue ASN het=  resseq=159 icode= >
+at position 5: 
+6.1304473877 (ddG = 0.0): <Residue PRO het=  resseq=5 icode= >
+at position 89: 
+17.3549900055 (ddG = 0.0): <Residue PRO het=  resseq=89 icode= >
+at position 29: 
+6.08640289307 (ddG = 0.0): <Residue GLN het=  resseq=29 icode= >
+at position 40: 
+8.67508602142 (ddG = 0.0): <Residue GLN het=  resseq=40 icode= >
+at position 49: 
+7.8213801384 (ddG = 0.0): <Residue GLN het=  resseq=49 icode= >
+at position 91: 
+18.052192688 (ddG = 0.0): <Residue GLN het=  resseq=91 icode= >
+at position 181: 
+7.31920146942 (ddG = 0.0): <Residue GLN het=  resseq=181 icode= >
+at position 94: 
+17.8468914032 (ddG = 0.0): <Residue ARG het=  resseq=94 icode= >
+at position 183: 
+5.96133947372 (ddG = 0.0): <Residue ARG het=  resseq=183 icode= >
+at position 7: 
+7.85964393616 (ddG = 0.0): <Residue SER het=  resseq=7 icode= >
+at position 43: 
+6.58551645279 (ddG = 0.0): <Residue SER het=  resseq=43 icode= >
+at position 51: 
+5.23919677734 (ddG = 0.0): <Residue SER het=  resseq=51 icode= >
+at position 95: 
+19.8917198181 (ddG = 0.0): <Residue SER het=  resseq=95 icode= >
+at position 100: 
+13.5444641113 (ddG = 0.0): <Residue SER het=  resseq=100 icode= >
+at position 106: 
+10.0189085007 (ddG = 0.0): <Residue SER het=  resseq=106 icode= >
+at position 50: 
+7.66657304764 (ddG = 0.0): <Residue THR het=  resseq=50 icode= >
+at position 27: 
+9.27767562866 (ddG = 1.99): <Residue THR het=  resseq=27 icode= >
+at position 90: 
+15.9223270416 (ddG = 0.0): <Residue VAL het=  resseq=90 icode= >
+at position 96: 
+16.0428981781 (ddG = 0.0): <Residue VAL het=  resseq=96 icode= >
+at position 102: 
+9.77597618103 (ddG = 0.0): <Residue VAL het=  resseq=102 icode= >
+at position 173: 
+6.33326148987 (ddG = 0.0): <Residue VAL het=  resseq=173 icode= >
+at position 180: 
+6.43714666367 (ddG = 0.0): <Residue VAL het=  resseq=180 icode= >
+at position 35: 
+14.0388708115 (ddG = 0.0): <Residue TYR het=  resseq=35 icode= >
+at position 160: 
+6.15717887878 (ddG = 0.0): <Residue TYR het=  resseq=160 icode= >
+{'1': {'molecule': 'human growth hormone', 'misc': '', 'engineered': 'yes', 'chain': 'a'}, '2': {'molecule': 'human growth hormone receptor (hghbp)', 'misc': '', 'engineered': 'yes', 'chain': 'b, c'}}
+pdb = '3hhr', sysId = 69, mutated = 'hGH', 2 = 'Mab 2'
+
+at position 26: 
+5.44752550125 (ddG = 0.0): <Residue ASP het=  resseq=26 icode= >
+at position 107: 
+13.1270713806 (ddG = 0.0): <Residue ASP het=  resseq=107 icode= >
+at position 112: 
+6.82008886337 (ddG = 3.64): <Residue ASP het=  resseq=112 icode= >
+at position 30: 
+10.9448013306 (ddG = 0.0): <Residue GLU het=  resseq=30 icode= >
+at position 32: 
+5.58416891098 (ddG = 0.0): <Residue GLU het=  resseq=32 icode= >
+at position 118: 
+6.04233074188 (ddG = 0.0): <Residue GLU het=  resseq=118 icode= >
+at position 129: 
+14.4220466614 (ddG = 0.0): <Residue GLU het=  resseq=129 icode= >
+at position 10: 
+6.09443283081 (ddG = 0.0): <Residue PHE het=  resseq=10 icode= >
+at position 31: 
+12.0208969116 (ddG = 0.0): <Residue PHE het=  resseq=31 icode= >
+at position 97: 
+13.4964513779 (ddG = 0.0): <Residue PHE het=  resseq=97 icode= >
+at position 126: 
+9.83057117462 (ddG = 0.0): <Residue GLY het=  resseq=126 icode= >
+at position 121: 
+5.62726688385 (ddG = 0.0): <Residue ILE het=  resseq=121 icode= >
+at position 115: 
+5.86499929428 (ddG = 0.0): <Residue LYS het=  resseq=115 icode= >
+at position 6: 
+8.34678649902 (ddG = 0.0): <Residue LEU het=  resseq=6 icode= >
+at position 20: 
+6.53833246231 (ddG = 0.0): <Residue LEU het=  resseq=20 icode= >
+at position 23: 
+5.88571119308 (ddG = 0.0): <Residue LEU het=  resseq=23 icode= >
+at position 101: 
+10.8131465912 (ddG = 0.0): <Residue LEU het=  resseq=101 icode= >
+at position 113: 
+6.18010377884 (ddG = 0.0): <Residue LEU het=  resseq=113 icode= >
+at position 124: 
+5.94157314301 (ddG = 0.0): <Residue LEU het=  resseq=124 icode= >
+at position 128: 
+11.2195224762 (ddG = 0.0): <Residue LEU het=  resseq=128 icode= >
+at position 14: 
+6.3261179924 (ddG = 0.0): <Residue MET het=  resseq=14 icode= >
+at position 14: 
+6.3261179924 (ddG = 0.0): <Residue MET het=  resseq=14 icode= >
+at position 125: 
+8.86822509766 (ddG = 0.0): <Residue MET het=  resseq=125 icode= >
+at position 99: 
+16.9951839447 (ddG = 0.0): <Residue ASN het=  resseq=99 icode= >
+at position 109: 
+6.98991632462 (ddG = 0.0): <Residue ASN het=  resseq=109 icode= >
+at position 5: 
+6.1304473877 (ddG = 0.0): <Residue PRO het=  resseq=5 icode= >
+at position 29: 
+6.08640289307 (ddG = 0.0): <Residue GLN het=  resseq=29 icode= >
+at position 122: 
+7.27553462982 (ddG = 0.0): <Residue GLN het=  resseq=122 icode= >
+at position 94: 
+17.8468914032 (ddG = 0.0): <Residue ARG het=  resseq=94 icode= >
+at position 127: 
+5.34436273575 (ddG = 0.0): <Residue ARG het=  resseq=127 icode= >
+at position 7: 
+7.85964393616 (ddG = 0.0): <Residue SER het=  resseq=7 icode= >
+at position 95: 
+19.8917198181 (ddG = 0.0): <Residue SER het=  resseq=95 icode= >
+at position 100: 
+13.5444641113 (ddG = 0.0): <Residue SER het=  resseq=100 icode= >
+at position 106: 
+10.0189085007 (ddG = 0.0): <Residue SER het=  resseq=106 icode= >
+at position 108: 
+10.05356884 (ddG = 0.0): <Residue SER het=  resseq=108 icode= >
+at position 27: 
+9.27767562866 (ddG = 0.0): <Residue THR het=  resseq=27 icode= >
+at position 96: 
+16.0428981781 (ddG = 0.0): <Residue VAL het=  resseq=96 icode= >
+at position 102: 
+9.77597618103 (ddG = 0.0): <Residue VAL het=  resseq=102 icode= >
+at position 110: 
+10.6539754868 (ddG = 0.0): <Residue VAL het=  resseq=110 icode= >
+at position 111: 
+10.1774988174 (ddG = 0.0): <Residue TYR het=  resseq=111 icode= >
+{'1': {'molecule': 'human growth hormone', 'misc': '', 'engineered': 'yes', 'chain': 'a'}, '2': {'molecule': 'human growth hormone receptor (hghbp)', 'misc': '', 'engineered': 'yes', 'chain': 'b, c'}}
+pdb = '3hhr', sysId = 70, mutated = 'hGH', 2 = 'Mab 20'
+
+at position 26: 
+5.44752550125 (ddG = 0.0): <Residue ASP het=  resseq=26 icode= >
+at position 147: 
+18.2177791595 (ddG = 0.0): <Residue ASP het=  resseq=147 icode= >
+at position 154: 
+17.2448711395 (ddG = 0.0): <Residue ASP het=  resseq=154 icode= >
+at position 169: 
+6.02687311172 (ddG = 0.0): <Residue ASP het=  resseq=169 icode= >
+at position 30: 
+10.9448013306 (ddG = 0.0): <Residue GLU het=  resseq=30 icode= >
+at position 33: 
+9.07580184937 (ddG = 0.0): <Residue GLU het=  resseq=33 icode= >
+at position 39: 
+7.56096792221 (ddG = 0.0): <Residue GLU het=  resseq=39 icode= >
+at position 88: 
+17.2882843018 (ddG = 0.0): <Residue GLU het=  resseq=88 icode= >
+at position 32: 
+5.58416891098 (ddG = 0.41): <Residue GLU het=  resseq=32 icode= >
+at position 10: 
+6.09443283081 (ddG = 0.0): <Residue PHE het=  resseq=10 icode= >
+at position 31: 
+12.0208969116 (ddG = 0.0): <Residue PHE het=  resseq=31 icode= >
+at position 44: 
+6.65271759033 (ddG = 0.0): <Residue PHE het=  resseq=44 icode= >
+at position 54: 
+11.0967626572 (ddG = 0.0): <Residue PHE het=  resseq=54 icode= >
+at position 92: 
+18.9429664612 (ddG = 0.0): <Residue PHE het=  resseq=92 icode= >
+at position 146: 
+16.2177753448 (ddG = 0.0): <Residue PHE het=  resseq=146 icode= >
+at position 166: 
+8.51856231689 (ddG = 0.0): <Residue PHE het=  resseq=166 icode= >
+at position 97: 
+13.4964513779 (ddG = 0.64): <Residue PHE het=  resseq=97 icode= >
+at position 36: 
+9.52777099609 (ddG = 1.35): <Residue ILE het=  resseq=36 icode= >
+at position 38: 
+6.37299108505 (ddG = 0.0): <Residue LYS het=  resseq=38 icode= >
+at position 158: 
+14.3092088699 (ddG = 0.0): <Residue LYS het=  resseq=158 icode= >
+at position 6: 
+8.34678649902 (ddG = 0.0): <Residue LEU het=  resseq=6 icode= >
+at position 20: 
+6.53833246231 (ddG = 0.0): <Residue LEU het=  resseq=20 icode= >
+at position 23: 
+5.88571119308 (ddG = 0.0): <Residue LEU het=  resseq=23 icode= >
+at position 52: 
+6.60687828064 (ddG = 0.0): <Residue LEU het=  resseq=52 icode= >
+at position 87: 
+12.2167444229 (ddG = 0.0): <Residue LEU het=  resseq=87 icode= >
+at position 93: 
+15.2869615555 (ddG = 0.0): <Residue LEU het=  resseq=93 icode= >
+at position 156: 
+14.226272583 (ddG = 0.0): <Residue LEU het=  resseq=156 icode= >
+at position 157: 
+12.7109012604 (ddG = 0.0): <Residue LEU het=  resseq=157 icode= >
+at position 162: 
+11.5790147781 (ddG = 0.0): <Residue LEU het=  resseq=162 icode= >
+at position 163: 
+8.69772720337 (ddG = 0.0): <Residue LEU het=  resseq=163 icode= >
+at position 177: 
+7.00778055191 (ddG = 0.0): <Residue LEU het=  resseq=177 icode= >
+at position 101: 
+10.8131465912 (ddG = 0.41): <Residue LEU het=  resseq=101 icode= >
+at position 14: 
+6.3261179924 (ddG = 0.0): <Residue MET het=  resseq=14 icode= >
+at position 14: 
+6.3261179924 (ddG = 0.0): <Residue MET het=  resseq=14 icode= >
+at position 170: 
+6.89661693573 (ddG = 0.0): <Residue MET het=  resseq=170 icode= >
+at position 47: 
+5.22500610352 (ddG = 0.0): <Residue ASN het=  resseq=47 icode= >
+at position 99: 
+16.9951839447 (ddG = 0.0): <Residue ASN het=  resseq=99 icode= >
+at position 159: 
+12.676905632 (ddG = 0.0): <Residue ASN het=  resseq=159 icode= >
+at position 5: 
+6.1304473877 (ddG = 0.0): <Residue PRO het=  resseq=5 icode= >
+at position 89: 
+17.3549900055 (ddG = 0.0): <Residue PRO het=  resseq=89 icode= >
+at position 29: 
+6.08640289307 (ddG = 0.0): <Residue GLN het=  resseq=29 icode= >
+at position 40: 
+8.67508602142 (ddG = 0.0): <Residue GLN het=  resseq=40 icode= >
+at position 49: 
+7.8213801384 (ddG = 0.0): <Residue GLN het=  resseq=49 icode= >
+at position 91: 
+18.052192688 (ddG = 0.0): <Residue GLN het=  resseq=91 icode= >
+at position 181: 
+7.31920146942 (ddG = 0.0): <Residue GLN het=  resseq=181 icode= >
+at position 94: 
+17.8468914032 (ddG = 0.0): <Residue ARG het=  resseq=94 icode= >
+at position 183: 
+5.96133947372 (ddG = 0.0): <Residue ARG het=  resseq=183 icode= >
+at position 7: 
+7.85964393616 (ddG = 0.0): <Residue SER het=  resseq=7 icode= >
+at position 43: 
+6.58551645279 (ddG = 0.0): <Residue SER het=  resseq=43 icode= >
+at position 51: 
+5.23919677734 (ddG = 0.0): <Residue SER het=  resseq=51 icode= >
+at position 95: 
+19.8917198181 (ddG = 0.0): <Residue SER het=  resseq=95 icode= >
+at position 100: 
+13.5444641113 (ddG = 0.0): <Residue SER het=  resseq=100 icode= >
+at position 106: 
+10.0189085007 (ddG = 0.0): <Residue SER het=  resseq=106 icode= >
+at position 50: 
+7.66657304764 (ddG = 0.0): <Residue THR het=  resseq=50 icode= >
+at position 27: 
+9.27767562866 (ddG = 0.64): <Residue THR het=  resseq=27 icode= >
+at position 90: 
+15.9223270416 (ddG = 0.0): <Residue VAL het=  resseq=90 icode= >
+at position 96: 
+16.0428981781 (ddG = 0.0): <Residue VAL het=  resseq=96 icode= >
+at position 102: 
+9.77597618103 (ddG = 0.0): <Residue VAL het=  resseq=102 icode= >
+at position 173: 
+6.33326148987 (ddG = 0.0): <Residue VAL het=  resseq=173 icode= >
+at position 180: 
+6.43714666367 (ddG = 0.0): <Residue VAL het=  resseq=180 icode= >
+at position 35: 
+14.0388708115 (ddG = 0.0): <Residue TYR het=  resseq=35 icode= >
+at position 160: 
+6.15717887878 (ddG = 0.0): <Residue TYR het=  resseq=160 icode= >
+{'1': {'molecule': 'human growth hormone', 'misc': '', 'engineered': 'yes', 'chain': 'a'}, '2': {'molecule': 'human growth hormone receptor (hghbp)', 'misc': '', 'engineered': 'yes', 'chain': 'b, c'}}
+pdb = '3hhr', sysId = 71, mutated = 'hGH', 2 = 'Mab 21'
+
+at position 26: 
+5.44752550125 (ddG = 0.0): <Residue ASP het=  resseq=26 icode= >
+at position 147: 
+18.2177791595 (ddG = 0.0): <Residue ASP het=  resseq=147 icode= >
+at position 169: 
+6.02687311172 (ddG = 0.0): <Residue ASP het=  resseq=169 icode= >
+at position 154: 
+17.2448711395 (ddG = 1.22): <Residue ASP het=  resseq=154 icode= >
+at position 30: 
+10.9448013306 (ddG = 0.0): <Residue GLU het=  resseq=30 icode= >
+at position 32: 
+5.58416891098 (ddG = 0.0): <Residue GLU het=  resseq=32 icode= >
+at position 33: 
+9.07580184937 (ddG = 0.0): <Residue GLU het=  resseq=33 icode= >
+at position 39: 
+7.56096792221 (ddG = 0.0): <Residue GLU het=  resseq=39 icode= >
+at position 88: 
+17.2882843018 (ddG = 0.0): <Residue GLU het=  resseq=88 icode= >
+at position 10: 
+6.09443283081 (ddG = 0.0): <Residue PHE het=  resseq=10 icode= >
+at position 31: 
+12.0208969116 (ddG = 0.0): <Residue PHE het=  resseq=31 icode= >
+at position 44: 
+6.65271759033 (ddG = 0.0): <Residue PHE het=  resseq=44 icode= >
+at position 54: 
+11.0967626572 (ddG = 0.0): <Residue PHE het=  resseq=54 icode= >
+at position 92: 
+18.9429664612 (ddG = 0.0): <Residue PHE het=  resseq=92 icode= >
+at position 146: 
+16.2177753448 (ddG = 0.0): <Residue PHE het=  resseq=146 icode= >
+at position 166: 
+8.51856231689 (ddG = 0.0): <Residue PHE het=  resseq=166 icode= >
+at position 97: 
+13.4964513779 (ddG = 0.94): <Residue PHE het=  resseq=97 icode= >
+at position 36: 
+9.52777099609 (ddG = 0.64): <Residue ILE het=  resseq=36 icode= >
+at position 38: 
+6.37299108505 (ddG = 0.0): <Residue LYS het=  resseq=38 icode= >
+at position 158: 
+14.3092088699 (ddG = 0.0): <Residue LYS het=  resseq=158 icode= >
+at position 6: 
+8.34678649902 (ddG = 0.0): <Residue LEU het=  resseq=6 icode= >
+at position 20: 
+6.53833246231 (ddG = 0.0): <Residue LEU het=  resseq=20 icode= >
+at position 23: 
+5.88571119308 (ddG = 0.0): <Residue LEU het=  resseq=23 icode= >
+at position 52: 
+6.60687828064 (ddG = 0.0): <Residue LEU het=  resseq=52 icode= >
+at position 87: 
+12.2167444229 (ddG = 0.0): <Residue LEU het=  resseq=87 icode= >
+at position 93: 
+15.2869615555 (ddG = 0.0): <Residue LEU het=  resseq=93 icode= >
+at position 162: 
+11.5790147781 (ddG = 0.0): <Residue LEU het=  resseq=162 icode= >
+at position 163: 
+8.69772720337 (ddG = 0.0): <Residue LEU het=  resseq=163 icode= >
+at position 177: 
+7.00778055191 (ddG = 0.0): <Residue LEU het=  resseq=177 icode= >
+at position 101: 
+10.8131465912 (ddG = 0.41): <Residue LEU het=  resseq=101 icode= >
+at position 156: 
+14.226272583 (ddG = 0.41): <Residue LEU het=  resseq=156 icode= >
+at position 157: 
+12.7109012604 (ddG = 0.41): <Residue LEU het=  resseq=157 icode= >
+at position 14: 
+6.3261179924 (ddG = 0.0): <Residue MET het=  resseq=14 icode= >
+at position 14: 
+6.3261179924 (ddG = 0.0): <Residue MET het=  resseq=14 icode= >
+at position 170: 
+6.89661693573 (ddG = 0.0): <Residue MET het=  resseq=170 icode= >
+at position 47: 
+5.22500610352 (ddG = 0.0): <Residue ASN het=  resseq=47 icode= >
+at position 99: 
+16.9951839447 (ddG = 0.0): <Residue ASN het=  resseq=99 icode= >
+at position 159: 
+12.676905632 (ddG = 0.0): <Residue ASN het=  resseq=159 icode= >
+at position 5: 
+6.1304473877 (ddG = 0.0): <Residue PRO het=  resseq=5 icode= >
+at position 89: 
+17.3549900055 (ddG = 0.0): <Residue PRO het=  resseq=89 icode= >
+at position 29: 
+6.08640289307 (ddG = 0.0): <Residue GLN het=  resseq=29 icode= >
+at position 40: 
+8.67508602142 (ddG = 0.0): <Residue GLN het=  resseq=40 icode= >
+at position 49: 
+7.8213801384 (ddG = 0.0): <Residue GLN het=  resseq=49 icode= >
+at position 91: 
+18.052192688 (ddG = 0.0): <Residue GLN het=  resseq=91 icode= >
+at position 181: 
+7.31920146942 (ddG = 0.0): <Residue GLN het=  resseq=181 icode= >
+at position 94: 
+17.8468914032 (ddG = 0.0): <Residue ARG het=  resseq=94 icode= >
+at position 183: 
+5.96133947372 (ddG = 0.0): <Residue ARG het=  resseq=183 icode= >
+at position 7: 
+7.85964393616 (ddG = 0.0): <Residue SER het=  resseq=7 icode= >
+at position 43: 
+6.58551645279 (ddG = 0.0): <Residue SER het=  resseq=43 icode= >
+at position 51: 
+5.23919677734 (ddG = 0.0): <Residue SER het=  resseq=51 icode= >
+at position 95: 
+19.8917198181 (ddG = 0.0): <Residue SER het=  resseq=95 icode= >
+at position 100: 
+13.5444641113 (ddG = 0.0): <Residue SER het=  resseq=100 icode= >
+at position 106: 
+10.0189085007 (ddG = 0.0): <Residue SER het=  resseq=106 icode= >
+at position 27: 
+9.27767562866 (ddG = 0.0): <Residue THR het=  resseq=27 icode= >
+at position 50: 
+7.66657304764 (ddG = 0.0): <Residue THR het=  resseq=50 icode= >
+at position 90: 
+15.9223270416 (ddG = 0.0): <Residue VAL het=  resseq=90 icode= >
+at position 96: 
+16.0428981781 (ddG = 0.0): <Residue VAL het=  resseq=96 icode= >
+at position 102: 
+9.77597618103 (ddG = 0.0): <Residue VAL het=  resseq=102 icode= >
+at position 173: 
+6.33326148987 (ddG = 0.0): <Residue VAL het=  resseq=173 icode= >
+at position 180: 
+6.43714666367 (ddG = 0.0): <Residue VAL het=  resseq=180 icode= >
+at position 35: 
+14.0388708115 (ddG = 0.0): <Residue TYR het=  resseq=35 icode= >
+at position 160: 
+6.15717887878 (ddG = 0.41): <Residue TYR het=  resseq=160 icode= >
+{'1': {'molecule': 'human growth hormone', 'misc': '', 'engineered': 'yes', 'chain': 'a'}, '2': {'molecule': 'human growth hormone receptor (hghbp)', 'misc': '', 'engineered': 'yes', 'chain': 'b, c'}}
+pdb = '3hhr', sysId = 72, mutated = 'hGH', 2 = 'Mab 3'
+
+at position 26: 
+5.44752550125 (ddG = 0.0): <Residue ASP het=  resseq=26 icode= >
+at position 107: 
+13.1270713806 (ddG = 0.0): <Residue ASP het=  resseq=107 icode= >
+at position 112: 
+6.82008886337 (ddG = 1.76): <Residue ASP het=  resseq=112 icode= >
+at position 30: 
+10.9448013306 (ddG = 0.0): <Residue GLU het=  resseq=30 icode= >
+at position 32: 
+5.58416891098 (ddG = 0.0): <Residue GLU het=  resseq=32 icode= >
+at position 118: 
+6.04233074188 (ddG = 0.0): <Residue GLU het=  resseq=118 icode= >
+at position 129: 
+14.4220466614 (ddG = 0.0): <Residue GLU het=  resseq=129 icode= >
+at position 10: 
+6.09443283081 (ddG = 0.0): <Residue PHE het=  resseq=10 icode= >
+at position 31: 
+12.0208969116 (ddG = 0.0): <Residue PHE het=  resseq=31 icode= >
+at position 97: 
+13.4964513779 (ddG = 0.0): <Residue PHE het=  resseq=97 icode= >
+at position 126: 
+9.83057117462 (ddG = 0.0): <Residue GLY het=  resseq=126 icode= >
+at position 121: 
+5.62726688385 (ddG = 0.0): <Residue ILE het=  resseq=121 icode= >
+at position 115: 
+5.86499929428 (ddG = 0.0): <Residue LYS het=  resseq=115 icode= >
+at position 6: 
+8.34678649902 (ddG = 0.0): <Residue LEU het=  resseq=6 icode= >
+at position 20: 
+6.53833246231 (ddG = 0.0): <Residue LEU het=  resseq=20 icode= >
+at position 23: 
+5.88571119308 (ddG = 0.0): <Residue LEU het=  resseq=23 icode= >
+at position 101: 
+10.8131465912 (ddG = 0.0): <Residue LEU het=  resseq=101 icode= >
+at position 113: 
+6.18010377884 (ddG = 0.0): <Residue LEU het=  resseq=113 icode= >
+at position 124: 
+5.94157314301 (ddG = 0.0): <Residue LEU het=  resseq=124 icode= >
+at position 128: 
+11.2195224762 (ddG = 0.0): <Residue LEU het=  resseq=128 icode= >
+at position 14: 
+6.3261179924 (ddG = 0.0): <Residue MET het=  resseq=14 icode= >
+at position 14: 
+6.3261179924 (ddG = 0.0): <Residue MET het=  resseq=14 icode= >
+at position 125: 
+8.86822509766 (ddG = 0.0): <Residue MET het=  resseq=125 icode= >
+at position 99: 
+16.9951839447 (ddG = 0.0): <Residue ASN het=  resseq=99 icode= >
+at position 109: 
+6.98991632462 (ddG = 0.0): <Residue ASN het=  resseq=109 icode= >
+at position 5: 
+6.1304473877 (ddG = 0.0): <Residue PRO het=  resseq=5 icode= >
+at position 29: 
+6.08640289307 (ddG = 0.0): <Residue GLN het=  resseq=29 icode= >
+at position 122: 
+7.27553462982 (ddG = 0.0): <Residue GLN het=  resseq=122 icode= >
+at position 94: 
+17.8468914032 (ddG = 0.0): <Residue ARG het=  resseq=94 icode= >
+at position 127: 
+5.34436273575 (ddG = 0.0): <Residue ARG het=  resseq=127 icode= >
+at position 7: 
+7.85964393616 (ddG = 0.0): <Residue SER het=  resseq=7 icode= >
+at position 95: 
+19.8917198181 (ddG = 0.0): <Residue SER het=  resseq=95 icode= >
+at position 100: 
+13.5444641113 (ddG = 0.0): <Residue SER het=  resseq=100 icode= >
+at position 106: 
+10.0189085007 (ddG = 0.0): <Residue SER het=  resseq=106 icode= >
+at position 108: 
+10.05356884 (ddG = 0.0): <Residue SER het=  resseq=108 icode= >
+at position 27: 
+9.27767562866 (ddG = 0.0): <Residue THR het=  resseq=27 icode= >
+at position 96: 
+16.0428981781 (ddG = 0.0): <Residue VAL het=  resseq=96 icode= >
+at position 102: 
+9.77597618103 (ddG = 0.0): <Residue VAL het=  resseq=102 icode= >
+at position 110: 
+10.6539754868 (ddG = 0.0): <Residue VAL het=  resseq=110 icode= >
+at position 111: 
+10.1774988174 (ddG = 0.0): <Residue TYR het=  resseq=111 icode= >
+{'1': {'molecule': 'human growth hormone', 'misc': '', 'engineered': 'yes', 'chain': 'a'}, '2': {'molecule': 'human growth hormone receptor (hghbp)', 'misc': '', 'engineered': 'yes', 'chain': 'b, c'}}
+pdb = '3hhr', sysId = 73, mutated = 'hGH', 2 = 'Mab 4'
+
+at position 26: 
+5.44752550125 (ddG = 0.0): <Residue ASP het=  resseq=26 icode= >
+at position 147: 
+18.2177791595 (ddG = 0.0): <Residue ASP het=  resseq=147 icode= >
+at position 169: 
+6.02687311172 (ddG = 0.0): <Residue ASP het=  resseq=169 icode= >
+at position 154: 
+17.2448711395 (ddG = 0.81): <Residue ASP het=  resseq=154 icode= >
+at position 30: 
+10.9448013306 (ddG = 0.0): <Residue GLU het=  resseq=30 icode= >
+at position 33: 
+9.07580184937 (ddG = 0.0): <Residue GLU het=  resseq=33 icode= >
+at position 32: 
+5.58416891098 (ddG = 0.81): <Residue GLU het=  resseq=32 icode= >
+at position 39: 
+7.56096792221 (ddG = 1.76): <Residue GLU het=  resseq=39 icode= >
+at position 10: 
+6.09443283081 (ddG = 0.0): <Residue PHE het=  resseq=10 icode= >
+at position 31: 
+12.0208969116 (ddG = 0.0): <Residue PHE het=  resseq=31 icode= >
+at position 44: 
+6.65271759033 (ddG = 0.0): <Residue PHE het=  resseq=44 icode= >
+at position 54: 
+11.0967626572 (ddG = 0.0): <Residue PHE het=  resseq=54 icode= >
+at position 146: 
+16.2177753448 (ddG = 0.0): <Residue PHE het=  resseq=146 icode= >
+at position 166: 
+8.51856231689 (ddG = 0.0): <Residue PHE het=  resseq=166 icode= >
+at position 36: 
+9.52777099609 (ddG = 3.64): <Residue ILE het=  resseq=36 icode= >
+at position 38: 
+6.37299108505 (ddG = 0.0): <Residue LYS het=  resseq=38 icode= >
+at position 158: 
+14.3092088699 (ddG = 0.0): <Residue LYS het=  resseq=158 icode= >
+at position 6: 
+8.34678649902 (ddG = 0.0): <Residue LEU het=  resseq=6 icode= >
+at position 20: 
+6.53833246231 (ddG = 0.0): <Residue LEU het=  resseq=20 icode= >
+at position 23: 
+5.88571119308 (ddG = 0.0): <Residue LEU het=  resseq=23 icode= >
+at position 52: 
+6.60687828064 (ddG = 0.0): <Residue LEU het=  resseq=52 icode= >
+at position 156: 
+14.226272583 (ddG = 0.0): <Residue LEU het=  resseq=156 icode= >
+at position 162: 
+11.5790147781 (ddG = 0.0): <Residue LEU het=  resseq=162 icode= >
+at position 163: 
+8.69772720337 (ddG = 0.0): <Residue LEU het=  resseq=163 icode= >
+at position 177: 
+7.00778055191 (ddG = 0.0): <Residue LEU het=  resseq=177 icode= >
+at position 157: 
+12.7109012604 (ddG = 1.05): <Residue LEU het=  resseq=157 icode= >
+at position 14: 
+6.3261179924 (ddG = 0.0): <Residue MET het=  resseq=14 icode= >
+at position 14: 
+6.3261179924 (ddG = 0.0): <Residue MET het=  resseq=14 icode= >
+at position 170: 
+6.89661693573 (ddG = 0.0): <Residue MET het=  resseq=170 icode= >
+at position 47: 
+5.22500610352 (ddG = 0.0): <Residue ASN het=  resseq=47 icode= >
+at position 159: 
+12.676905632 (ddG = 0.0): <Residue ASN het=  resseq=159 icode= >
+at position 5: 
+6.1304473877 (ddG = 0.0): <Residue PRO het=  resseq=5 icode= >
+at position 29: 
+6.08640289307 (ddG = 0.0): <Residue GLN het=  resseq=29 icode= >
+at position 49: 
+7.8213801384 (ddG = 0.0): <Residue GLN het=  resseq=49 icode= >
+at position 181: 
+7.31920146942 (ddG = 0.0): <Residue GLN het=  resseq=181 icode= >
+at position 40: 
+8.67508602142 (ddG = 0.64): <Residue GLN het=  resseq=40 icode= >
+at position 183: 
+5.96133947372 (ddG = 0.0): <Residue ARG het=  resseq=183 icode= >
+at position 7: 
+7.85964393616 (ddG = 0.0): <Residue SER het=  resseq=7 icode= >
+at position 43: 
+6.58551645279 (ddG = 0.0): <Residue SER het=  resseq=43 icode= >
+at position 51: 
+5.23919677734 (ddG = 0.0): <Residue SER het=  resseq=51 icode= >
+at position 50: 
+7.66657304764 (ddG = 0.0): <Residue THR het=  resseq=50 icode= >
+at position 27: 
+9.27767562866 (ddG = 1.14): <Residue THR het=  resseq=27 icode= >
+at position 173: 
+6.33326148987 (ddG = 0.0): <Residue VAL het=  resseq=173 icode= >
+at position 180: 
+6.43714666367 (ddG = 0.0): <Residue VAL het=  resseq=180 icode= >
+at position 35: 
+14.0388708115 (ddG = 0.0): <Residue TYR het=  resseq=35 icode= >
+at position 160: 
+6.15717887878 (ddG = 1.35): <Residue TYR het=  resseq=160 icode= >
+{'1': {'molecule': 'human growth hormone', 'misc': '', 'engineered': 'yes', 'chain': 'a'}, '2': {'molecule': 'human growth hormone receptor (hghbp)', 'misc': '', 'engineered': 'yes', 'chain': 'b, c'}}
+pdb = '3hhr', sysId = 74, mutated = 'hGH', 2 = 'Mab 5'
+
+at position 26: 
+5.44752550125 (ddG = 0.0): <Residue ASP het=  resseq=26 icode= >
+at position 147: 
+18.2177791595 (ddG = 0.0): <Residue ASP het=  resseq=147 icode= >
+at position 169: 
+6.02687311172 (ddG = 0.0): <Residue ASP het=  resseq=169 icode= >
+at position 154: 
+17.2448711395 (ddG = 0.41): <Residue ASP het=  resseq=154 icode= >
+at position 30: 
+10.9448013306 (ddG = 0.0): <Residue GLU het=  resseq=30 icode= >
+at position 33: 
+9.07580184937 (ddG = 0.0): <Residue GLU het=  resseq=33 icode= >
+at position 32: 
+5.58416891098 (ddG = 0.41): <Residue GLU het=  resseq=32 icode= >
+at position 39: 
+7.56096792221 (ddG = 3.11): <Residue GLU het=  resseq=39 icode= >
+at position 10: 
+6.09443283081 (ddG = 0.0): <Residue PHE het=  resseq=10 icode= >
+at position 31: 
+12.0208969116 (ddG = 0.0): <Residue PHE het=  resseq=31 icode= >
+at position 54: 
+11.0967626572 (ddG = 0.0): <Residue PHE het=  resseq=54 icode= >
+at position 146: 
+16.2177753448 (ddG = 0.0): <Residue PHE het=  resseq=146 icode= >
+at position 166: 
+8.51856231689 (ddG = 0.0): <Residue PHE het=  resseq=166 icode= >
+at position 44: 
+6.65271759033 (ddG = 3.64): <Residue PHE het=  resseq=44 icode= >
+at position 36: 
+9.52777099609 (ddG = 3.11): <Residue ILE het=  resseq=36 icode= >
+at position 38: 
+6.37299108505 (ddG = 0.0): <Residue LYS het=  resseq=38 icode= >
+at position 158: 
+14.3092088699 (ddG = 0.0): <Residue LYS het=  resseq=158 icode= >
+at position 6: 
+8.34678649902 (ddG = 0.0): <Residue LEU het=  resseq=6 icode= >
+at position 20: 
+6.53833246231 (ddG = 0.0): <Residue LEU het=  resseq=20 icode= >
+at position 23: 
+5.88571119308 (ddG = 0.0): <Residue LEU het=  resseq=23 icode= >
+at position 52: 
+6.60687828064 (ddG = 0.0): <Residue LEU het=  resseq=52 icode= >
+at position 156: 
+14.226272583 (ddG = 0.0): <Residue LEU het=  resseq=156 icode= >
+at position 162: 
+11.5790147781 (ddG = 0.0): <Residue LEU het=  resseq=162 icode= >
+at position 163: 
+8.69772720337 (ddG = 0.0): <Residue LEU het=  resseq=163 icode= >
+at position 177: 
+7.00778055191 (ddG = 0.0): <Residue LEU het=  resseq=177 icode= >
+at position 157: 
+12.7109012604 (ddG = 0.41): <Residue LEU het=  resseq=157 icode= >
+at position 14: 
+6.3261179924 (ddG = 0.0): <Residue MET het=  resseq=14 icode= >
+at position 14: 
+6.3261179924 (ddG = 0.0): <Residue MET het=  resseq=14 icode= >
+at position 170: 
+6.89661693573 (ddG = 0.0): <Residue MET het=  resseq=170 icode= >
+at position 47: 
+5.22500610352 (ddG = 0.0): <Residue ASN het=  resseq=47 icode= >
+at position 159: 
+12.676905632 (ddG = 0.0): <Residue ASN het=  resseq=159 icode= >
+at position 5: 
+6.1304473877 (ddG = 0.0): <Residue PRO het=  resseq=5 icode= >
+at position 29: 
+6.08640289307 (ddG = 0.0): <Residue GLN het=  resseq=29 icode= >
+at position 49: 
+7.8213801384 (ddG = 0.0): <Residue GLN het=  resseq=49 icode= >
+at position 181: 
+7.31920146942 (ddG = 0.0): <Residue GLN het=  resseq=181 icode= >
+at position 40: 
+8.67508602142 (ddG = 0.41): <Residue GLN het=  resseq=40 icode= >
+at position 183: 
+5.96133947372 (ddG = 0.0): <Residue ARG het=  resseq=183 icode= >
+at position 7: 
+7.85964393616 (ddG = 0.0): <Residue SER het=  resseq=7 icode= >
+at position 43: 
+6.58551645279 (ddG = 0.0): <Residue SER het=  resseq=43 icode= >
+at position 51: 
+5.23919677734 (ddG = 0.0): <Residue SER het=  resseq=51 icode= >
+at position 50: 
+7.66657304764 (ddG = 0.0): <Residue THR het=  resseq=50 icode= >
+at position 27: 
+9.27767562866 (ddG = 1.35): <Residue THR het=  resseq=27 icode= >
+at position 173: 
+6.33326148987 (ddG = 0.0): <Residue VAL het=  resseq=173 icode= >
+at position 180: 
+6.43714666367 (ddG = 0.0): <Residue VAL het=  resseq=180 icode= >
+at position 35: 
+14.0388708115 (ddG = 0.0): <Residue TYR het=  resseq=35 icode= >
+at position 160: 
+6.15717887878 (ddG = 0.81): <Residue TYR het=  resseq=160 icode= >
+{'1': {'molecule': 'human growth hormone', 'misc': '', 'engineered': 'yes', 'chain': 'a'}, '2': {'molecule': 'human growth hormone receptor (hghbp)', 'misc': '', 'engineered': 'yes', 'chain': 'b, c'}}
+pdb = '3hhr', sysId = 75, mutated = 'hGH', 2 = 'Mab 6'
+
+at position 26: 
+5.44752550125 (ddG = 0.0): <Residue ASP het=  resseq=26 icode= >
+at position 147: 
+18.2177791595 (ddG = 0.0): <Residue ASP het=  resseq=147 icode= >
+at position 154: 
+17.2448711395 (ddG = 0.0): <Residue ASP het=  resseq=154 icode= >
+at position 169: 
+6.02687311172 (ddG = 0.0): <Residue ASP het=  resseq=169 icode= >
+at position 32: 
+5.58416891098 (ddG = -0.71): <Residue GLU het=  resseq=32 icode= >
+at position 30: 
+10.9448013306 (ddG = 0.0): <Residue GLU het=  resseq=30 icode= >
+at position 33: 
+9.07580184937 (ddG = 0.0): <Residue GLU het=  resseq=33 icode= >
+at position 39: 
+7.56096792221 (ddG = 0.0): <Residue GLU het=  resseq=39 icode= >
+at position 166: 
+8.51856231689 (ddG = -0.71): <Residue PHE het=  resseq=166 icode= >
+at position 10: 
+6.09443283081 (ddG = 0.0): <Residue PHE het=  resseq=10 icode= >
+at position 31: 
+12.0208969116 (ddG = 0.0): <Residue PHE het=  resseq=31 icode= >
+at position 54: 
+11.0967626572 (ddG = 0.0): <Residue PHE het=  resseq=54 icode= >
+at position 146: 
+16.2177753448 (ddG = 0.0): <Residue PHE het=  resseq=146 icode= >
+at position 44: 
+6.65271759033 (ddG = 3.64): <Residue PHE het=  resseq=44 icode= >
+at position 36: 
+9.52777099609 (ddG = -0.71): <Residue ILE het=  resseq=36 icode= >
+at position 38: 
+6.37299108505 (ddG = 0.0): <Residue LYS het=  resseq=38 icode= >
+at position 158: 
+14.3092088699 (ddG = 0.0): <Residue LYS het=  resseq=158 icode= >
+at position 6: 
+8.34678649902 (ddG = 0.0): <Residue LEU het=  resseq=6 icode= >
+at position 20: 
+6.53833246231 (ddG = 0.0): <Residue LEU het=  resseq=20 icode= >
+at position 23: 
+5.88571119308 (ddG = 0.0): <Residue LEU het=  resseq=23 icode= >
+at position 52: 
+6.60687828064 (ddG = 0.0): <Residue LEU het=  resseq=52 icode= >
+at position 156: 
+14.226272583 (ddG = 0.0): <Residue LEU het=  resseq=156 icode= >
+at position 157: 
+12.7109012604 (ddG = 0.0): <Residue LEU het=  resseq=157 icode= >
+at position 162: 
+11.5790147781 (ddG = 0.0): <Residue LEU het=  resseq=162 icode= >
+at position 163: 
+8.69772720337 (ddG = 0.0): <Residue LEU het=  resseq=163 icode= >
+at position 177: 
+7.00778055191 (ddG = 0.0): <Residue LEU het=  resseq=177 icode= >
+at position 14: 
+6.3261179924 (ddG = 0.0): <Residue MET het=  resseq=14 icode= >
+at position 14: 
+6.3261179924 (ddG = 0.0): <Residue MET het=  resseq=14 icode= >
+at position 170: 
+6.89661693573 (ddG = 0.0): <Residue MET het=  resseq=170 icode= >
+at position 159: 
+12.676905632 (ddG = 0.0): <Residue ASN het=  resseq=159 icode= >
+at position 47: 
+5.22500610352 (ddG = 3.64): <Residue ASN het=  resseq=47 icode= >
+at position 5: 
+6.1304473877 (ddG = 0.0): <Residue PRO het=  resseq=5 icode= >
+at position 29: 
+6.08640289307 (ddG = 0.0): <Residue GLN het=  resseq=29 icode= >
+at position 40: 
+8.67508602142 (ddG = 0.0): <Residue GLN het=  resseq=40 icode= >
+at position 181: 
+7.31920146942 (ddG = 0.0): <Residue GLN het=  resseq=181 icode= >
+at position 49: 
+7.8213801384 (ddG = 0.41): <Residue GLN het=  resseq=49 icode= >
+at position 183: 
+5.96133947372 (ddG = 0.0): <Residue ARG het=  resseq=183 icode= >
+at position 7: 
+7.85964393616 (ddG = 0.0): <Residue SER het=  resseq=7 icode= >
+at position 51: 
+5.23919677734 (ddG = 0.0): <Residue SER het=  resseq=51 icode= >
+at position 43: 
+6.58551645279 (ddG = 0.41): <Residue SER het=  resseq=43 icode= >
+at position 27: 
+9.27767562866 (ddG = 0.0): <Residue THR het=  resseq=27 icode= >
+at position 50: 
+7.66657304764 (ddG = 0.64): <Residue THR het=  resseq=50 icode= >
+at position 173: 
+6.33326148987 (ddG = 0.0): <Residue VAL het=  resseq=173 icode= >
+at position 180: 
+6.43714666367 (ddG = 0.0): <Residue VAL het=  resseq=180 icode= >
+at position 160: 
+6.15717887878 (ddG = -0.94): <Residue TYR het=  resseq=160 icode= >
+at position 35: 
+14.0388708115 (ddG = 0.0): <Residue TYR het=  resseq=35 icode= >
+{'1': {'molecule': 'human growth hormone', 'misc': '', 'engineered': 'yes', 'chain': 'a'}, '2': {'molecule': 'human growth hormone receptor (hghbp)', 'misc': '', 'engineered': 'yes', 'chain': 'b, c'}}
+pdb = '3hhr', sysId = 76, mutated = 'hGH', 2 = 'Mab 7'
+
+at position 154: 
+17.2448711395 (ddG = 0.0): <Residue ASP het=  resseq=154 icode= >
+at position 169: 
+6.02687311172 (ddG = 0.0): <Residue ASP het=  resseq=169 icode= >
+at position 56: 
+5.46800231934 (ddG = 0.0): <Residue GLU het=  resseq=56 icode= >
+at position 65: 
+5.94613695145 (ddG = 0.0): <Residue GLU het=  resseq=65 icode= >
+at position 74: 
+12.2467737198 (ddG = 0.0): <Residue GLU het=  resseq=74 icode= >
+at position 66: 
+5.57506322861 (ddG = 0.41): <Residue GLU het=  resseq=66 icode= >
+at position 10: 
+6.09443283081 (ddG = 0.0): <Residue PHE het=  resseq=10 icode= >
+at position 54: 
+11.0967626572 (ddG = 0.0): <Residue PHE het=  resseq=54 icode= >
+at position 166: 
+8.51856231689 (ddG = 0.0): <Residue PHE het=  resseq=166 icode= >
+at position 58: 
+9.72555541992 (ddG = 0.0): <Residue ILE het=  resseq=58 icode= >
+at position 70: 
+9.54010009766 (ddG = 0.0): <Residue LYS het=  resseq=70 icode= >
+at position 158: 
+14.3092088699 (ddG = 0.0): <Residue LYS het=  resseq=158 icode= >
+at position 6: 
+8.34678649902 (ddG = 0.0): <Residue LEU het=  resseq=6 icode= >
+at position 52: 
+6.60687828064 (ddG = 0.0): <Residue LEU het=  resseq=52 icode= >
+at position 73: 
+13.8179712296 (ddG = 0.0): <Residue LEU het=  resseq=73 icode= >
+at position 156: 
+14.226272583 (ddG = 0.0): <Residue LEU het=  resseq=156 icode= >
+at position 157: 
+12.7109012604 (ddG = 0.0): <Residue LEU het=  resseq=157 icode= >
+at position 162: 
+11.5790147781 (ddG = 0.0): <Residue LEU het=  resseq=162 icode= >
+at position 163: 
+8.69772720337 (ddG = 0.0): <Residue LEU het=  resseq=163 icode= >
+at position 177: 
+7.00778055191 (ddG = 0.0): <Residue LEU het=  resseq=177 icode= >
+at position 14: 
+6.3261179924 (ddG = 0.0): <Residue MET het=  resseq=14 icode= >
+at position 14: 
+6.3261179924 (ddG = 0.0): <Residue MET het=  resseq=14 icode= >
+at position 170: 
+6.89661693573 (ddG = 0.0): <Residue MET het=  resseq=170 icode= >
+at position 159: 
+12.676905632 (ddG = 0.0): <Residue ASN het=  resseq=159 icode= >
+at position 5: 
+6.1304473877 (ddG = 0.0): <Residue PRO het=  resseq=5 icode= >
+at position 59: 
+9.23703575134 (ddG = 0.0): <Residue PRO het=  resseq=59 icode= >
+at position 69: 
+8.98706817627 (ddG = 0.0): <Residue GLN het=  resseq=69 icode= >
+at position 181: 
+7.31920146942 (ddG = 0.0): <Residue GLN het=  resseq=181 icode= >
+at position 183: 
+5.96133947372 (ddG = 1.76): <Residue ARG het=  resseq=183 icode= >
+at position 7: 
+7.85964393616 (ddG = 0.0): <Residue SER het=  resseq=7 icode= >
+at position 51: 
+5.23919677734 (ddG = 0.0): <Residue SER het=  resseq=51 icode= >
+at position 55: 
+9.96909141541 (ddG = 0.0): <Residue SER het=  resseq=55 icode= >
+at position 57: 
+11.2678089142 (ddG = 0.0): <Residue SER het=  resseq=57 icode= >
+at position 71: 
+11.2111654282 (ddG = 0.0): <Residue SER het=  resseq=71 icode= >
+at position 184: 
+9.08034038544 (ddG = 0.0): <Residue SER het=  resseq=184 icode= >
+at position 50: 
+7.66657304764 (ddG = 0.0): <Residue THR het=  resseq=50 icode= >
+at position 60: 
+5.09510326385 (ddG = 0.0): <Residue THR het=  resseq=60 icode= >
+at position 173: 
+6.33326148987 (ddG = 0.0): <Residue VAL het=  resseq=173 icode= >
+at position 180: 
+6.43714666367 (ddG = 0.0): <Residue VAL het=  resseq=180 icode= >
+at position 185: 
+7.80759382248 (ddG = 0.0): <Residue VAL het=  resseq=185 icode= >
+at position 160: 
+6.15717887878 (ddG = 0.0): <Residue TYR het=  resseq=160 icode= >
+{'1': {'molecule': 'human growth hormone', 'misc': '', 'engineered': 'yes', 'chain': 'a'}, '2': {'molecule': 'human growth hormone receptor (hghbp)', 'misc': '', 'engineered': 'yes', 'chain': 'b, c'}}
+pdb = '3hhr', sysId = 77, mutated = 'hGH', 2 = 'Mab 8'
+
+at position 112: 
+6.82008886337 (ddG = 0.0): <Residue ASP het=  resseq=112 icode= >
+at position 130: 
+13.6661653519 (ddG = 0.0): <Residue ASP het=  resseq=130 icode= >
+at position 154: 
+17.2448711395 (ddG = 0.0): <Residue ASP het=  resseq=154 icode= >
+at position 147: 
+18.2177791595 (ddG = 0.41): <Residue ASP het=  resseq=147 icode= >
+at position 107: 
+13.1270713806 (ddG = 0.94): <Residue ASP het=  resseq=107 icode= >
+at position 118: 
+6.04233074188 (ddG = 0.0): <Residue GLU het=  resseq=118 icode= >
+at position 129: 
+14.4220466614 (ddG = 0.0): <Residue GLU het=  resseq=129 icode= >
+at position 88: 
+17.2882843018 (ddG = 1.35): <Residue GLU het=  resseq=88 icode= >
+at position 92: 
+18.9429664612 (ddG = 0.0): <Residue PHE het=  resseq=92 icode= >
+at position 97: 
+13.4964513779 (ddG = 0.0): <Residue PHE het=  resseq=97 icode= >
+at position 139: 
+17.3670425415 (ddG = 0.0): <Residue PHE het=  resseq=139 icode= >
+at position 146: 
+16.2177753448 (ddG = 0.0): <Residue PHE het=  resseq=146 icode= >
+at position 126: 
+9.83057117462 (ddG = 0.0): <Residue GLY het=  resseq=126 icode= >
+at position 83: 
+9.96017169952 (ddG = 0.0): <Residue ILE het=  resseq=83 icode= >
+at position 121: 
+5.62726688385 (ddG = 0.0): <Residue ILE het=  resseq=121 icode= >
+at position 138: 
+14.6554365158 (ddG = 0.0): <Residue ILE het=  resseq=138 icode= >
+at position 145: 
+17.0945167542 (ddG = 0.0): <Residue LYS het=  resseq=145 icode= >
+at position 115: 
+5.86499929428 (ddG = 0.41): <Residue LYS het=  resseq=115 icode= >
+at position 82: 
+8.1518497467 (ddG = 0.0): <Residue LEU het=  resseq=82 icode= >
+at position 87: 
+12.2167444229 (ddG = 0.0): <Residue LEU het=  resseq=87 icode= >
+at position 93: 
+15.2869615555 (ddG = 0.0): <Residue LEU het=  resseq=93 icode= >
+at position 101: 
+10.8131465912 (ddG = 0.0): <Residue LEU het=  resseq=101 icode= >
+at position 113: 
+6.18010377884 (ddG = 0.0): <Residue LEU het=  resseq=113 icode= >
+at position 124: 
+5.94157314301 (ddG = 0.0): <Residue LEU het=  resseq=124 icode= >
+at position 128: 
+11.2195224762 (ddG = 0.0): <Residue LEU het=  resseq=128 icode= >
+at position 125: 
+8.86822509766 (ddG = 0.0): <Residue MET het=  resseq=125 icode= >
+at position 99: 
+16.9951839447 (ddG = 0.0): <Residue ASN het=  resseq=99 icode= >
+at position 109: 
+6.98991632462 (ddG = 0.0): <Residue ASN het=  resseq=109 icode= >
+at position 133: 
+20.2001037598 (ddG = 0.0): <Residue PRO het=  resseq=133 icode= >
+at position 89: 
+17.3549900055 (ddG = 2.16): <Residue PRO het=  resseq=89 icode= >
+at position 84: 
+13.1937971115 (ddG = 0.0): <Residue GLN het=  resseq=84 icode= >
+at position 91: 
+18.052192688 (ddG = 0.0): <Residue GLN het=  resseq=91 icode= >
+at position 137: 
+15.7606039047 (ddG = 0.0): <Residue GLN het=  resseq=137 icode= >
+at position 141: 
+19.2688369751 (ddG = 0.0): <Residue GLN het=  resseq=141 icode= >
+at position 122: 
+7.27553462982 (ddG = 0.41): <Residue GLN het=  resseq=122 icode= >
+at position 127: 
+5.34436273575 (ddG = 0.0): <Residue ARG het=  resseq=127 icode= >
+at position 134: 
+16.4364967346 (ddG = 0.0): <Residue ARG het=  resseq=134 icode= >
+at position 94: 
+17.8468914032 (ddG = 2.29): <Residue ARG het=  resseq=94 icode= >
+at position 85: 
+14.5971860886 (ddG = 0.0): <Residue SER het=  resseq=85 icode= >
+at position 95: 
+19.8917198181 (ddG = 0.0): <Residue SER het=  resseq=95 icode= >
+at position 100: 
+13.5444641113 (ddG = 0.0): <Residue SER het=  resseq=100 icode= >
+at position 106: 
+10.0189085007 (ddG = 0.0): <Residue SER het=  resseq=106 icode= >
+at position 108: 
+10.05356884 (ddG = 0.0): <Residue SER het=  resseq=108 icode= >
+at position 132: 
+16.0927810669 (ddG = 0.0): <Residue SER het=  resseq=132 icode= >
+at position 144: 
+13.9512500763 (ddG = 0.0): <Residue SER het=  resseq=144 icode= >
+at position 135: 
+19.6195487976 (ddG = 0.0): <Residue THR het=  resseq=135 icode= >
+at position 142: 
+15.9945039749 (ddG = 0.0): <Residue THR het=  resseq=142 icode= >
+at position 90: 
+15.9223270416 (ddG = 0.0): <Residue VAL het=  resseq=90 icode= >
+at position 96: 
+16.0428981781 (ddG = 0.0): <Residue VAL het=  resseq=96 icode= >
+at position 102: 
+9.77597618103 (ddG = 0.0): <Residue VAL het=  resseq=102 icode= >
+at position 110: 
+10.6539754868 (ddG = 0.0): <Residue VAL het=  resseq=110 icode= >
+at position 111: 
+10.1774988174 (ddG = 0.0): <Residue TYR het=  resseq=111 icode= >
+at position 143: 
+17.0662536621 (ddG = 0.0): <Residue TYR het=  resseq=143 icode= >
+{'1': {'molecule': 'human growth hormone', 'misc': '', 'engineered': 'yes', 'chain': 'a'}, '2': {'molecule': 'human growth hormone receptor (hghbp)', 'misc': '', 'engineered': 'yes', 'chain': 'b, c'}}
+pdb = '3hhr', sysId = 78, mutated = 'hGH', 2 = 'Mab 9'
+
+at position 130: 
+13.6661653519 (ddG = 0.0): <Residue ASP het=  resseq=130 icode= >
+at position 147: 
+18.2177791595 (ddG = 0.0): <Residue ASP het=  resseq=147 icode= >
+at position 154: 
+17.2448711395 (ddG = 0.0): <Residue ASP het=  resseq=154 icode= >
+at position 107: 
+13.1270713806 (ddG = 3.64): <Residue ASP het=  resseq=107 icode= >
+at position 112: 
+6.82008886337 (ddG = 3.64): <Residue ASP het=  resseq=112 icode= >
+at position 129: 
+14.4220466614 (ddG = 0.0): <Residue GLU het=  resseq=129 icode= >
+at position 88: 
+17.2882843018 (ddG = 1.22): <Residue GLU het=  resseq=88 icode= >
+at position 118: 
+6.04233074188 (ddG = 1.35): <Residue GLU het=  resseq=118 icode= >
+at position 92: 
+18.9429664612 (ddG = 0.0): <Residue PHE het=  resseq=92 icode= >
+at position 139: 
+17.3670425415 (ddG = 0.0): <Residue PHE het=  resseq=139 icode= >
+at position 146: 
+16.2177753448 (ddG = 0.0): <Residue PHE het=  resseq=146 icode= >
+at position 97: 
+13.4964513779 (ddG = 0.41): <Residue PHE het=  resseq=97 icode= >
+at position 126: 
+9.83057117462 (ddG = 0.0): <Residue GLY het=  resseq=126 icode= >
+at position 83: 
+9.96017169952 (ddG = 0.0): <Residue ILE het=  resseq=83 icode= >
+at position 121: 
+5.62726688385 (ddG = 0.0): <Residue ILE het=  resseq=121 icode= >
+at position 138: 
+14.6554365158 (ddG = 0.0): <Residue ILE het=  resseq=138 icode= >
+at position 115: 
+5.86499929428 (ddG = 0.0): <Residue LYS het=  resseq=115 icode= >
+at position 145: 
+17.0945167542 (ddG = 0.0): <Residue LYS het=  resseq=145 icode= >
+at position 82: 
+8.1518497467 (ddG = 0.0): <Residue LEU het=  resseq=82 icode= >
+at position 87: 
+12.2167444229 (ddG = 0.0): <Residue LEU het=  resseq=87 icode= >
+at position 93: 
+15.2869615555 (ddG = 0.0): <Residue LEU het=  resseq=93 icode= >
+at position 101: 
+10.8131465912 (ddG = 0.0): <Residue LEU het=  resseq=101 icode= >
+at position 113: 
+6.18010377884 (ddG = 0.0): <Residue LEU het=  resseq=113 icode= >
+at position 124: 
+5.94157314301 (ddG = 0.0): <Residue LEU het=  resseq=124 icode= >
+at position 128: 
+11.2195224762 (ddG = 0.0): <Residue LEU het=  resseq=128 icode= >
+at position 125: 
+8.86822509766 (ddG = 0.0): <Residue MET het=  resseq=125 icode= >
+at position 99: 
+16.9951839447 (ddG = 0.0): <Residue ASN het=  resseq=99 icode= >
+at position 109: 
+6.98991632462 (ddG = 3.64): <Residue ASN het=  resseq=109 icode= >
+at position 89: 
+17.3549900055 (ddG = 0.0): <Residue PRO het=  resseq=89 icode= >
+at position 133: 
+20.2001037598 (ddG = 0.0): <Residue PRO het=  resseq=133 icode= >
+at position 84: 
+13.1937971115 (ddG = 0.0): <Residue GLN het=  resseq=84 icode= >
+at position 91: 
+18.052192688 (ddG = 0.0): <Residue GLN het=  resseq=91 icode= >
+at position 122: 
+7.27553462982 (ddG = 0.0): <Residue GLN het=  resseq=122 icode= >
+at position 137: 
+15.7606039047 (ddG = 0.0): <Residue GLN het=  resseq=137 icode= >
+at position 141: 
+19.2688369751 (ddG = 0.0): <Residue GLN het=  resseq=141 icode= >
+at position 127: 
+5.34436273575 (ddG = 0.0): <Residue ARG het=  resseq=127 icode= >
+at position 134: 
+16.4364967346 (ddG = 0.0): <Residue ARG het=  resseq=134 icode= >
+at position 94: 
+17.8468914032 (ddG = 2.29): <Residue ARG het=  resseq=94 icode= >
+at position 85: 
+14.5971860886 (ddG = 0.0): <Residue SER het=  resseq=85 icode= >
+at position 100: 
+13.5444641113 (ddG = 0.0): <Residue SER het=  resseq=100 icode= >
+at position 106: 
+10.0189085007 (ddG = 0.0): <Residue SER het=  resseq=106 icode= >
+at position 108: 
+10.05356884 (ddG = 0.0): <Residue SER het=  resseq=108 icode= >
+at position 132: 
+16.0927810669 (ddG = 0.0): <Residue SER het=  resseq=132 icode= >
+at position 144: 
+13.9512500763 (ddG = 0.0): <Residue SER het=  resseq=144 icode= >
+at position 95: 
+19.8917198181 (ddG = 3.64): <Residue SER het=  resseq=95 icode= >
+at position 135: 
+19.6195487976 (ddG = 0.0): <Residue THR het=  resseq=135 icode= >
+at position 142: 
+15.9945039749 (ddG = 0.0): <Residue THR het=  resseq=142 icode= >
+at position 90: 
+15.9223270416 (ddG = 0.0): <Residue VAL het=  resseq=90 icode= >
+at position 96: 
+16.0428981781 (ddG = 0.0): <Residue VAL het=  resseq=96 icode= >
+at position 102: 
+9.77597618103 (ddG = 0.0): <Residue VAL het=  resseq=102 icode= >
+at position 110: 
+10.6539754868 (ddG = 0.0): <Residue VAL het=  resseq=110 icode= >
+at position 111: 
+10.1774988174 (ddG = 0.0): <Residue TYR het=  resseq=111 icode= >
+at position 143: 
+17.0662536621 (ddG = 0.0): <Residue TYR het=  resseq=143 icode= >
+{'1': {'molecule': 'fragment b of protein a complex', 'misc': '', 'engineered': 'yes', 'chain': 'c'}, '2': {'molecule': 'immunoglobulin fc', 'misc': '', 'engineered': 'yes', 'chain': 'd'}}
+pdb = '1fc2', sysId = 84, mutated = 'Protein A', 2 = 'IgG1'
+
+{'1': {'synonym': 'rnase a', 'chain': 'e', 'misc': '', 'molecule': 'ribonuclease a', 'ec_number': '3.1.27.5', 'ec': '3.1.27.5'}, '2': {'molecule': 'ribonuclease inhibitor', 'misc': '', 'synonym': 'rnase inhibitor, ribonuclease/angiogenin inhibitor', 'chain': 'i'}}
+pdb = '1dfj', sysId = 85, mutated = 'RNase inhibitor', 2 = 'RNase A'
+
+at position 437: 
+5.76602125168 (ddG = 2.6): <Residue GLU het=  resseq=437 icode= >
+{'1': {'chain': 'a, c', 'fragment': 'beta chain', 'misc': '', 'molecule': '14.3.d t cell antigen receptor', 'engineered': 'yes', 'mutation': 'yes'}, '2': {'molecule': 'staphylococcal enterotoxin c3', 'engineered': 'yes', 'misc': '', 'synonym': 'sec3', 'chain': 'b, d'}}
+pdb = '1JCK', sysId = 87, mutated = 'scTCR Vb', 2 = 'SEC3-1A4'
+
+{'1': {'chain': 'a, c', 'fragment': 'beta chain', 'misc': '', 'molecule': '14.3.d t cell antigen receptor', 'engineered': 'yes', 'mutation': 'yes'}, '2': {'molecule': 'staphylococcal enterotoxin c3', 'engineered': 'yes', 'misc': '', 'synonym': 'sec3', 'chain': 'b, d'}}
+pdb = '1jck', sysId = 88, mutated = 'SEC3', 2 = 'TCR Vb'
