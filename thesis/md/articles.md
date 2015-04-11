@@ -17,6 +17,8 @@ http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2242497
 
 # Узлы (непонятно, пригодится или нет)
 
+http://www.youtube.com/watch?v=LPrtYXcuapU#t=245 видеолекция с постнауки про узлы в плазмидах
+
 http://www.biophysics.org/portals/40/pdf/Program%20Book.pdf
 
 http://www-vendruscolo.ch.cam.ac.uk/leung12wrjpp.pdf
@@ -122,3 +124,7 @@ http://www.cs.cmu.edu/~hetu/pubs/goblintr.pdf
 http://www.jourlib.org/paper/93274#.VR02FTVZ6PQ посмотреть сейчас не могу умираю
 
 http://arxiv.org/abs/0710.2808 ну вот здесь например выравнивание. SDR ищутся как-то с помощью них. читала только аннотацию
+
+# HMM search
+
+http://www.biomedcentral.com/1471-2105/10/381 HMM SVM (2009)

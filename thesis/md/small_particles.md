@@ -27,3 +27,130 @@ observed in the parent crystal structures.
 
 по расстоянию.
  (нашла статью).
+
+# кхм, эксперименты
+
+Запустила rosetta alascan протокол на 2OSL.pdb (из которого выкинула воду, с ней ничего не запускалось). С модификацией - сканировала все, а не только амк из интерфейса. на L_H
+По времени вышло столько
+real	23m35.699s
+user	22m11.520s
+sys	0m45.855s
+
+Likely Hotspot Residues
+Q1A
+G16A
+Y31A
+H33A
+S42A
+P43A
+P45A
+I47A
+Y48A
+F61A
+Q88A
+W90A
+N93A
+P94A
+P95A
+T96A
+F97A
+G99A
+G100A
+R107A
+T108A
+S113A
+F115A
+F117A
+P118A
+S120A
+E122A
+Q123A
+G127A
+S161A
+D169A
+S170A
+S173A
+S175A
+K206A
+G211A
+N33A
+V37A
+L45A
+W47A
+N61A
+Y95A
+S99A
+G104A
+D105A
+W106A
+Y107A
+F108A
+W111A
+G114A
+P127A
+L132A
+K137A
+T139A
+G147A
+K151A
+D152A
+V160A
+H172A
+F174A
+L183A
+V189A
+V215A
+K217A
+K222A
+Y31A
+F61A
+Q89A
+Q146A
+K148A
+V149A
+S173A
+E194A
+G199A
+T205A
+Y94A
+R98A
+S211A
+T213A
+N171A
+======
+
+== Тот же эксперимент, но с фильтрацией по интерфейсам
+
+Likely Hotspot Residues
+H33A
+P43A
+P45A
+Q88A
+N93A
+P94A
+P95A
+T96A
+F97A
+R107A
+S113A
+F117A
+Q123A
+D169A
+L45A
+W47A
+N61A
+D105A
+W106A
+G114A
+F130A
+L132A
+K137A
+K151A
+H172A
+Q146A
+K148A
+================================================================================
+
+real	5m26.614s
+user	3m36.065s
+sys	0m8.216s
