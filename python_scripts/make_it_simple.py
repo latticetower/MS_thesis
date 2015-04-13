@@ -131,7 +131,8 @@ def find_interface_triangles(surface1, surface2, cutoff):
 #input: array of triangles
 #output: aminoacids
 def to_aa(triangles, surface):
-    #print(triangles)
+    if len(triangles) == 0:
+        return triangles
     #print surface[0]
     g = np.vectorize(lambda x: surface[0][x].get_parent())
     return np.unique(g(triangles))
@@ -148,7 +149,6 @@ def comb_index(n, k):
 
 class DTNode:
     def __init__(self, points):
-        self.visited = False
         self.points = points
         self.points_set = set()
         for p in points:
@@ -157,51 +157,64 @@ class DTNode:
     def intersect(self, other):
         return np.intersect1d(self.points, other.points)
     def __eq__(self, other):
-        return isinstance(other, DTNode) and self.visited == other.visited and len(np.setdiff1d(self.points, other.points)) ==0
+        return isinstance(other, DTNode) and len(np.setdiff1d(self.points, other.points)) == 0
     def __ne__(self, other):
         return not self.__eq__(other)
     def __hash__(self):
         return hash(tuple(self.points_set))
-
+def get_raduis(atom_name):
+    atom_radii = {"C": 1.7, "N": 1.55, "H": 1.2, "O": 1.52}#without hydrogen, simple van der Waals radii
+    if (atom_name in atom_radii):
+        return atom_radii[atom_name]
+    #TODO: raise exception if atom is unknown
+    #TODO: process situations where hydrogen doesn't appear in pdb file
 class DTGraph:
     def __init__(self, surface):
         self.nodes_map = {}
+        self.visited = {}
         #print(surface)
         idx = comb_index(4, 3)
         idx2 = comb_index(4, 2)
-        check_edge = lambda x1, x2: True
+        check_edge = lambda x1, x2 : get_raduis(x1.element) + get_raduis(x2.element) < x1 - x2
+        #print(get_raduis(surface[0][0].element))
         #print(surface[0])
         #print(idx)
         for k in surface[1].simplices:
             tetrahedra_nodes = np.asarray([DTNode(m) for m in k[idx]])
             for [p0, p1] in tetrahedra_nodes[idx2]:
-                t_edge = p0.intersect(p1)
+                t_edge = np.vectorize(lambda x: surface[0][x])(p0.intersect(p1))
+                if not p0 in self.nodes_map:
+                    self.nodes_map[p0] = set()
+                if not p0 in self.visited:
+                    self.visited[p0] = False
+                if not p1 in self.nodes_map:
+                    self.nodes_map[p1] = set()
+                if not p1 in self.visited:
+                    self.visited[p1] = False
                 if check_edge(*t_edge):
-                    if not p0 in self.nodes_map:
-                        self.nodes_map[p0] = set()
                     self.nodes_map[p0].add(p1)
-                    if not p1 in self.nodes_map:
-                        self.nodes_map[p1] = set()
                     self.nodes_map[p1].add(p0)
+
                 #print t_edge
-        print(self.nodes_map)
+        #print(self.nodes_map)
         #print(surface[1].simplices[:, idx])
         #f = np.vectorize(lambda x: set(x.flat))
         #g = np.vectorize(lambda x: x)
         #for k in surface[1].simplices[:, idx]:
         #    print k
-    def print_graph(self):
-        print(2)
-    # following method builds graph from given DT
-    def construct_dict(self, triangulation):
-        result = {}
-        for i in xrange(len(triangulation.simplices)):
-            simplex = triangulation.simplices[i]
-            for a in get_triangles(simplex):
-                if not result.has_key(a):
-                    result[a] = set()
-                result[a].add(i)
+    #recursive method for finding all paths in graph
+    def get_path(self, start_node):
+        self.visited[start_node] = True
+        result = []
+        for next_node in self.nodes_map[start_node]:
+            if not self.visited[next_node]:
+                result.append(next_node)
+                result.extend(self.get_path(next_node))
         return result
+    def find_pockets(self, triangles):
+        nodes = set()
+        # print(triangles)
+        return (np.unique(np.asarray([ x.points for triangle in triangles for x in self.get_path(DTNode(triangle)) ]))[0])
 
 
 if __name__ == "__main__":
@@ -213,6 +226,7 @@ if __name__ == "__main__":
     cutoff = 32
     triangles = find_interface_triangles(surface1, surface2, cutoff)
     G = DTGraph(surface1)
-    #G.print_graph()
-    print(to_aa(triangles, surface1))
+    nodes = np.setdiff1d(G.find_pockets(triangles), triangles)
+    print(to_aa(triangles, surface1))#this returns interface aminoacids with atoms located near surface2
+    print(to_aa(nodes, surface1))#this retuns all aminoacids forming pockets except ones shown previously
     print("got surfaces, next should find dist between them")
