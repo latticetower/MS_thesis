@@ -68,35 +68,6 @@ def read_pdb_info(filename, chain1= 'L', chain2 = 'H'):
         #list(map(lambda x : (x.get_vector()._ar), structure[0]['H'].get_atoms()))
     )
 
-#for given point, construct list of tetrahedra ids
-def construct_vertex_dict(triangulation):
-    point_no = len(triangulation.points)
-    result = [ set() for i in range(point_no)]
-    for i in xrange(len(triangulation.simplices)):
-        simplex = triangulation.simplices[i]
-        for a in simplex:
-            result[a].add(i)
-    return result
-#TODO: in progress
-#returns hash of (set -> set)
-def construct_edge_dict(triangulation):
-    result = {}
-    for i in xrange(len(triangulation.simplices)):
-        simplex = triangulation.simplices[i]
-        for a in get_simplices_2(simplex):
-            if not result.has_key(a):
-                result[a] = set()
-            result[a].add(i)
-    return result
-def construct_triangle_dict(triangulation):
-    result = {}
-    for i in xrange(len(triangulation.simplices)):
-        simplex = triangulation.simplices[i]
-        for a in get_triangles(simplex):
-            if not result.has_key(a):
-                result[a] = set()
-            result[a].add(i)
-    return result
 
 # second arg - to test on very-very small subset
 # should return triangulation, with some additional objects - neighbours of edge and neighbours of vertex
@@ -115,11 +86,8 @@ def process_chain(points, points_no = 0):
     tree = KDTree(p)
     #print (tri.vertex_neighbor_vertices)
     #print(tri.vertex_to_simplex)
-    by_vertex = construct_vertex_dict(tri)
-    by_edge = construct_edge_dict(tri)
-    by_triangle = construct_triangle_dict(tri)
     #print(tri.vertices)
-    return (p0, tri, tree, p, by_vertex, by_edge, by_triangle)
+    return (p0, tri, tree, p)
 
 def get_simplices_1(l) : return [np.hstack((l[: i], l[i + 1:])) for i in range(0, len(l))]
 
@@ -252,6 +220,10 @@ class DTGraph:
         #return np.asarray([ x.points for triangle in triangles for x in self.get_path(DTNode(triangle)) ])
         #)[0])
 
+class CHGraph:
+    def __init__(self, surface):
+        print(surface1[1].convex_hull)
+
 
 if __name__ == "__main__":
     logging.basicConfig(filename="logs/" + os.path.splitext(os.path.basename(__file__))[0] + ".log", level=logging.DEBUG)
@@ -272,3 +244,4 @@ if __name__ == "__main__":
     print(to_aa(triangles, surface1))#this returns interface aminoacids with atoms located near surface2
     print(to_aa(nodes, surface1))#this retuns all aminoacids forming pockets except ones shown previously
     print("got surfaces, next should find dist between them")
+    C = CHGraph(surface1)

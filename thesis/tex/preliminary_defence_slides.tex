@@ -1,0 +1,200 @@
+\documentclass[12pt, xcolor={dvipsnames}]{beamer}
+\mode<presentation>{
+  \usetheme{Madrid}
+  % or ...
+  \usecolortheme[named=OliveGreen]{structure}
+  \setbeamercovered{transparent}
+  % or whatever (possibly just delete it)
+}
+\usepackage[T2A,T1]{fontenc}
+\usepackage[utf8x]{inputenc}
+
+\usepackage[russian]{babel}
+
+\usepackage{graphics}
+
+\usepackage{wrapfig}
+\usepackage{tikz}
+
+\setlength{\parskip}{\baselineskip} 
+%\usepackage[T1]{fontenc}
+% or whatever
+
+%\usepackage[latin1]{inputenc}
+% or whatever
+
+%\usepackage{times}
+%\usepackage[T1]{fontenc}
+% Or whatever. Note that the encoding and the font should match. If T1
+% does not look nice, try deleting the line with the fontenc.
+
+
+\title[] % (optional, use only with long paper titles)
+{Анализ поверхности взаимодействия белков и поиск наиболее значительных позиций методом in silico Ala-scan}
+
+%subtitle
+%{Include Only If Paper Has a Subtitle}
+
+\author[] % (optional, use only with lots of authors)
+{
+  \texorpdfstring{
+	\begin{columns}
+	\column{.55\linewidth}
+		Магистрант:\\
+		Научный руководитель:
+	\column{.45\linewidth}
+		Татьяна Малыгина, СПбАУ\\
+		Павел Яковлев, BIOCAD
+	\end{columns}
+%	\\[30pt]
+%    \begin{columns}
+%        \column{.55\linewidth}
+%        Место прохождения практики:
+%        \column{.45\linewidth}
+%        BIOCAD
+%    \end{columns}
+   }
+   {\& }
+}
+
+% - Give the names in the same order as the appear in the paper.
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+
+%\institute[Universities of Somewhere and %Elsewhere] % (optional, but mostly needed)
+%{
+%  \inst{1}%
+%  кафедра МиИТ, СПбАУ
+%}
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in your street address.
+
+\date[DIPLOMA 2015] % (optional, should be abbreviation of conference name)
+{СПбАУ, 2015}
+% - Either use conference name or its abbreviation.
+% - Not really informative to the audience, more for people (including
+%   yourself) who are reading the slides online
+
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+
+%\beamerdefaultoverlayspecification{<+->}
+\setbeamertemplate{footline}[frame number]
+
+\begin{document}
+\begin{frame}
+  \titlepage
+\end{frame}
+%\begin{frame}{Outline}
+%  \tableofcontents
+  % You might wish to add the option [pausesections]
+%\end{frame}
+\section{Введение}
+\begin{frame}{Белки и энергия}
+1-2
+\end{frame}
+
+\begin{frame}{Энергетически горячие аминокислотные остатки}
+3
+\end{frame}
+\begin{frame}{Аланиновое сканирование}
+основная идея
+\end{frame}
+\begin{frame}{Ala-scan in silico}
+в чем идея, мб розетта аласкан протокол
+\end{frame}
+\begin{frame}{Почему проводят не по всем позициям}
+как выбирают
+
+методы
+\end{frame}
+
+\begin{frame}{Минусы первого метода}
+1. картинка с примером
+\end{frame}
+\begin{frame}{Гомология}
+минусы второго метода
+разнородные данные в базах, собираются вручную по результатам химического аласкана
+
+частичное несоответствие структур в базах
+
+разные базы. есть даже вики!
+\end{frame}
+\begin{frame}
+вывод - не существует универсального способа поиска 
+
+Формализуем задачу:
+что берем для оценки сцепленности - энергию
+\end{frame}
+
+\section{Поиск регионов}
+\begin{frame}{Триангуляция Делоне и двойственные графы}
+\end{frame}
+\begin{frame}{Алгоритм поиска протяженных регионов,}{ потенциально содержащих ,,энергетически горячие точки''}
+Включим в состав множества протяженных регионов, содержащих ,,энергетически горячие аминокислотные остатки'', следующее:
+\begin{itemize}
+\item аминокислоты, образующие ,,интерфейс'' взаимодействия с парной цепочкой или белком (с использованием отсечки по расстоянию от второй цепочки)
+\item аминокислоты, образующие поверхность ,,карманов'', находящихся в области взаимодействия пары белков
+\item не-гидрофобные аминокислоты, являющиеся соседними по отношению к аминокислотам, образующим интерфейс
+\item если интерфейс взаимодействия образован петлями, то добавим все аминокислоты, образующие петли 
+\end{itemize}
+
+
+\end{frame}
+\begin{frame}{,,Интерфейс''}
+\begin{itemize}
+\item определяем множество треугольников выпуклой оболочки, для которых хотя бы одна вершина удалена от центров атомов второй цепочки не больше, чем на выбранное значение отсечки
+\item Далее расширяем интерфейс
+\begin{itemize}
+\item шаг 1: добавляем к интерфейсу все треугольники выпуклой оболочки, содержащие атомы аминокислот, которые уже туда попали
+\item шаг 2: продлеваем регион до границы гидрофобности
+\item шаг 3: продлеваем регион за границы гидрофобности на 1 аминокислоту.
+\end{itemize}
+\end{itemize}
+
+В результате у нас есть одна или нескольких протяженных связных областей выпуклой оболочки, по которым можно восстановить аминокислоты.
+\end{frame}
+
+\begin{frame}{Обработка ,,карманов''}
+картинка как в caver
+
+схема графа
+
+поиск в ширину
+
+мб псевдокод?
+
+\end{frame}
+\begin{frame}{Петли}
+Известно, что петли являются наиболее подвижным и гибким структурным элементом вторичной структуры белка. Если область белок-белкового взаимодействия содержит петлю, вероятно, что энергетически горячий аминокислотный остаток, изменение которого приведет к существенному изменению всей петли в пространстве и, следовательно, существенному изменению взаимодействия.
+
+Из этих соображений имеет смысл включать в область поиска все аминокислоты, образующие петли, частично выходящие в область белок-белкового взаимодействия.
+
+КАРТИНКА?
+
+Перед добавлением петель треугольники триангуляции преобразуются в фрагменты последовательности аминокислот.
+
+\end{frame}
+\section{Аланиновое сканирование}
+
+\begin{frame}{Ala-scan in silico с фильтрацией данных}
+\textbf{Полученный алгоритм аланинового сканирования} основан на Rosetta alascan protocol и образован следующей последовательностью действий:
+\begin{itemize}
+\item читаем 2 цепочки атомов из PDB,
+\item выбираем аминокислоты одной из цепочек с помощью приведенного выше алгоритма поиска,
+\item для этих аминокислот пробуем провести мутагенез с использованием метода Монте-Карло выводим те, изменение которых привело к существенным изменениям свободной энергии системы.
+\end{itemize}
+\end{frame}
+
+\section{Результаты}
+%здесь должны быть скриншоты из PyMol,
+%на которых видно выделение областей в отдельный mesh
+
+\begin{frame}{}
+Вопросы?
+\end{frame}
+
+\end{document}
+
