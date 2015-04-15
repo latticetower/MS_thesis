@@ -6,3 +6,7 @@
 -необработанные записи в unprocessed.txt
 
 -ошибки игнорятся
+
+загружала файлы с rcsb с помощью rcsb_loader.py
+
+rcsb_processor.py их обрабатывает.
