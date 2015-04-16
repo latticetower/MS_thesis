@@ -22,6 +22,8 @@ DESCRIPTION
     #
     #print(dir(make_it_simple))
     cutoff = float(cutoff)
+    cmd.h_add(ch1)
+    cmd.h_add(ch2)
     atoms1 = cmd.get_model(ch1).atom
     atoms2 = cmd.get_model(ch2).atom
     surface1 = process_atom_chain(list(atoms1))
@@ -37,9 +39,10 @@ DESCRIPTION
     check_edge = lambda x1, x2 : x1.vdw + x2.vdw < cpv.distance(x1.coord, x2.coord)
     check_edge2 = lambda x1, x2 : True
     def check_edge3(x1, x2):
-        dist = cpv.distance(x1.coord, x2.coord) - (x1.vdw + x2.vdw)
+        #print("{0} <> {1} ({2}, {3}) ".format(cpv.distance(x1.coord, x2.coord), (x1.vdw + x2.vdw + 1.4*2),x1.coord))
+        dist = cpv.distance(x1.coord, x2.coord) - (x1.vdw + x2.vdw + 1.4*2)
         #print(dist)
-        return dist > 1
+        return dist > 0
     G = DTGraph(surface1)
     #nodes = G.find_pockets(triangles, check_edge3)
     #print(nodes)

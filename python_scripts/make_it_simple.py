@@ -209,6 +209,8 @@ class DTGraph:
                 self.nodes_map[p0][p1] = t_edge
                 self.nodes_map[p1][p0] = t_edge
                 #print t_edge
+        for s in self.ch_nodes:
+            self.visited[s] = True #to avoid selection of all outer non-convex area #won't help
         #print(self.nodes_map)
         #print([k for k in self.visited if not isinstance(k, DTNode)])
         #print(surface[1].simplices[:, idx])
@@ -225,7 +227,7 @@ class DTGraph:
             return []
         while True:
             start_node = self.queue.pop()
-            if not self.visited[start_node]:
+            if not self.visited[start_node] or self.is_ch_simplex(start_node):
                 break
             if (len(self.queue)==0):
                 return []
@@ -338,7 +340,6 @@ if __name__ == "__main__":
     surface1 = process_chain(pair_of_chains[0])
     surface2 = process_chain(pair_of_chains[1])
     cutoff = 5.0
-    cutoff = 33
     #while cutoff < 42.0:
     #    print(cutoff)
     #    cutoff += 1
