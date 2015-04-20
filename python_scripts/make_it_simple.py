@@ -78,16 +78,8 @@ def process_chain(points, points_no = 0):
     from scipy.spatial import Delaunay, KDTree
     p0 = points[: (points_no if points_no > 0 else len(points))]
     p = np.array(map(lambda x : (x.get_vector()._ar), p0))
-    #p = np.array(points[:points_no])
-    #print(p[0].get_coord()[1])
-    #from scipy.spatial import ConvexHull
-    #hull = ConvexHull(p)
-    #print(hull.simplices)
     tri = Delaunay(p)
     tree = KDTree(p)
-    #print (tri.vertex_neighbor_vertices)
-    #print(tri.vertex_to_simplex)
-    #print(tri.vertices)
     return (p0, tri, tree, p)
 
 #method returns chain with atom info
@@ -107,23 +99,16 @@ def get_triangles(l) : return [tuple({l[i], l[j], l[k]}) for i in range(0, len(l
 
 #method returns set of convex hull triangles from surface1, whose points lay within given cutoff near surface2
 def find_interface_triangles(surface1, surface2, cutoff):
-    #print(surface1[1].convex_hull)
-    #print(surface1[1].points[surface1[1].convex_hull])
-    #print(np.any(surface2[2].query(surface1[1].points[surface1[1].convex_hull], 1, 0, 2, cutoff)[0]<cutoff, axis = 1))
     triangles = surface1[1].convex_hull[np.any(surface2[2].query(
         surface1[1].points[surface1[1].convex_hull], 1, 0, 2, cutoff
-        )[0] < cutoff, axis=1)]
-    #print(triangles)
+        )[0] < cutoff, axis = 1)]
     return triangles
-    #print(surface1[1].convex_hull[.count_neighbors(surface1) > 0])
-    #surface2[2].count_neighbors(surface1)
 
 #input: array of triangles
 #output: aminoacids
 def to_aa(triangles, surface):
     if len(triangles) == 0:
         return triangles
-    #print surface[0]
     g = np.vectorize(lambda x: surface[0][x].get_parent())
     return np.unique(g(triangles))
 
@@ -141,7 +126,7 @@ from scipy.misc import comb
 def comb_index(n, k):
     count = comb(n, k, exact=True)
     index = np.fromiter(chain.from_iterable(combinations(range(n), k)),
-                        int, count=count*k)
+                        int, count = count * k)
     return index.reshape(-1, k)
 
 class DTNode:
@@ -156,14 +141,9 @@ class DTNode:
     def intersect(self, other):
         return np.intersect1d(self.points, other.points)
     def __eq__(self, other):
-        assert(len(self.points) == len(other.points) ==3)
-        #try:
+        assert(len(self.points) == len(other.points) == 3)
         cond3 = len(np.setdiff1d(self.points, other.points)) == 0
         return isinstance(other, DTNode) and isinstance(self, DTNode) and cond3
-        #except Exception:
-        #    print(self.points)
-        #    print(other.points)
-        #    return True
     def __ne__(self, other):
         return not self.__eq__(other)
     def __hash__(self):
@@ -173,7 +153,6 @@ def get_raduis(atom_name):
     atom_radii = {"C": 1.7, "N": 1.55, "H": 1.2, "O": 1.52, "S": 1.8}#without hydrogen, simple van der Waals radii
     if (atom_name in atom_radii):
         return atom_radii[atom_name]
-    #print atom_name
     #return 1.5
     #TODO: raise exception if atom is unknown
     #TODO: process situations where hydrogen doesn't appear in pdb file
@@ -183,12 +162,8 @@ class DTGraph:
         self.path_result = False
         self.nodes_map = {}
         self.visited = {}
-        #print(surface)
         idx = comb_index(4, 3)
         idx2 = comb_index(4, 2)
-        #print(get_raduis(surface[0][0].element))
-        #print(surface[0])
-        #print(idx)
         self.ch_nodes = set([DTNode(t) for t in surface[1].convex_hull])
         for k in surface[1].simplices:
             assert(len(k) == 4)
@@ -208,16 +183,8 @@ class DTGraph:
                     self.nodes_map[p1] = {}
                 self.nodes_map[p0][p1] = t_edge
                 self.nodes_map[p1][p0] = t_edge
-                #print t_edge
         for s in self.ch_nodes:
             self.visited[s] = True #to avoid selection of all outer non-convex area #won't help
-        #print(self.nodes_map)
-        #print([k for k in self.visited if not isinstance(k, DTNode)])
-        #print(surface[1].simplices[:, idx])
-        #f = np.vectorize(lambda x: set(x.flat))
-        #g = np.vectorize(lambda x: x)
-        #for k in surface[1].simplices[:, idx]:
-        #    print k
     def is_ch_simplex(self, node):
         assert(isinstance(node, DTNode))
         return node in self.ch_nodes
@@ -226,7 +193,7 @@ class DTGraph:
         if len(self.queue) == 0:
             return []
         while True:
-            start_node = self.queue.pop()
+            start_node = self.queue.pop(0)
             if not self.visited[start_node] or self.is_ch_simplex(start_node):
                 break
             if (len(self.queue)==0):
@@ -236,25 +203,16 @@ class DTGraph:
             return []
         result = set() #start_node
         for next_node in self.nodes_map[start_node]:
-            #print(next_node)
             edge = self.nodes_map[start_node][next_node]
-            #print(check_edge(*edge))
-            #print(self.visited[next_node])
-            #print(next_node in self.visited)
             if next_node in self.visited:
-                #print(1)
                 if check_edge(*edge) and not self.is_ch_simplex(next_node):
                     if not self.visited[next_node]:
-                        #print ("+add new node to queue")
-                        #print(next_node)
                         if not next_node in self.queue:
-                            self.queue.add(next_node)
-                #result.add(next_node)
+                            self.queue.append(next_node)
         result.add(start_node)
         return result
     def find_pockets(self, triangles, check_edge):
-        #print(triangles)
-        self.queue = set([DTNode(triangle) for triangle in triangles])
+        self.queue = [DTNode(triangle) for triangle in triangles]
         data = set()
         while (len(self.queue) > 0):
             #print("".join(["T" if self.visited[DTNode(t)] else "F" for t in triangles]))
@@ -265,37 +223,29 @@ class DTGraph:
         if(len(result) == 0):
             return result
         return (result)
-        #return np.unique(result)
-        #return #(np.unique(
-        #return np.asarray([ x.points for triangle in triangles for x in self.get_path(DTNode(triangle)) ])
-        #)[0])
+
 class CHNode:
     def __init__(self, points):
         self.points = points
         self.points_set = set()
         for p in points:
             self.points_set.add(p)
-        assert(len(points)==2)
-        assert(len(self.points_set)==2)
-        #print(self.points)
+        assert(len(points) == 2)
+        assert(len(self.points_set) == 2)
     def intersect(self, other):
         return np.intersect1d(self.points, other.points)
     def __eq__(self, other):
-        assert(len(self.points) == len(other.points) ==2)
+        assert(len(self.points) == len(other.points) == 2)
         #try:
         cond2 = len(np.setdiff1d(self.points, other.points)) == 0
         return isinstance(other, CHNode) and isinstance(self, CHNode) and cond2
-        #except Exception:
-        #    print(self.points)
-        #    print(other.points)
-        #    return True
     def __ne__(self, other):
         return not self.__eq__(other)
     def __hash__(self):
         return hash(tuple(self.points_set))
+
 class CHGraph:
     def __init__(self, surface):
-        #print(surface1[1].convex_hull)
         self.edges_list = {}
         self.triangles_list = {}
         idx = comb_index(3, 2)
@@ -316,9 +266,7 @@ class CHGraph:
                     self.edges_list[line] = set()
                 self.edges_list[line].add(l1)
                 self.edges_list[line].add(l2)
-                #self.edges_list[line].add(DTNode(triangle))
-        #for edge in self.edges_list:
-        #    for self.edges_list[edge]
+
 
 def extend_interface_1(triangles, surface):
     #print 1
@@ -333,6 +281,7 @@ def extend_interface_1(triangles, surface):
     #    ]))
     #print np.intersect1d(ppp, triangles)
     return triangles
+    
 if __name__ == "__main__":
     logging.basicConfig(filename="logs/" + os.path.splitext(os.path.basename(__file__))[0] + ".log", level=logging.DEBUG)
     logging.debug("============\nCalled simple script")
