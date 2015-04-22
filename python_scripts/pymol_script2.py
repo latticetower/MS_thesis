@@ -3,6 +3,8 @@
 #the following script should select regions with hotspot residues and show them
 #optionally to save them
 #
+# TODO: process correctly when chain doesn't present in structure
+#
 #
 from pymol import cmd, stored
 import sys, os, inspect
@@ -46,7 +48,10 @@ DESCRIPTION
     G = DTGraph(surface1)
     #nodes = G.find_pockets(triangles, check_edge3)
     #print(nodes)
-    nodes = np.setdiff1d(G.find_pockets(triangles, check_edge3), triangles)
+    def distance_func(x1, x2):
+        from chempy import cpv
+        return cpv.distance(x1.coord, x2.coord)
+    nodes = np.setdiff1d(G.find_pockets(triangles, check_edge3, distance_func), triangles)
     #cmd.select("EHRA_interface", )
     #print(to_aa2(triangles, surface1))
     str = "(%s)" % " or ".join(["(chain {0} and resi {1} and resn {2} and name {3})".format(

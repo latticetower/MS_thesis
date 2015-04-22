@@ -191,32 +191,31 @@ class DTGraph:
     def is_ch_simplex(self, node):
         assert(isinstance(node, DTNode))
         return node in self.ch_nodes
-    def dist(self, node1, node2):
+    def dist(self, node1, node2, distance_func):
         #print(node1)
         l1 = np.vectorize(lambda x: self.surface[0][x])(node1.points)
         l2 = np.vectorize(lambda x: self.surface[0][x])(node2.points)
         #d0 = ([self.surface[0][p1] for p1 in node1.points for p2 in node2.points]).pop()
         #sprint d0
         #print d0
-        from chempy import cpv
-        d1 = min([cpv.distance(p1.coord, p2.coord) for p1 in l1 for p2 in l2])
+        d1 = min([distance_func(p1, p2) for p1 in l1 for p2 in l2])
         #check_edge = lambda x1, x2 : x1.vdw + x2.vdw < cpv.distance(x1.coord, x2.coord)
         #print d1
         return d1
-    def find_nearest_node(self, next_node):
+    def find_nearest_node(self, next_node, distance_func):
         if next_node in self.nearest_triangles:
             return self.nearest_triangles[next_node]
         self.nearest_triangles[next_node] = next(iter(self.ch_nodes))
         for node in self.ch_nodes:
             #print node
-            if self.dist(next_node, node) < self.dist(next_node, self.nearest_triangles[next_node]):
+            if self.dist(next_node, node, distance_func) < self.dist(next_node, self.nearest_triangles[next_node], distance_func):
                 self.nearest_triangles[next_node] = node
     def check_dist(self, triangle, start_nodes):
         #print(self.nearest_triangles)
         #print(start_nodes)
         return self.nearest_triangles[triangle] in start_nodes
     # method adds all child nodes and returns current node (from queue)
-    def get_path_fragment(self, check_edge, start_nodes):
+    def get_path_fragment(self, check_edge, start_nodes, distance_func):
         if len(self.queue) == 0:
             return []
         while True:
@@ -232,21 +231,21 @@ class DTGraph:
         for next_node in self.nodes_map[start_node]:
             edge = self.nodes_map[start_node][next_node]
             if next_node in self.visited:
-                self.find_nearest_node(next_node)
+                self.find_nearest_node(next_node, distance_func)
                 if check_edge(*edge) and not self.is_ch_simplex(next_node) and self.check_dist(next_node, start_nodes):
                     if not self.visited[next_node]:
                         if not next_node in self.queue:
                             self.queue.append(next_node)
         result.add(start_node)
         return result
-    def find_pockets(self, triangles, check_edge):
+    def find_pockets(self, triangles, check_edge, distance_func):
         start_nodes = set([DTNode(triangle) for triangle in triangles])
         self.queue = [DTNode(triangle) for triangle in triangles]
         data = set()
         while (len(self.queue) > 0):
             #print("".join(["T" if self.visited[DTNode(t)] else "F" for t in triangles]))
             #print("".join(["T" if self.visited[t] else "F" for t in self.queue]))
-            for x in self.get_path_fragment(check_edge, start_nodes):
+            for x in self.get_path_fragment(check_edge, start_nodes, distance_func):
                 data.add(x)
         result = np.asarray([x.points for x in data])
         if(len(result) == 0):
@@ -332,10 +331,12 @@ if __name__ == "__main__":
         dist = (x1 - x2) - (get_raduis(x1.element) + get_raduis(x2.element))
         #print(dist)
         return dist > 0
+    def distance_func(x1, x2):
+        return x1 - x2
     #check_edge = lambda x1, x2 : (get_raduis(x1.element) + get_raduis(x2.element) < x1 - x2)
     #check_edge2 = lambda x1, x2 : True
     G = DTGraph(surface1)
-    nodes = np.setdiff1d(G.find_pockets(triangles, check_edge), triangles)
+    nodes = np.setdiff1d(G.find_pockets(triangles, check_edge, distance_func), triangles)
     #nodes = G.find_pockets(triangles, check_edge)
     print(nodes)
     #    if (len(nodes) > 0):
