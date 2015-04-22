@@ -162,9 +162,12 @@ class DTGraph:
         self.path_result = False
         self.nodes_map = {}
         self.visited = {}
+        self.nearest_triangles = {}
         idx = comb_index(4, 3)
         idx2 = comb_index(4, 2)
         self.ch_nodes = set([DTNode(t) for t in surface[1].convex_hull])
+        for node in self.ch_nodes:
+            self.nearest_triangles[node] = node
         for k in surface[1].simplices:
             assert(len(k) == 4)
             tetrahedra_nodes = np.asarray([DTNode(m) for m in k[idx]])
@@ -188,8 +191,32 @@ class DTGraph:
     def is_ch_simplex(self, node):
         assert(isinstance(node, DTNode))
         return node in self.ch_nodes
+    def dist(self, node1, node2):
+        #print(node1)
+        l1 = np.vectorize(lambda x: self.surface[0][x])(node1.points)
+        l2 = np.vectorize(lambda x: self.surface[0][x])(node2.points)
+        #d0 = ([self.surface[0][p1] for p1 in node1.points for p2 in node2.points]).pop()
+        #sprint d0
+        #print d0
+        from chempy import cpv
+        d1 = min([cpv.distance(p1.coord, p2.coord) for p1 in l1 for p2 in l2])
+        #check_edge = lambda x1, x2 : x1.vdw + x2.vdw < cpv.distance(x1.coord, x2.coord)
+        #print d1
+        return d1
+    def find_nearest_node(self, next_node):
+        if next_node in self.nearest_triangles:
+            return self.nearest_triangles[next_node]
+        self.nearest_triangles[next_node] = next(iter(self.ch_nodes))
+        for node in self.ch_nodes:
+            #print node
+            if self.dist(next_node, node) < self.dist(next_node, self.nearest_triangles[next_node]):
+                self.nearest_triangles[next_node] = node
+    def check_dist(self, triangle, start_nodes):
+        #print(self.nearest_triangles)
+        #print(start_nodes)
+        return self.nearest_triangles[triangle] in start_nodes
     # method adds all child nodes and returns current node (from queue)
-    def get_path_fragment(self, check_edge):
+    def get_path_fragment(self, check_edge, start_nodes):
         if len(self.queue) == 0:
             return []
         while True:
@@ -205,24 +232,29 @@ class DTGraph:
         for next_node in self.nodes_map[start_node]:
             edge = self.nodes_map[start_node][next_node]
             if next_node in self.visited:
-                if check_edge(*edge) and not self.is_ch_simplex(next_node):
+                self.find_nearest_node(next_node)
+                if check_edge(*edge) and not self.is_ch_simplex(next_node) and self.check_dist(next_node, start_nodes):
                     if not self.visited[next_node]:
                         if not next_node in self.queue:
                             self.queue.append(next_node)
         result.add(start_node)
         return result
     def find_pockets(self, triangles, check_edge):
+        start_nodes = set([DTNode(triangle) for triangle in triangles])
         self.queue = [DTNode(triangle) for triangle in triangles]
         data = set()
         while (len(self.queue) > 0):
             #print("".join(["T" if self.visited[DTNode(t)] else "F" for t in triangles]))
             #print("".join(["T" if self.visited[t] else "F" for t in self.queue]))
-            for x in self.get_path_fragment(check_edge):
+            for x in self.get_path_fragment(check_edge, start_nodes):
                 data.add(x)
         result = np.asarray([x.points for x in data])
         if(len(result) == 0):
             return result
         return (result)
+    # this version of pocket finder should use limited Dijkstra's search:
+    #
+    #def find_pockets2(self, triangles, check_edge):
 
 class CHNode:
     def __init__(self, points):
@@ -281,7 +313,7 @@ def extend_interface_1(triangles, surface):
     #    ]))
     #print np.intersect1d(ppp, triangles)
     return triangles
-    
+
 if __name__ == "__main__":
     logging.basicConfig(filename="logs/" + os.path.splitext(os.path.basename(__file__))[0] + ".log", level=logging.DEBUG)
     logging.debug("============\nCalled simple script")

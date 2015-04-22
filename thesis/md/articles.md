@@ -15,7 +15,7 @@ http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2242497
         Tanja Kortemme, David E. Kim and David Baker (10 February 2004)
         Sci. STKE 2004 (219), pl2. [DOI: 10.1126/stke.2192004pl2]
 
-# Узлы (непонятно, пригодится или нет)
+# Узлы (скорее всего не пригодится - основная задача не придумать метрику сцепленности, а придумать метод поиска ЭГО-подозрительных регионов)
 
 http://www.youtube.com/watch?v=LPrtYXcuapU#t=245 видеолекция с постнауки про узлы в плазмидах
 
@@ -34,6 +34,8 @@ dblp.uni-trier.de/pers/hd/e/Edelsbrunner:Herbert
 https://books.google.ru/books?id=ZN-QYNl3ZtwC&pg=PA186&lpg=PA186&dq=knot+theory+distance+measure&source=bl&ots=WTAAU_PIX3&sig=xKIYuAvnjXGIbtCxIaPfsedR1ok&hl=ru&sa=X&ei=Mt75VK2eLcLkUqDMgugE&ved=0CB0Q6AEwAA#v=onepage&q=knot%20theory%20distance%20measure&f=false
 
 - ссылка выше - содержит примеры метрик (Примерно как моя)
+
+- у SE (Тимур Тураев) в репозитории появилось нечто с расстоянием Вассерштейна, ну и оказывается у этого расстояния есть псевдоним http://en.wikipedia.org/wiki/Earth_mover%27s_distance
 
 # не пригодится, просто забавно
 
@@ -128,3 +130,13 @@ http://arxiv.org/abs/0710.2808 ну вот здесь например выра�
 # HMM search
 
 http://www.biomedcentral.com/1471-2105/10/381 HMM SVM (2009)
+
+# их советовала Кира, кстати кстати
+http://dx.doi.org/10.1016/j.cad.2006.07.007
+
+# critical specific contact
+http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3632532/ надо понять, чем отличается от того, что у меня
+
+http://www.ncbi.nlm.nih.gov/pubmed/24568581
+
+http://www.ncbi.nlm.nih.gov/pubmed/19179356 O-rings
