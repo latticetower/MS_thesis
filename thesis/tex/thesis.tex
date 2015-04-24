@@ -1,0 +1,111 @@
+\documentclass[%
+master,         % тип документа
+subf,           % подключить и настроить пакет subfig для вложенной нумерации рисунков
+href,           % подключить и настроить пакет hyperref
+colorlinks=true % цветные гиперссылки
+%,times         % шрифт Times как основной
+%,fixint=false  % отключить прямые знаки интегралов
+]{disser}
+
+\usepackage[
+  a4paper, mag=1000,
+  left=2.5cm, right=1cm, top=2cm, bottom=2cm, headsep=0.7cm, footskip=1cm
+]{geometry}
+\usepackage[T2A]{fontenc}
+\usepackage[cp1251]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{algorithm}
+\usepackage{cleveref}
+\usepackage{footnote}
+\usepackage{totcount}
+\usepackage{algpseudocode}
+\ifpdf\usepackage{epstopdf}\fi
+
+% Номера страниц снизу и по центру
+\pagestyle{footcenter}
+\chapterpagestyle{footcenter}
+
+% Точка с запятой в качестве разделителя между номерами цитирований
+%\setcitestyle{semicolon}
+
+% Использовать полужирное начертание для векторов
+\let\vec=\mathbf
+
+% Включать подсекции в оглавление
+\setcounter{tocdepth}{2}
+\graphicspath{{../images/}}
+\captionsetup[subfigure]{labelformat=parens, labelsep=space}
+\bibliographystyle{gost705}
+\regtotcounter{page}
+\regtotcounter{figure}
+\regtotcounter{table}
+
+\newtotcounter{figuresnum}
+\def\oldfigure{} \let\oldfigure=\figure
+\def\figure{\stepcounter{figuresnum}\oldfigure}
+
+%\newtotcounter{tablesnum}
+%\def\oldtable{} \let\oldtable=\table
+%\def\table{\stepcounter{tablesnum}\oldtable}
+
+\begin{document}
+\algnotext{EndFor}
+\algnotext{EndIf}
+\algnotext{EndWhile}
+\newcommand*\thesubfloatfigure{\themainfigure\alph{subfloatfigure}}
+
+\institution{\begin{figure}
+	\includegraphics[scale = 0.250]{aulogo.eps}
+\end{figure}
+}
+
+% Имя лица, допускающего к защите (зав. кафедрой)
+
+\apname{А.В. Омельченко}
+
+\title{\bf{ДИССЕРТАЦИЯ}\\[-14pt]\textnormal{НА СОИСКАНИЕ УЧЕНОЙ СТЕПЕНИ}\\МАГИСТРА}
+
+\topic{Анализ поверхности взаимодействия белков и поиск наиболее значительных позиций методом in silico Ala-scan \vspace{-1cm}}
+
+% Автор
+\author        {Т.С. Малыгина} % ФИО
+\coursenum {010900.68} % Номер направления
+\course       {Прикладные математика и физика \vspace{-1cm}}
+
+% Научный руководитель
+\sa      {П.А. Яковлев}
+\sastatus{}
+% Рецензент
+\rev      {К. Вяткина}
+\revstatus{к.ф.-м.н., с.н.с.}
+
+
+% Город и год
+\city{Санкт-Петербург}
+\date{\number\year}
+\maketitle
+\pagebreak
+
+%\input{ackn}
+%\input{abstract}
+
+% Содержание
+\tableofcontents
+% Введение
+\input{introduction}
+% Глава 1
+\input{chapter1}
+% Глава 2
+\input{chapter2}
+% Глава 2
+\input{chapter3}
+
+% Заключение
+\input{conclusion}
+
+
+% Список литературы
+
+\bibliography{thesis}
+
+\end{document}
