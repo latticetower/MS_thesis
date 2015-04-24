@@ -66,13 +66,12 @@ DESCRIPTION
     print(chains_ss_info.keys())
     aa_with_coils = extend_to_coils(triangles, chains_ss_info[ch1[0]], surface1, lambda x: x.resi)
     print aa_with_coils
-    str = "(%s)" % " or ".join(["(chain {0} and resi {1} and resn {2} and name {3})".format(
-            aa_info.chain,
-            aa_info.resi,
-            aa_info.resn,
-            aa_info.name
+    str = "(%s)" % " or ".join(["(chain {0} and resi {1})".format(
+            ch1[0],
+            aa_info
             )
-        for aa_info in to_aa2(aa_with_coils, surface1)])
+        for aa_info in aa_with_coils])
+    print str
     cmd.select("EHRA_coils", str)
     #print(surface1)
     print "Hello, PyMOLers"

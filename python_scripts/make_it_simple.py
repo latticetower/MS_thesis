@@ -50,25 +50,30 @@ def print_accumulated():
 ######################################
 
 def group_elements(data):
-    coils = ['-', 'B', 'T', 'E']
+    from itertools import groupby
+    coils = ['-', 'S', 'T']
     last_coil = None
     start_coil_pos = -1
     protein_coils = [] #contains tuples - (start position, end upper bound position, coil type)
     last_key = -1
-    for (key, value) in data:
-        if value in coils:
-            if last_coil != value:
-                if last_coil != None:
-                    protein_coils.append((start_coil_pos, last_key, value))
-                last_coil = value
-                start_coil_pos = key
-        else:
-            if last_coil != None:
-                protein_coils.append((start_coil_pos, last_key, last_coil))
-            last_coil = None
-        last_key = key
-    if last_coil != None:
-        protein_coils.append((start_coil_pos, last_key, value))
+    #print data
+    l = [list(g) for k, g in groupby(data, lambda x: x[1])]
+    protein_coils = map(lambda x:(min(x,key = lambda y: y[0])[0],max(x,key=lambda y: y[0])[0],x[0][1]), l)
+    #for (key, value) in data:
+    #    if value in coils:
+    #        if last_coil != value:
+    #            if last_coil != None:
+    #                protein_coils.append((start_coil_pos, last_key, value))
+    #            last_coil = value
+    #            start_coil_pos = key
+    #    else:
+    #        if last_coil != None:
+    #            protein_coils.append((start_coil_pos, last_key, last_coil))
+    #        last_coil = None
+    #    last_key = key
+    #if last_coil != None:
+    #    protein_coils.append((start_coil_pos, last_key, value))
+    #print protein_coils
     return protein_coils
 
 @timed
@@ -99,11 +104,11 @@ def read_dssp_info(filename,
     #    print key.get_parent().get_id()
     #return
     for chain in (chain1, chain2):
-        data = [
+        data = sorted([
                 (key_transf1(key), value)
                 for (key, value, v, e, r,u) in dssp
                 if key_transf2(key) == chain
-            ]
+            ])
         chains_data[chain] = group_elements(data)
     return chains_data
 
@@ -353,22 +358,30 @@ def extend_interface_1(triangles, surface):
     return triangles
 
 #following method adds coil aminoacids to aminoacids touched by interface_triangles atoms
-def extend_to_coils(interface_triangles, chain_info, surface, get_res_seq = lambda x: x.get_parent().get_id()[1]):
+def extend_to_coils(interface_triangles,
+                    chain_info,
+                    surface,
+                    get_res_seq = lambda x: x.get_parent().get_id()[1]
+                    ):
     if len(interface_triangles) == 0:
         return interface_triangles
     g = np.vectorize(lambda x: long(get_res_seq(surface[0][x])))
     result =  np.unique(g(interface_triangles))
     coil_fragments = set()
     distinct_aa = set()
+    #print chain_info
     for aa_id in result:
+        #print "aa_id "
+        #print aa_id
         coil = [c for c in chain_info if aa_id >= c[0] and aa_id <= c[1] ]
+        #print coil
         if len(coil) > 0:
             for c in coil:
                 coil_fragments.add(c)
         else:
             distinct_aa.add(aa_id)
     for fragment in coil_fragments:
-        for k in xrange(fragment[0], fragment[1]):
+        for k in range(fragment[0], fragment[1]+1):
             distinct_aa.add(k)
     return np.unique(np.asarray(list(distinct_aa)))
 
