@@ -49,24 +49,63 @@ def print_accumulated():
 # actual functions
 ######################################
 
+def group_elements(data):
+    coils = ['-', 'B', 'T', 'E']
+    last_coil = None
+    start_coil_pos = -1
+    protein_coils = [] #contains tuples - (start position, end upper bound position, coil type)
+    last_key = -1
+    for (key, value) in data:
+        if value in coils:
+            if last_coil != value:
+                if last_coil != None:
+                    protein_coils.append((start_coil_pos, last_key, value))
+                last_coil = value
+                start_coil_pos = key
+        else:
+            if last_coil != None:
+                protein_coils.append((start_coil_pos, last_key, last_coil))
+            last_coil = None
+        last_key = key
+    if last_coil != None:
+        protein_coils.append((start_coil_pos, last_key, value))
+    return protein_coils
+
 @timed
 def read_pdb_info(filename, chain1= 'L', chain2 = 'H'):
     parser = PDBParser()
     structure = parser.get_structure('', filename)
-    #model = structure[0]
-    #dssp = DSSP(model, filename, dssp='mkdssp')
-    # DSSP data is accessed by a tuple (chain_id, res_id)
-    #a_key = list(dssp)[2]
-    #for (key, value, v, e, r,u) in dssp:
-    #    print value
-    # residue object, secondary structure, solvent accessibility,
-    # relative accessiblity, phi, psi
     return (
         list(structure[0][chain1].get_atoms()),
         list(structure[0][chain2].get_atoms()) # ,
         #list(map(lambda x : (x.get_vector()._ar), structure[0]['L'].get_atoms())),
         #list(map(lambda x : (x.get_vector()._ar), structure[0]['H'].get_atoms()))
     )
+
+@timed
+def read_dssp_info(filename,
+                    chain1= 'L', chain2 = 'H',
+                    key_transf1 = lambda x: long(x.get_id()[1]),
+                    key_transf2 = lambda x: x.get_parent().get_id()):
+    chains_data = {}
+    parser = PDBParser()
+    structure = parser.get_structure('', filename)
+    model = structure[0]
+    dssp = DSSP(model, filename, dssp='mkdssp')
+    # DSSP data is accessed by a tuple (chain_id, res_id)
+    #a_key = list(dssp)[2]
+    #last_key = -1
+    #for (key, value, v, e, r,u) in dssp:
+    #    print key.get_parent().get_id()
+    #return
+    for chain in (chain1, chain2):
+        data = [
+                (key_transf1(key), value)
+                for (key, value, v, e, r,u) in dssp
+                if key_transf2(key) == chain
+            ]
+        chains_data[chain] = group_elements(data)
+    return chains_data
 
 
 # second arg - to test on very-very small subset
@@ -313,10 +352,32 @@ def extend_interface_1(triangles, surface):
     #print np.intersect1d(ppp, triangles)
     return triangles
 
+#following method adds coil aminoacids to aminoacids touched by interface_triangles atoms
+def extend_to_coils(interface_triangles, chain_info, surface, get_res_seq = lambda x: x.get_parent().get_id()[1]):
+    if len(interface_triangles) == 0:
+        return interface_triangles
+    g = np.vectorize(lambda x: long(get_res_seq(surface[0][x])))
+    result =  np.unique(g(interface_triangles))
+    coil_fragments = set()
+    distinct_aa = set()
+    for aa_id in result:
+        coil = [c for c in chain_info if aa_id >= c[0] and aa_id <= c[1] ]
+        if len(coil) > 0:
+            for c in coil:
+                coil_fragments.add(c)
+        else:
+            distinct_aa.add(aa_id)
+    for fragment in coil_fragments:
+        for k in xrange(fragment[0], fragment[1]):
+            distinct_aa.add(k)
+    return np.unique(np.asarray(list(distinct_aa)))
+
 if __name__ == "__main__":
     logging.basicConfig(filename="logs/" + os.path.splitext(os.path.basename(__file__))[0] + ".log", level=logging.DEBUG)
     logging.debug("============\nCalled simple script")
     pair_of_chains = read_pdb_info(os.path.abspath('../test_data/2OSL.pdb'))
+    chains_ss_info = read_dssp_info(os.path.abspath('../test_data/2OSL.pdb'))
+    #print chains_ss_info
     surface1 = process_chain(pair_of_chains[0])
     surface2 = process_chain(pair_of_chains[1])
     cutoff = 5.0
@@ -339,6 +400,8 @@ if __name__ == "__main__":
     nodes = np.setdiff1d(G.find_pockets(triangles, check_edge, distance_func), triangles)
     #nodes = G.find_pockets(triangles, check_edge)
     print(nodes)
+    aa_with_coils = extend_to_coils(triangles, chains_ss_info['L'], surface1)
+    print aa_with_coils
     #    if (len(nodes) > 0):
     #print(to_aa(nodes, surface1))#this retuns all aminoacids forming pockets except ones shown previously
     print("end of processing")

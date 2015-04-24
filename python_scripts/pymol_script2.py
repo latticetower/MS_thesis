@@ -14,7 +14,7 @@ import make_it_simple
 
 # method selects aminoacids in energy hotspot residues area (EHRA)
 # (some nice abbreviation wouldn't hurt anyone =))
-def selectEHRA(ch1, ch2, cutoff = 3.5):
+def selectEHRA(ch1, ch2, filename, cutoff = 3.5):
     '''
 DESCRIPTION
     Brief description what this function does goes here
@@ -30,6 +30,7 @@ DESCRIPTION
     atoms2 = cmd.get_model(ch2).atom
     surface1 = process_atom_chain(list(atoms1))
     surface2 = process_atom_chain(list(atoms2))
+    chains_ss_info = read_dssp_info(filename, ch1[0], ch2[0]) #this is temporary
     triangles = find_interface_triangles(surface1, surface2, cutoff)
     str = " or ".join(["(chain {0} and resi {1} and resn {2} and name {3})".format(
             aa_info.chain, aa_info.resi, aa_info.resn, aa_info.name)
@@ -62,6 +63,17 @@ DESCRIPTION
             )
         for aa_info in to_aa2(nodes, surface1)])
     cmd.select("EHRA_triang", str)
+    print(chains_ss_info.keys())
+    aa_with_coils = extend_to_coils(triangles, chains_ss_info[ch1[0]], surface1, lambda x: x.resi)
+    print aa_with_coils
+    str = "(%s)" % " or ".join(["(chain {0} and resi {1} and resn {2} and name {3})".format(
+            aa_info.chain,
+            aa_info.resi,
+            aa_info.resn,
+            aa_info.name
+            )
+        for aa_info in to_aa2(aa_with_coils, surface1)])
+    cmd.select("EHRA_coils", str)
     #print(surface1)
     print "Hello, PyMOLers"
     print "You passed in %s and %s" % (ch1, ch2)
