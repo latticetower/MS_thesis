@@ -57,8 +57,19 @@ def group_elements(data):
     protein_coils = [] #contains tuples - (start position, end upper bound position, coil type)
     last_key = -1
     #print data
-    l = [list(g) for k, g in groupby(data, lambda x: x[1]) if k in coils]
-    protein_coils = map(lambda x:(min(x,key = lambda y: y[0])[0],max(x,key=lambda y: y[0])[0],x[0][1]), l)
+    l = [el for el in data if el[1] in coils]
+    #l = sorted([el for k, g in groupby(data, lambda x: x[1]) if k in coils for el in list(g)])
+    #protein_coils = map(lambda x:(min(x,key = lambda y: y[0])[0],max(x,key=lambda y: y[0])[0],x[0][1]), l)
+    protein_coils = []
+    for (k, v) in l:
+        if last_key != k - 1:
+            if last_key > 0:
+                protein_coils.append((start_coil_pos, last_key))
+            start_coil_pos = k
+        last_key = k
+    if last_key > 0:
+        protein_coils.append((start_coil_pos, last_key))
+    #print protein_coils
     #for (key, value) in data:
     #    if value in coils:
     #        if last_coil != value:
@@ -403,11 +414,11 @@ def extend_to_coils(interface_triangles,
     coil_fragments = set()
     distinct_aa = set()
     logging.debug("print chains information")
-    #print chain_info
+    print chain_info
     for aa_id in result:
         #print "aa_id "
         #print aa_id
-        coil = [c for c in chain_info if (aa_id) - (c[0]) >= 0 and (aa_id) - (c[1]) <= 0 ]
+        coil = [c for c in chain_info if aa_id >= c[0] and aa_id <= c[1] ]
         logging.debug("aa {0}: {1}".format(aa_id, coil))
         #print coil
         if len(coil) > 0:
