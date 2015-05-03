@@ -51,13 +51,13 @@ def print_accumulated():
 
 def group_elements(data):
     from itertools import groupby
-    coils = ['-', 'S', 'T']
+    coils = ['-', 'S', 'T', 'B', 'C', 'G']
     last_coil = None
     start_coil_pos = -1
     protein_coils = [] #contains tuples - (start position, end upper bound position, coil type)
     last_key = -1
     #print data
-    l = [list(g) for k, g in groupby(data, lambda x: x[1])]
+    l = [list(g) for k, g in groupby(data, lambda x: x[1]) if k in coils]
     protein_coils = map(lambda x:(min(x,key = lambda y: y[0])[0],max(x,key=lambda y: y[0])[0],x[0][1]), l)
     #for (key, value) in data:
     #    if value in coils:
@@ -76,6 +76,14 @@ def group_elements(data):
     #print protein_coils
     return protein_coils
 
+def group_all_elements(data):
+    grouped_data = {}
+    for (pos, key) in data:
+        if not key in grouped_data:
+            grouped_data[key] = set()
+        grouped_data[key].add(pos)
+    return grouped_data
+
 @timed
 def read_pdb_info(filename, chain1= 'L', chain2 = 'H'):
     parser = PDBParser()
@@ -90,7 +98,7 @@ def read_pdb_info(filename, chain1= 'L', chain2 = 'H'):
 @timed
 def read_dssp_info(filename,
                     chain1= 'L', chain2 = 'H',
-                    key_transf1 = lambda x: long(x.get_id()[1]),
+                    key_transf1 = lambda x: (x.get_id()[1]),
                     key_transf2 = lambda x: x.get_parent().get_id()):
     chains_data = {}
     parser = PDBParser()
@@ -112,6 +120,30 @@ def read_dssp_info(filename,
         chains_data[chain] = group_elements(data)
     return chains_data
 
+
+
+@timed
+def read_chain_dssp(chain, filename,
+                    key_transf1 = lambda x: int(x.get_id()[1]),
+                    key_transf2 = lambda x: x.get_parent().get_id()):
+    chains_data = {}
+    parser = PDBParser()
+    structure = parser.get_structure('', filename)
+    model = structure[0]
+    dssp = DSSP(model, filename, dssp='mkdssp')
+    # DSSP data is accessed by a tuple (chain_id, res_id)
+    #a_key = list(dssp)[2]
+    #last_key = -1
+    #for (key, value, v, e, r,u) in dssp:
+    #    print key.get_parent().get_id()
+    #return
+    data = sorted([
+            (key_transf1(key), value)
+            for (key, value, v, e, r,u) in dssp
+            if key_transf2(key) == chain
+        ])
+    print(data)
+    return group_all_elements(data)
 
 # second arg - to test on very-very small subset
 # should return triangulation, with some additional objects - neighbours of edge and neighbours of vertex
@@ -363,17 +395,20 @@ def extend_to_coils(interface_triangles,
                     surface,
                     get_res_seq = lambda x: x.get_parent().get_id()[1]
                     ):
+    logging.debug("coils extension started")
     if len(interface_triangles) == 0:
         return interface_triangles
-    g = np.vectorize(lambda x: long(get_res_seq(surface[0][x])))
+    g = np.vectorize(lambda x: int(get_res_seq(surface[0][x])))
     result =  np.unique(g(interface_triangles))
     coil_fragments = set()
     distinct_aa = set()
+    logging.debug("print chains information")
     #print chain_info
     for aa_id in result:
         #print "aa_id "
         #print aa_id
-        coil = [c for c in chain_info if aa_id >= c[0] and aa_id <= c[1] ]
+        coil = [c for c in chain_info if (aa_id) - (c[0]) >= 0 and (aa_id) - (c[1]) <= 0 ]
+        logging.debug("aa {0}: {1}".format(aa_id, coil))
         #print coil
         if len(coil) > 0:
             for c in coil:
@@ -384,6 +419,8 @@ def extend_to_coils(interface_triangles,
         for k in range(fragment[0], fragment[1]+1):
             distinct_aa.add(k)
     return np.unique(np.asarray(list(distinct_aa)))
+
+
 
 if __name__ == "__main__":
     logging.basicConfig(filename="logs/" + os.path.splitext(os.path.basename(__file__))[0] + ".log", level=logging.DEBUG)

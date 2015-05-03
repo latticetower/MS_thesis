@@ -8,6 +8,7 @@
 #
 from pymol import cmd, stored
 import sys, os, inspect
+import logging
 
 sys.path.append(os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))))
 import make_it_simple
@@ -23,6 +24,8 @@ DESCRIPTION
     # Your code goes here
     #
     #print(dir(make_it_simple))
+    logging.basicConfig(filename="/logs/runner_" + os.path.splitext(os.path.basename(__file__))[0] + ".log",
+            level=logging.DEBUG)
     cutoff = float(cutoff)
     cmd.h_add(ch1)
     cmd.h_add(ch2)
@@ -79,4 +82,16 @@ DESCRIPTION
     print "I will return them to you in a list.  Here you go."
     return (ch1, ch2)
 
+
+
+# method selects aminoacids in energy hotspot residues area (EHRA)
+# (some nice abbreviation wouldn't hurt anyone =))
+def selectBySS(ch, filename):
+    chains_ss_info = read_chain_dssp(ch, filename)
+    print chains_ss_info
+    for k in chains_ss_info.keys():
+        str = "(chain %s and (%s))" % (ch, " or ".join(["resi {0}".format(aa_info) for aa_info in chains_ss_info[k]]))
+        cmd.select("ss_{}".format(k), str)
+
 cmd.extend("selectEHRA", selectEHRA)
+cmd.extend("selectBySS", selectBySS)
