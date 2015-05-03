@@ -413,8 +413,8 @@ def extend_to_coils(interface_triangles,
         if len(coil) > 0:
             for c in coil:
                 coil_fragments.add(c)
-        else:
-            distinct_aa.add(aa_id)
+        #else:
+        #distinct_aa.add(aa_id)
     for fragment in coil_fragments:
         for k in range(fragment[0], fragment[1]+1):
             distinct_aa.add(k)
