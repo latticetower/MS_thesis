@@ -58,8 +58,6 @@ def group_elements(data):
     last_key = -1
     #print data
     l = [el for el in data if el[1] in coils]
-    #l = sorted([el for k, g in groupby(data, lambda x: x[1]) if k in coils for el in list(g)])
-    #protein_coils = map(lambda x:(min(x,key = lambda y: y[0])[0],max(x,key=lambda y: y[0])[0],x[0][1]), l)
     protein_coils = []
     for (k, v) in l:
         if last_key != k - 1:
@@ -69,22 +67,6 @@ def group_elements(data):
         last_key = k
     if last_key > 0:
         protein_coils.append((start_coil_pos, last_key))
-    #print protein_coils
-    #for (key, value) in data:
-    #    if value in coils:
-    #        if last_coil != value:
-    #            if last_coil != None:
-    #                protein_coils.append((start_coil_pos, last_key, value))
-    #            last_coil = value
-    #            start_coil_pos = key
-    #    else:
-    #        if last_coil != None:
-    #            protein_coils.append((start_coil_pos, last_key, last_coil))
-    #        last_coil = None
-    #    last_key = key
-    #if last_coil != None:
-    #    protein_coils.append((start_coil_pos, last_key, value))
-    #print protein_coils
     return protein_coils
 
 def group_all_elements(data):
@@ -116,12 +98,6 @@ def read_dssp_info(filename,
     structure = parser.get_structure('', filename)
     model = structure[0]
     dssp = DSSP(model, filename, dssp='mkdssp')
-    # DSSP data is accessed by a tuple (chain_id, res_id)
-    #a_key = list(dssp)[2]
-    #last_key = -1
-    #for (key, value, v, e, r,u) in dssp:
-    #    print key.get_parent().get_id()
-    #return
     for chain in (chain1, chain2):
         data = sorted([
                 (key_transf1(key), value)
@@ -131,30 +107,6 @@ def read_dssp_info(filename,
         chains_data[chain] = group_elements(data)
     return chains_data
 
-
-
-@timed
-def read_chain_dssp(chain, filename,
-                    key_transf1 = lambda x: int(x.get_id()[1]),
-                    key_transf2 = lambda x: x.get_parent().get_id()):
-    chains_data = {}
-    parser = PDBParser()
-    structure = parser.get_structure('', filename)
-    model = structure[0]
-    dssp = DSSP(model, filename, dssp='mkdssp')
-    # DSSP data is accessed by a tuple (chain_id, res_id)
-    #a_key = list(dssp)[2]
-    #last_key = -1
-    #for (key, value, v, e, r,u) in dssp:
-    #    print key.get_parent().get_id()
-    #return
-    data = sorted([
-            (key_transf1(key), value)
-            for (key, value, v, e, r,u) in dssp
-            if key_transf2(key) == chain
-        ])
-    print(data)
-    return group_all_elements(data)
 
 # second arg - to test on very-very small subset
 # should return triangulation, with some additional objects - neighbours of edge and neighbours of vertex
