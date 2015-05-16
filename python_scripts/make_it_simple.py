@@ -6,45 +6,8 @@ import timeit
 import logging
 import os
 
-######################################
-# decorators (for benchmarking)
-######################################
-function_timings = {}
+from benchmarkers import *
 
-def timed(fn):
-    def wrapper(*args, **kwargs):
-        start_time = timeit.default_timer()
-        result = fn(*args, **kwargs)
-        elapsed = timeit.default_timer() - start_time
-        logging.debug("Function \"" + fn.__name__ + "\" timed: " + str(elapsed))
-        return result
-    return wrapper
-
-def accumulated(fn):
-    def wrapper(*args, **kwargs):
-        start_time = timeit.default_timer()
-        result = fn(*args, **kwargs)
-        elapsed = timeit.default_timer() - start_time
-        if (function_timings.has_key(fn.__name__)):
-            function_timings[fn.__name__][0] += 1
-            function_timings[fn.__name__][1] += elapsed
-        else:
-            function_timings[fn.__name__] = [1, elapsed]
-        #logging.debug("Function \"" + fn.__name__ + "\" timed: " + str(elapsed))
-        return result
-    return wrapper
-
-import atexit
-
-
-@atexit.register
-def print_accumulated():
-    logging.debug("Start of accumulated timings")
-    for func_name in function_timings.keys():
-        [total_calls, total_time] = function_timings[func_name]
-        logging.debug(func_name + " : " + str(total_calls) + " calls, elapsed: " + str(total_time) +
-            " average: " + str(total_time/total_calls))
-    logging.debug("End of accumulated timings")
 ######################################
 # actual functions
 ######################################
@@ -188,7 +151,7 @@ class DTNode:
     def __hash__(self):
         return hash(tuple(self.points_set))
 
-def get_raduis(atom_name):
+def get_radius(atom_name):
     atom_radii = {"C": 1.7, "N": 1.55, "H": 1.2, "O": 1.52, "S": 1.8}#without hydrogen, simple van der Waals radii
     if (atom_name in atom_radii):
         return atom_radii[atom_name]
@@ -204,7 +167,17 @@ class DTGraph:
         self.nearest_triangles = {}
         idx = comb_index(4, 3)
         idx2 = comb_index(4, 2)
-        self.ch_nodes = set([DTNode(t) for t in surface[1].convex_hull])
+        idx2_3 = comb_index(3, 2)
+        self.ch_neighbours = {}
+        #print(surface[1].convex_hull)
+        self.ch_nodes = set()
+        for t in surface[1].convex_hull:
+            node = DTNode(t)
+            self.ch_nodes.add(node)
+            for x in t[idx2_3]:
+                if tuple(set(x)) not in self.ch_neighbours:
+                    self.ch_neighbours[tuple(set(x))] = []
+                self.ch_neighbours[tuple(set(x))].append(node)
         for node in self.ch_nodes:
             self.nearest_triangles[node] = node
         for k in surface[1].simplices:
@@ -242,19 +215,23 @@ class DTGraph:
         #print d1
         return d1
     def find_nearest_node(self, next_node, distance_func):
+        #print (start_nodes)
+        #print neighbour_nodes
         if next_node in self.nearest_triangles:
             return self.nearest_triangles[next_node]
         self.nearest_triangles[next_node] = next(iter(self.ch_nodes))
-        for node in self.ch_nodes:
-            #print node
+        for node in self.start_nodes:
             if self.dist(next_node, node, distance_func) < self.dist(next_node, self.nearest_triangles[next_node], distance_func):
                 self.nearest_triangles[next_node] = node
-    def check_dist(self, triangle, start_nodes):
+        for node in self.neighbour_nodes:
+            if self.dist(next_node, node, distance_func) < self.dist(next_node, self.nearest_triangles[next_node], distance_func):
+                self.nearest_triangles[next_node] = node
+    def check_dist(self, triangle):
         #print(self.nearest_triangles)
         #print(start_nodes)
-        return self.nearest_triangles[triangle] in start_nodes
+        return self.nearest_triangles[triangle] in self.start_nodes
     # method adds all child nodes and returns current node (from queue)
-    def get_path_fragment(self, check_edge, start_nodes, distance_func):
+    def get_path_fragment(self, check_edge, distance_func):
         if len(self.queue) == 0:
             return []
         while True:
@@ -271,20 +248,31 @@ class DTGraph:
             edge = self.nodes_map[start_node][next_node]
             if next_node in self.visited:
                 self.find_nearest_node(next_node, distance_func)
-                if check_edge(*edge) and not self.is_ch_simplex(next_node) and self.check_dist(next_node, start_nodes):
+                if check_edge(*edge) and not self.is_ch_simplex(next_node) and self.check_dist(next_node):
                     if not self.visited[next_node]:
                         if not next_node in self.queue:
                             self.queue.append(next_node)
         result.add(start_node)
         return result
+    def get_neighbours(self, start_nodes):
+        idx2_3 = comb_index(3, 2)
+        result = np.unique(np.asarray([k for x in start_nodes for pair in x.points[idx2_3] for k in self.ch_neighbours[tuple(set(pair))] if k != x]))
+        #print len(result)
+        #print len(start_nodes)
+        result = set([x for x in result if not x in start_nodes])
+        #print len(result)
+        return result
     def find_pockets(self, triangles, check_edge, distance_func):
-        start_nodes = set([DTNode(triangle) for triangle in triangles])
+        self.start_nodes = set([DTNode(triangle) for triangle in triangles])
+        self.neighbour_nodes = self.get_neighbours(self.start_nodes)
+        #print(len(self.start_nodes))
+        #print(len(self.neighbour_nodes))
         self.queue = [DTNode(triangle) for triangle in triangles]
         data = set()
         while (len(self.queue) > 0):
             #print("".join(["T" if self.visited[DTNode(t)] else "F" for t in triangles]))
             #print("".join(["T" if self.visited[t] else "F" for t in self.queue]))
-            for x in self.get_path_fragment(check_edge, start_nodes, distance_func):
+            for x in self.get_path_fragment(check_edge, distance_func):
                 data.add(x)
         result = np.asarray([x.points for x in data])
         if(len(result) == 0):
@@ -389,7 +377,7 @@ if __name__ == "__main__":
     logging.basicConfig(filename="logs/" + os.path.splitext(os.path.basename(__file__))[0] + ".log", level=logging.DEBUG)
     logging.debug("============\nCalled simple script")
     pair_of_chains = read_pdb_info(os.path.abspath('../test_data/2OSL.pdb'))
-    chains_ss_info = read_dssp_info(os.path.abspath('../test_data/2OSL.pdb'))
+    #chains_ss_info = read_dssp_info(os.path.abspath('../test_data/2OSL.pdb'))
     #print chains_ss_info
     surface1 = process_chain(pair_of_chains[0])
     surface2 = process_chain(pair_of_chains[1])
@@ -402,19 +390,19 @@ if __name__ == "__main__":
     triangles = extend_interface_1(triangles, surface1)
     print(to_aa(triangles, surface1))#this returns interface aminoacids with atoms located near surface2
     def check_edge(x1, x2):
-        dist = (x1 - x2) - (get_raduis(x1.element) + get_raduis(x2.element))
+        dist = (x1 - x2) - (get_radius(x1.element) + get_radius(x2.element))
         #print(dist)
         return dist > 0
     def distance_func(x1, x2):
         return x1 - x2
-    #check_edge = lambda x1, x2 : (get_raduis(x1.element) + get_raduis(x2.element) < x1 - x2)
+    #check_edge = lambda x1, x2 : (get_radius(x1.element) + get_radius(x2.element) < x1 - x2)
     #check_edge2 = lambda x1, x2 : True
     G = DTGraph(surface1)
     nodes = np.setdiff1d(G.find_pockets(triangles, check_edge, distance_func), triangles)
     #nodes = G.find_pockets(triangles, check_edge)
     print(nodes)
-    aa_with_coils = extend_to_coils(triangles, chains_ss_info['L'], surface1)
-    print aa_with_coils
+    #aa_with_coils = extend_to_coils(triangles, chains_ss_info['L'], surface1)
+    #print aa_with_coils
     #    if (len(nodes) > 0):
     #print(to_aa(nodes, surface1))#this retuns all aminoacids forming pockets except ones shown previously
     print("end of processing")
