@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+    xmlns:latexdraw="http://latexdraw.sourceforge.net/namespaces/latexdraw"
+    version="1.1" baseProfile="full">
+    <g>
+        <g latexdraw:type="circle" id="id220">
+            <circle cx="239.5999999999999" cy="99.60000000000008"
+                r="17.149999999999817" latexdraw:borderPos="outer"
+                stroke-width="0.1" stroke="black" fill="#bfbfbf"/>
+        </g>
+        <g latexdraw:type="circle" id="id240">
+            <circle cx="277.1999999999998" cy="137.2"
+                r="17.149999999999817" latexdraw:borderPos="outer"
+                stroke-width="0.1" stroke="black" fill="#bfbfbf"/>
+        </g>
+        <g latexdraw:type="circle" id="id242">
+            <circle cx="314.7999999999997" cy="174.00000000000017"
+                r="17.149999999999817" latexdraw:borderPos="outer"
+                stroke-width="0.1" stroke="black" fill="#bfbfbf"/>
+        </g>
+        <g latexdraw:type="circle" id="id244">
+            <circle cx="351.60000000000036" cy="212.40000000000026"
+                r="17.149999999999817" latexdraw:borderPos="outer"
+                stroke-width="0.1" stroke="black" fill="#bfbfbf"/>
+        </g>
+        <g latexdraw:type="circle" id="id247">
+            <circle cx="390.0" cy="250.00000000000017"
+                r="17.149999999999817" latexdraw:borderPos="outer"
+                stroke-width="0.1" stroke="black" fill="#bfbfbf"/>
+        </g>
+        <g latexdraw:type="circle" id="id251">
+            <circle cx="428.4000000000001" cy="287.6000000000001"
+                r="17.149999999999817" latexdraw:borderPos="outer"
+                stroke-width="0.1" stroke="black" fill="#bfbfbf"/>
+        </g>
+        <g latexdraw:type="circle" id="id253">
+            <circle cx="465.1999999999998" cy="325.2"
+                r="17.149999999999817" latexdraw:borderPos="outer"
+                stroke-width="0.1" stroke="black" fill="#bfbfbf"/>
+        </g>
+        <g latexdraw:type="circle" id="id255">
+            <circle cx="503.5999999999999" cy="362.80000000000035"
+                r="17.149999999999817" latexdraw:borderPos="outer"
+                stroke-width="0.1" stroke="black" fill="#bfbfbf"/>
+        </g>
+        <g id="id20" latexdraw:type="grid"
+            latexdraw:XLabelsSouth="false" latexdraw:YLabelsWest="false"
+            latexdraw:gridUnit="3.0208709224826924"
+            latexdraw:gridEnd="2.0 2.0" latexdraw:gridStart="0.0 0.0"
+            latexdraw:origin="0.0 0.0" transform="translate(219.99999917610933 382.08709142437846)">
+            <g stroke-width="1.0" stroke="gray" stroke-linecap="round"
+                latexdraw:type="subGrid" latexdraw:gridDots="0" latexdraw:subDiv="4.0">
+                <line x1="0.0" x2="0.0" y1="0.0" y2="-302.08709224826924"/>
+                <line x1="37.760886531033655" x2="37.760886531033655"
+                    y1="0.0" y2="-302.08709224826924"/>
+                <line x1="75.52177306206731" x2="75.52177306206731"
+                    y1="0.0" y2="-302.08709224826924"/>
+                <line x1="113.28265959310096" x2="113.28265959310096"
+                    y1="0.0" y2="-302.08709224826924"/>
+                <line x1="151.04354612413462" x2="151.04354612413462"
+                    y1="0.0" y2="-302.08709224826924"/>
+                <line x1="151.04354612413462" x2="151.04354612413462"
+                    y1="0.0" y2="-302.08709224826924"/>
+                <line x1="188.80443265516828" x2="188.80443265516828"
+                    y1="0.0" y2="-302.08709224826924"/>
+                <line x1="226.56531918620192" x2="226.56531918620192"
+                    y1="0.0" y2="-302.08709224826924"/>
+                <line x1="264.32620571723555" x2="264.32620571723555"
+                    y1="0.0" y2="-302.08709224826924"/>
+                <line x1="302.08709224826924" x2="302.08709224826924"
+                    y1="0.0" y2="-302.08709224826924"/>
+                <line x1="0.0" x2="302.0870922482692" y1="-0.0" y2="-0.0"/>
+                <line x1="0.0" x2="302.0870922482692"
+                    y1="-37.760886531033655" y2="-37.760886531033655"/>
+                <line x1="0.0" x2="302.0870922482692"
+                    y1="-75.52177306206731" y2="-75.52177306206731"/>
+                <line x1="0.0" x2="302.0870922482692"
+                    y1="-113.28265959310096" y2="-113.28265959310096"/>
+                <line x1="0.0" x2="302.0870922482692"
+                    y1="-151.04354612413462" y2="-151.04354612413462"/>
+                <line x1="0.0" x2="302.0870922482692"
+                    y1="-151.04354612413462" y2="-151.04354612413462"/>
+                <line x1="0.0" x2="302.0870922482692"
+                    y1="-188.80443265516828" y2="-188.80443265516828"/>
+                <line x1="0.0" x2="302.0870922482692"
+                    y1="-226.56531918620192" y2="-226.56531918620192"/>
+                <line x1="0.0" x2="302.0870922482692"
+                    y1="-264.32620571723555" y2="-264.32620571723555"/>
+                <line x1="0.0" x2="302.0870922482692"
+                    y1="-302.08709224826924" y2="-302.08709224826924"/>
+            </g>
+            <g stroke-width="1.0" stroke="black" stroke-linecap="square" latexdraw:type="grid">
+                <line x1="0.0" x2="0.0" y1="0.0" y2="-302.08709224826924"/>
+                <line x1="151.04354612413462" x2="151.04354612413462"
+                    y1="0.0" y2="-302.08709224826924"/>
+                <line x1="302.08709224826924" x2="302.08709224826924"
+                    y1="0.0" y2="-302.08709224826924"/>
+                <line x1="0.0" x2="302.0870922482692" y1="-0.0" y2="-0.0"/>
+                <line x1="0.0" x2="302.0870922482692"
+                    y1="-151.04354612413462" y2="-151.04354612413462"/>
+                <line x1="0.0" x2="302.0870922482692"
+                    y1="-302.08709224826924" y2="-302.08709224826924"/>
+            </g>
+            <g font-size="3" stroke="black" latexdraw:type="text">
+                <text x="-3" y="-2">0</text>
+                <text x="147" y="-2">1</text>
+                <text x="298" y="-2">2</text>
+                <text x="1" y="-298">2</text>
+                <text x="1" y="-147">1</text>
+                <text x="1" y="3">0</text>
+            </g>
+        </g>
+        <g latexdraw:type="text" id="id58" fill="black" latexdraw:position="bl">
+            <text x="233.26111111111072" y="61.79999999999973"><![CDATA[G]]></text>
+        </g>
+        <g latexdraw:type="text" id="id59" fill="black" latexdraw:position="bl">
+            <text x="271.5666666666668" y="61.79999999999973"><![CDATA[A]]></text>
+        </g>
+        <g latexdraw:type="text" id="id60" fill="black" latexdraw:position="bl">
+            <text x="308.522222222222" y="61.79999999999973"><![CDATA[R]]></text>
+        </g>
+        <g latexdraw:type="text" id="id61" fill="black" latexdraw:position="bl">
+            <text x="345.7777777777777" y="61.79999999999973"><![CDATA[F]]></text>
+        </g>
+        <g latexdraw:type="text" id="id62" fill="black" latexdraw:position="bl">
+            <text x="387.58333333333337" y="61.79999999999973"><![CDATA[I]]></text>
+        </g>
+        <g latexdraw:type="text" id="id63" fill="black" latexdraw:position="bl">
+            <text x="421.58888888888913" y="61.79999999999973"><![CDATA[E]]></text>
+        </g>
+        <g latexdraw:type="text" id="id65" fill="black" latexdraw:position="bl">
+            <text x="459.09444444444455" y="61.79999999999973"><![CDATA[L]]></text>
+        </g>
+        <g latexdraw:type="text" id="id66" fill="black" latexdraw:position="bl">
+            <text x="496.99999999999955" y="61.79999999999973"><![CDATA[D]]></text>
+        </g>
+        <g latexdraw:type="text" id="id106" fill="#010101" latexdraw:position="bl">
+            <text x="233.51111111111072" y="105.0"><![CDATA[A]]></text>
+        </g>
+        <g latexdraw:type="text" id="id107" fill="black" latexdraw:position="bl">
+            <text x="271.5666666666668" y="105.79999999999973"><![CDATA[A]]></text>
+        </g>
+        <g latexdraw:type="text" id="id108" fill="black" latexdraw:position="bl">
+            <text x="308.522222222222" y="105.0"><![CDATA[R]]></text>
+        </g>
+        <g latexdraw:type="text" id="id109" fill="black" latexdraw:position="bl">
+            <text x="345.7777777777777" y="105.0"><![CDATA[F]]></text>
+        </g>
+        <g latexdraw:type="text" id="id110" fill="black" latexdraw:position="bl">
+            <text x="387.58333333333337" y="105.0"><![CDATA[I]]></text>
+        </g>
+        <g latexdraw:type="text" id="id111" fill="black" latexdraw:position="bl">
+            <text x="421.58888888888913" y="105.0"><![CDATA[E]]></text>
+        </g>
+        <g latexdraw:type="text" id="id112" fill="black" latexdraw:position="bl">
+            <text x="459.09444444444455" y="105.0"><![CDATA[L]]></text>
+        </g>
+        <g latexdraw:type="text" id="id113" fill="black" latexdraw:position="bl">
+            <text x="496.99999999999955" y="105.0"><![CDATA[D]]></text>
+        </g>
+        <g latexdraw:type="text" id="id115" fill="black" latexdraw:position="bl">
+            <text x="233.26111111111072" y="142.0"><![CDATA[G]]></text>
+        </g>
+        <g latexdraw:type="text" id="id116" fill="black" latexdraw:position="bl">
+            <text x="271.5666666666668" y="142.79999999999973"><![CDATA[A]]></text>
+        </g>
+        <g latexdraw:type="text" id="id117" fill="black" latexdraw:position="bl">
+            <text x="308.522222222222" y="142.0"><![CDATA[R]]></text>
+        </g>
+        <g latexdraw:type="text" id="id118" fill="black" latexdraw:position="bl">
+            <text x="345.7777777777777" y="142.0"><![CDATA[F]]></text>
+        </g>
+        <g latexdraw:type="text" id="id119" fill="black" latexdraw:position="bl">
+            <text x="387.58333333333337" y="142.0"><![CDATA[I]]></text>
+        </g>
+        <g latexdraw:type="text" id="id120" fill="black" latexdraw:position="bl">
+            <text x="421.58888888888913" y="142.0"><![CDATA[E]]></text>
+        </g>
+        <g latexdraw:type="text" id="id121" fill="black" latexdraw:position="bl">
+            <text x="459.09444444444455" y="142.0"><![CDATA[L]]></text>
+        </g>
+        <g latexdraw:type="text" id="id122" fill="black" latexdraw:position="bl">
+            <text x="496.99999999999955" y="142.0"><![CDATA[D]]></text>
+        </g>
+        <g latexdraw:type="text" id="id125" fill="black" latexdraw:position="bl">
+            <text x="233.26111111111072" y="181.0"><![CDATA[G]]></text>
+        </g>
+        <g latexdraw:type="text" id="id126" fill="black" latexdraw:position="bl">
+            <text x="271.5666666666668" y="181.79999999999973"><![CDATA[A]]></text>
+        </g>
+        <g latexdraw:type="text" id="id127" fill="black" latexdraw:position="bl">
+            <text x="308.272222222222" y="181.0"><![CDATA[A]]></text>
+        </g>
+        <g latexdraw:type="text" id="id128" fill="black" latexdraw:position="bl">
+            <text x="345.7777777777777" y="181.0"><![CDATA[F]]></text>
+        </g>
+        <g latexdraw:type="text" id="id129" fill="black" latexdraw:position="bl">
+            <text x="387.58333333333337" y="181.0"><![CDATA[I]]></text>
+        </g>
+        <g latexdraw:type="text" id="id130" fill="black" latexdraw:position="bl">
+            <text x="421.58888888888913" y="181.0"><![CDATA[E]]></text>
+        </g>
+        <g latexdraw:type="text" id="id131" fill="black" latexdraw:position="bl">
+            <text x="459.09444444444455" y="181.0"><![CDATA[L]]></text>
+        </g>
+        <g latexdraw:type="text" id="id132" fill="black" latexdraw:position="bl">
+            <text x="496.99999999999955" y="181.0"><![CDATA[D]]></text>
+        </g>
+        <g latexdraw:type="text" id="id134" fill="black" latexdraw:position="bl">
+            <text x="233.26111111111072" y="218.0"><![CDATA[G]]></text>
+        </g>
+        <g latexdraw:type="text" id="id135" fill="black" latexdraw:position="bl">
+            <text x="271.5666666666668" y="218.79999999999973"><![CDATA[A]]></text>
+        </g>
+        <g latexdraw:type="text" id="id136" fill="black" latexdraw:position="bl">
+            <text x="308.522222222222" y="218.0"><![CDATA[R]]></text>
+        </g>
+        <g latexdraw:type="text" id="id137" fill="black" latexdraw:position="bl">
+            <text x="345.7777777777777" y="218.0"><![CDATA[A]]></text>
+        </g>
+        <g latexdraw:type="text" id="id138" fill="black" latexdraw:position="bl">
+            <text x="387.58333333333337" y="218.0"><![CDATA[I]]></text>
+        </g>
+        <g latexdraw:type="text" id="id139" fill="black" latexdraw:position="bl">
+            <text x="421.58888888888913" y="218.0"><![CDATA[E]]></text>
+        </g>
+        <g latexdraw:type="text" id="id140" fill="black" latexdraw:position="bl">
+            <text x="459.09444444444455" y="218.0"><![CDATA[L]]></text>
+        </g>
+        <g latexdraw:type="text" id="id141" fill="black" latexdraw:position="bl">
+            <text x="496.99999999999955" y="218.0"><![CDATA[D]]></text>
+        </g>
+        <g latexdraw:type="text" id="id143" fill="black" latexdraw:position="bl">
+            <text x="233.26111111111072" y="257.0"><![CDATA[G]]></text>
+        </g>
+        <g latexdraw:type="text" id="id144" fill="black" latexdraw:position="bl">
+            <text x="271.5666666666668" y="257.7999999999997"><![CDATA[A]]></text>
+        </g>
+        <g latexdraw:type="text" id="id145" fill="black" latexdraw:position="bl">
+            <text x="308.522222222222" y="257.0"><![CDATA[R]]></text>
+        </g>
+        <g latexdraw:type="text" id="id146" fill="black" latexdraw:position="bl">
+            <text x="345.7777777777777" y="257.0"><![CDATA[F]]></text>
+        </g>
+        <g latexdraw:type="text" id="id147" fill="black" latexdraw:position="bl">
+            <text x="384.08333333333337" y="257.0"><![CDATA[A]]></text>
+        </g>
+        <g latexdraw:type="text" id="id148" fill="black" latexdraw:position="bl">
+            <text x="421.58888888888913" y="257.0"><![CDATA[E]]></text>
+        </g>
+        <g latexdraw:type="text" id="id149" fill="black" latexdraw:position="bl">
+            <text x="459.09444444444455" y="257.0"><![CDATA[L]]></text>
+        </g>
+        <g latexdraw:type="text" id="id150" fill="black" latexdraw:position="bl">
+            <text x="496.99999999999955" y="257.0"><![CDATA[D]]></text>
+        </g>
+        <g latexdraw:type="text" id="id152" fill="black" latexdraw:position="bl">
+            <text x="233.26111111111072" y="294.0"><![CDATA[G]]></text>
+        </g>
+        <g latexdraw:type="text" id="id153" fill="black" latexdraw:position="bl">
+            <text x="271.5666666666668" y="294.7999999999997"><![CDATA[A]]></text>
+        </g>
+        <g latexdraw:type="text" id="id154" fill="black" latexdraw:position="bl">
+            <text x="308.522222222222" y="294.0"><![CDATA[R]]></text>
+        </g>
+        <g latexdraw:type="text" id="id155" fill="black" latexdraw:position="bl">
+            <text x="345.7777777777777" y="294.0"><![CDATA[F]]></text>
+        </g>
+        <g latexdraw:type="text" id="id156" fill="black" latexdraw:position="bl">
+            <text x="387.58333333333337" y="294.0"><![CDATA[I]]></text>
+        </g>
+        <g latexdraw:type="text" id="id157" fill="black" latexdraw:position="bl">
+            <text x="421.58888888888913" y="294.0"><![CDATA[A]]></text>
+        </g>
+        <g latexdraw:type="text" id="id158" fill="black" latexdraw:position="bl">
+            <text x="459.09444444444455" y="294.0"><![CDATA[L]]></text>
+        </g>
+        <g latexdraw:type="text" id="id159" fill="black" latexdraw:position="bl">
+            <text x="496.99999999999955" y="294.0"><![CDATA[D]]></text>
+        </g>
+        <g latexdraw:type="text" id="id161" fill="black" latexdraw:position="bl">
+            <text x="233.26111111111072" y="332.0"><![CDATA[G]]></text>
+        </g>
+        <g latexdraw:type="text" id="id162" fill="black" latexdraw:position="bl">
+            <text x="271.5666666666668" y="332.7999999999997"><![CDATA[A]]></text>
+        </g>
+        <g latexdraw:type="text" id="id163" fill="black" latexdraw:position="bl">
+            <text x="308.522222222222" y="332.0"><![CDATA[R]]></text>
+        </g>
+        <g latexdraw:type="text" id="id164" fill="black" latexdraw:position="bl">
+            <text x="345.7777777777777" y="332.0"><![CDATA[F]]></text>
+        </g>
+        <g latexdraw:type="text" id="id165" fill="black" latexdraw:position="bl">
+            <text x="387.58333333333337" y="332.0"><![CDATA[I]]></text>
+        </g>
+        <g latexdraw:type="text" id="id166" fill="black" latexdraw:position="bl">
+            <text x="421.58888888888913" y="332.0"><![CDATA[E]]></text>
+        </g>
+        <g latexdraw:type="text" id="id167" fill="black" latexdraw:position="bl">
+            <text x="459.09444444444455" y="332.0"><![CDATA[A]]></text>
+        </g>
+        <g latexdraw:type="text" id="id168" fill="black" latexdraw:position="bl">
+            <text x="496.99999999999955" y="332.0"><![CDATA[D]]></text>
+        </g>
+        <g latexdraw:type="text" id="id170" fill="black" latexdraw:position="bl">
+            <text x="233.26111111111072" y="370.0"><![CDATA[G]]></text>
+        </g>
+        <g latexdraw:type="text" id="id171" fill="black" latexdraw:position="bl">
+            <text x="271.5666666666668" y="370.7999999999997"><![CDATA[A]]></text>
+        </g>
+        <g latexdraw:type="text" id="id172" fill="black" latexdraw:position="bl">
+            <text x="308.522222222222" y="370.0"><![CDATA[R]]></text>
+        </g>
+        <g latexdraw:type="text" id="id173" fill="black" latexdraw:position="bl">
+            <text x="345.7777777777777" y="370.0"><![CDATA[F]]></text>
+        </g>
+        <g latexdraw:type="text" id="id174" fill="black" latexdraw:position="bl">
+            <text x="387.58333333333337" y="370.0"><![CDATA[I]]></text>
+        </g>
+        <g latexdraw:type="text" id="id175" fill="black" latexdraw:position="bl">
+            <text x="421.58888888888913" y="370.0"><![CDATA[E]]></text>
+        </g>
+        <g latexdraw:type="text" id="id176" fill="black" latexdraw:position="bl">
+            <text x="459.09444444444455" y="370.0"><![CDATA[L]]></text>
+        </g>
+        <g latexdraw:type="text" id="id177" fill="black" latexdraw:position="bl">
+            <text x="496.99999999999955" y="368.4000000000001"><![CDATA[A]]></text>
+        </g>
+        <g latexdraw:type="text" id="id379" fill="black" latexdraw:position="bl">
+            <text x="189.0" y="109.60000000000014"><![CDATA[*]]></text>
+        </g>
+        <g latexdraw:type="text" id="id380" fill="black" latexdraw:position="bl">
+            <text x="180.0" y="234.8129032258069"><![CDATA[Ala]]></text>
+        </g>
+        <g latexdraw:type="text" id="id381" fill="black" latexdraw:position="bl">
+            <text x="189.0" y="375.2000000000003"><![CDATA[*]]></text>
+        </g>
+        <g latexdraw:type="joinedLines" id="id383">
+            <polyline
+                points="193.250003051758,118.95520737327189 193.250003051758,205.05806451612875 "
+                stroke-width="1.5" stroke="black"
+                latexdraw:rotationAngle="0.0" marker-end="url(#arrow1-383)"/>
+        </g>
+        <g latexdraw:type="joinedLines" id="id384">
+            <polyline
+                points="193.250003051758,255.45806451612964 193.250003051758,335.5870967741944 "
+                stroke-width="1.5" stroke="black"
+                latexdraw:rotationAngle="0.0" marker-end="url(#arrow1-384)"/>
+        </g>
+        <g latexdraw:type="joinedLines" id="id420">
+            <polyline points="189.6,37.6 526.4,42.4 " stroke-width="1.5"
+                stroke="#fefefe" latexdraw:rotationAngle="0.0"/>
+        </g>
+    </g>
+    <defs>
+        <marker overflow="visible" orient="auto" id="arrow1-383">
+            <path
+                d="M 0.0 0.0 L -5.269444444444445 1.8819444444444446 L -5.269444444444445 0.0 L -5.269444444444445 -1.8819444444444446 z "
+                latexdraw:arrSizeNum="2.0" fill="black"/>
+        </marker>
+        <marker overflow="visible" orient="auto" id="arrow1-384">
+            <path
+                d="M 0.0 0.0 L -5.269444444444445 1.8819444444444446 L -5.269444444444445 0.0 L -5.269444444444445 -1.8819444444444446 z "
+                latexdraw:arrSizeNum="2.0" fill="black"/>
+        </marker>
+    </defs>
+    <metadata>
+        <latexdraw:metadata>
+            <latexdraw:latexIncludes><![CDATA[
+]]></latexdraw:latexIncludes>
+            <latexdraw:displayXScale>true</latexdraw:displayXScale>
+            <latexdraw:displayYScale>true</latexdraw:displayYScale>
+            <latexdraw:unit>CM</latexdraw:unit>
+            <latexdraw:zoom>1.25</latexdraw:zoom>
+            <latexdraw:magneticGridStyle>NONE</latexdraw:magneticGridStyle>
+            <latexdraw:gridGap>40</latexdraw:gridGap>
+            <latexdraw:magneticGrid>true</latexdraw:magneticGrid>
+            <latexdraw:version>3.2.0</latexdraw:version>
+            <latexdraw:size>
+                <latexdraw:width>1301</latexdraw:width>
+                <latexdraw:height>744</latexdraw:height>
+            </latexdraw:size>
+            <latexdraw:position>
+                <latexdraw:x>65.0</latexdraw:x>
+                <latexdraw:y>24.0</latexdraw:y>
+            </latexdraw:position>
+        </latexdraw:metadata>
+    </metadata>
+</svg>

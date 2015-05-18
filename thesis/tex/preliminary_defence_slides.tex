@@ -6,6 +6,45 @@
   \setbeamercovered{transparent}
   % or whatever (possibly just delete it)
 }
+% -- Add this section to your LaTeX doc
+% Remember to use "pdflatex -shell-escape myfile.tex"
+% or it won't allow LaTeX to call any command-line
+% programs!
+\usepackage{graphicx}
+
+\graphicspath{{../images/}}
+\newcounter{smilescounter}
+\setcounter{smilescounter}{1}
+\newcommand{\smiles}[1]{
+\immediate\write18{obabel -:"#1" -O ../images/SMILES/smilesimg\arabic{smilescounter}.png}
+\centering\includegraphics[width=0.1\textwidth]{../images/SMILES/smilesimg\arabic{smilescounter}.png}
+\addtocounter{smilescounter}{1}
+}
+% -- End of section 
+\newcommand{\Ala}{C[C@@H](N)C(=O)O }
+\newcommand{\Arg}{N[C@@H](CCCNC(=N)N)C(=O)O }
+\newcommand{\Asn}{N[C@@H](CC(=O)N)C(=O)O }
+\newcommand{\Asp}{NC(CC(O)=O)C(O)=O}
+\newcommand{\Cys}{C([C@@H](C(=O)O)N)S} %
+\newcommand{\Glu}{C(CC(=O)O)C(C(=O)O)N}
+\newcommand{\Gln}{O=C(N)CCC(N)C(=O)O}
+\newcommand{\Gly}{C(C(=O)O)N}
+\newcommand{\His}{O=C(O)[C@@H](N)Cc1cncn1}
+\newcommand{\Ile}{CC[C@H](C)[C@@H](C(=O)O)N}
+\newcommand{\Leu}{CC(C)C[C@@H](C(=O)O)N}
+\newcommand{\Lys}{C(CCN)CC(C(=O)O)N}
+\newcommand{\Met}{CSCCC(C(=O)O)N}
+\newcommand{\Phe}{N[C@@H](Cc1ccccc1)C(=O)O } %fix
+\newcommand{\Pro}{OC(=O)C1CCCN1}
+\newcommand{\Ser}{C([C@@H](C(=O)O)N)O}
+\newcommand{\Thr}{C[C@H]([C@@H](C(=O)O)N)O}
+\newcommand{\Trp}{c1ccc2c(c1)c(c[nH]2)C[C@@H](C(=O)O)N}
+\newcommand{\Tyr}{N[C@@H](Cc1ccc(O)cc1)C(O)=O}
+\newcommand{\Val}{CC(C)[C@@H](C(=O)O)N}
+\newcommand{\Sec}{O=C(O)[C@@H](N)C[SeH]}
+\newcommand{\Pyl}{O=C(NCCCC[C@@H](C(=O)O)N)}
+
+
 \usepackage[T2A,T1]{fontenc}
 \usepackage[utf8x]{inputenc}
 
@@ -15,6 +54,8 @@
 
 \usepackage{wrapfig}
 \usepackage{tikz}
+\usetikzlibrary{positioning,arrows}
+\input{aminoacids.tex}
 
 \setlength{\parskip}{\baselineskip} 
 %\usepackage[T1]{fontenc}
@@ -84,6 +125,8 @@
 \setbeamertemplate{footline}[frame number]
 
 \begin{document}
+
+
 \begin{frame}
   \titlepage
 \end{frame}
@@ -138,7 +181,7 @@
 Аланиновое сканирование (ала-скан)\footnote{2001, "Combinatorial alanine-scanning" (Morrison K.L., Weiss G.A.).}  - метод для определения аминокислот в составе белка, играющих важную роль в сохранении его функций, стабильности или формы.
 \begin{wrapfigure}{RT}{0.3\textwidth}
 \resizebox{0.3\textwidth}{!}{
-\includegraphics{ala_scan.eps}
+\includegraphics{intro/ala_scan.eps}
 }
 \end{wrapfigure}
 
@@ -207,7 +250,7 @@
 %1. картинка с примером
 \begin{center}
 \resizebox{!}{0.5\textheight}{
-\includegraphics{image7.png}
+\includegraphics{intro/image7.png}
 }
 \end{center}
 \end{frame}
@@ -232,7 +275,7 @@ ASEdb: 76/101 корректных записей о белках, из них �
 %1. картинка с примером
 \begin{center}
 \resizebox{!}{0.5\textheight}{
-\includegraphics{image7.png}
+\includegraphics{intro/image7.png}
 }
 \end{center}
 \end{frame}
@@ -286,7 +329,7 @@ ASEdb: 76/101 корректных записей о белках, из них �
 \begin{frame}{Построение графа по триангуляции Делоне}
 \begin{center}
 \resizebox{!}{0.5\textheight}{
-\includegraphics{image4_caver.png}
+\includegraphics{algorithm/image4_caver.png}
 }
 
 [Computation of tunnels in protein molecules using
@@ -326,6 +369,18 @@ Delaunay triangulation, P.Medek, et al., 2007]
 
 \begin{frame}{}
 Вопросы?
+\end{frame}
+\begin{frame}
+
+
+\begin{center}
+\resizebox{\textheight}{!}{
+\ttfamily
+\footnotesize
+\aapicture
+}
+\end{center}
+
 \end{frame}
 
 \end{document}

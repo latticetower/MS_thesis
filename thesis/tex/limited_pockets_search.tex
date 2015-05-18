@@ -6,6 +6,7 @@
   \setbeamercovered{transparent}
   % or whatever (possibly just delete it)
 }
+\graphicspath{{../images/}}
 \usepackage[utf8x]{inputenc}
 \usepackage[russian]{babel}
 \usepackage[usenames,dvipsnames]{pstricks}
@@ -23,7 +24,7 @@
 \begin{column}{0.5\textwidth}
 \begin{center}
 \resizebox{!}{0.3\textheight}{
-\includegraphics{image4_caver.png}
+\includegraphics{algorithm/image4_caver.png}
 }
 
 [Computation of tunnels in protein molecules using
@@ -56,7 +57,7 @@ Delaunay triangulation, P.Medek, et al., 2007]
 \end{itemize}
 \begin{center}
 \resizebox{!}{0.5\textheight}{
-\includegraphics{dijkstra1.png}
+\includegraphics{algorithm/dijkstra1.png}
 }
 \end{center}
 \end{frame}
@@ -95,7 +96,7 @@ Delaunay triangulation, P.Medek, et al., 2007]
 \end{itemize}
 \begin{center}
 \resizebox{!}{0.7\textheight}{
-\includegraphics{image_step2.png}
+\includegraphics{algorithm/image_step2.png}
 }
 \end{center}
 \end{frame}
@@ -120,7 +121,7 @@ Delaunay triangulation, P.Medek, et al., 2007]
 Здесь все почти хорошо, но смущает сине-желтый кусок - но это надо поиск карманов смотреть и переделывать. И еще \textbf{сильно смущает} петля прямо по центру - у нее синие края справа и слева, при этом посередине она желтая
 \begin{center}
 \resizebox{!}{0.7\textheight}{
-\includegraphics{loops1.png}
+\includegraphics{algorithm/loops1.png}
 }
 \end{center}
 
@@ -130,7 +131,7 @@ Delaunay triangulation, P.Medek, et al., 2007]
 Здесь вроде бы все хорошо (кроме сине-желтого).
 \begin{center}
 \resizebox{!}{0.7\textheight}{
-\includegraphics{loops2.png}
+\includegraphics{algorithm/loops2.png}
 }
 \end{center}
 
@@ -144,7 +145,7 @@ Delaunay triangulation, P.Medek, et al., 2007]
 И это наводит на мысль о том, что изначальный выбор аминокислот не так хорош. Возможно, стоит использовать граф Габриэля? 
 \begin{center}
 \resizebox{!}{0.6\textheight}{
-\includegraphics{loops3.png}
+\includegraphics{algorithm/loops3.png}
 }
 \end{center}
 
@@ -154,7 +155,7 @@ Delaunay triangulation, P.Medek, et al., 2007]
 Посередине петля полностью желтая - но это из-за способа, которым добавлялись карманы.
 \begin{center}
 \resizebox{!}{0.6\textheight}{
-\includegraphics{loops4.png}
+\includegraphics{algorithm/loops4.png}
 }
 \end{center}
 
