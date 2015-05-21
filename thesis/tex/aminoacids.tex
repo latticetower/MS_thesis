@@ -1,147 +1,152 @@
 \usepackage{tikz}
+\usepackage{xparse}
 
-\newcommand {\Lysine}[1] {
-	\begin{scope}[scale=0.5]	% Lysine
-	\path (#1) node (zero) {};
+\DeclareDocumentCommand{\Lysine}{ O{red} O{0.5} m }{
+	\begin{scope}[scale=#2]	% Lysine
+	\path (#3) node (zero) {};
 	\draw[to_2]  (zero.center)	-- ++(30:1) node (CO) {}
 	        -- +(330:1) node [anchor=base] {O$^{\mbox{-}}$};
 	\draw[to_1]  (CO.center) 	-- +(90:1) node (Od) {O};
 	\draw[to_1i] (CO.30)		-- +(90:1);
 	\draw[to_3]  (zero.center)	-- ++(150:1) node {NH$_{\mbox{3}}^{\mbox{+}}$};
-	\draw[to_3]  (zero.center)	-- ++(270:1) node(Cb){}
+	\draw[to_3, #1]  (zero.center)	-- ++(270:1) node(Cb){}
 	        -- ++(330:1) node (Cc) {}
 	        -- ++(270:1) node (Cd) {}
 	        -- ++(210:1) node (Ce) {}
 	        -- ++(150:1) node (Cf) {NH$_{\mbox{2}}$};
 	\end{scope}
 }
-\newcommand{\Asparagine}[1]{
-	\begin{scope}[scale=0.5]	% Asparagine
-	\path (#1) node (zero) {};
+
+\DeclareDocumentCommand{\Asparagine}{ O{red} O{0.5} m }{
+	\begin{scope}[scale=#2]	% Asparagine
+	\path (#3) node (zero) {};
 	\draw[to_2]  (zero.center)	-- ++(30:1) node (CO) {}
 	        -- +(330:1) node [anchor=base] {O$^{\mbox{-}}$};
 	\draw[to_1]  (CO.center)	-- +(90:1) node (Od) {O};
 	\draw[to_1i] (CO.30)		-- +(90:1);
 	\draw[to_3]  (zero.center)	-- ++(150:1) node {NH$_{\mbox{3}}^{\mbox{+}}$};
-	\draw[to_2]  (zero.center)	-- ++(270:1) node(Cb){}
+	\draw[to_2,#1]  (zero.center)	-- ++(270:1) node(Cb){}
 	        -- ++(330:1) node (Cc) {}
 	        -- +(30:1) node (Cd) {NH$_{\mbox{2}}$};
-	\draw[to_1i] (Cc.center)	-- +(270:1) node (O) {};
-	\draw[to_1]  (Cc.210)		-- (O.150);
-	\path (O.center) node {O};
+	\draw[to_1i,#1] (Cc.center)	-- +(270:1) node (O) {};
+	\draw[to_1,#1]  (Cc.210)		-- (O.150);
+	\path[#1] (O.center) node {O};
 	\end{scope}
 }
 
-\newcommand{\Arginine}[1]{
-	\begin{scope}[scale=0.5]	% \Arginine
-	\path (#1) node (zero) {};
+\DeclareDocumentCommand{\Arginine}{ O{red} O{0.5} m }{
+	\begin{scope}[scale=#2]	% \Arginine
+	\path (#3) node (zero) {};
 	\draw[to_2]  (zero.center)	-- ++(30:1) node (CO) {}
 	        -- +(330:1) node [anchor=base] {O$^{\mbox{-}}$};
 	\draw[to_1]  (CO.center)	-- +(90:1) node (Od) {O};
 	\draw[to_1i] (CO.30)		-- +(90:1);
 	\draw[to_3]  (zero.center)	-- ++(150:1) node {NH$_{\mbox{3}}^{\mbox{+}}$};
-	\draw[to_2]  (zero.center)	-- ++(270:1) node(Cb){}
+	\draw[to_2, #1]  (zero.center)	-- ++(270:1) node(Cb){}
 	        -- ++(330:1) node (Cc) {}
 	        -- ++(270:1) node (Cd) {}
 	        -- ++(330:1) node (NH1) {NH};
-	\draw[from_2,to_3]  (NH1.center)	-- ++(30:1) node (Ce) {}
+	\draw[from_2,to_3,#1]  (NH1.center)	-- ++(30:1) node (Ce) {}
 	        -- ++(330:1) node {NH$_{\mbox{2}}$};
-	\draw[to_1i] (Ce.center)	-- ++(90:1) node (N2) {};
-	\draw[to_1]  (Ce.150)		-- (N2.210);
-	\path (N2) node {N};
+	\draw[to_1i,#1] (Ce.center)	-- ++(90:1) node (N2) {};
+	\draw[to_1,#1]  (Ce.150)		-- (N2.210);
+	\path[#1] (N2) node {N};
 	\end{scope}
 }
 
-\newcommand{\Serine}[1]{
-	\begin{scope}[scale=0.5]	% Serine
-	\path (#1) node (zero) {};
+\DeclareDocumentCommand{\Serine}{ O{red} O{0.5} m }{
+	\begin{scope}[scale=#2]	% Serine
+	\path (#3) node (zero) {};
 	\draw[to_2]  (zero.center)	-- ++(30:1) node (CO) {}
 	        -- +(330:1) node [anchor=base] {O$^{\mbox{-}}$};
 	\draw[to_1]  (CO.center)	-- +(90:1) node (Od) {O};
 	\draw[to_1i] (CO.30)		-- +(90:1);
 	\draw[to_3]  (zero.center)	-- ++(150:1) node {NH$_{\mbox{3}}^{\mbox{+}}$};
-	\draw[to_2]  (zero.center)	-- ++(270:1) node(Cb){} -- ++(210:1) node (Cc) {OH};
+	\draw[to_2,#1]  (zero.center)	-- ++(270:1) node(Cb){} -- ++(210:1) node (Cc) {OH};
 	\end{scope}
 }
-
-\newcommand{\Threonine}[1]{
-	\begin{scope}[scale=0.5]	% Threonine
-	\path (#1) node (zero) {};
+\DeclareDocumentCommand{\Threonine}{ O{red} O{0.5} m }{
+	\begin{scope}[scale=#2]	% Threonine
+	\path (#3) node (zero) {};
 	\draw[to_2]  (zero.center)	-- ++(30:1) node (CO) {}
 	        -- +(330:1) node [anchor=base] {O$^{\mbox{-}}$};
 	\draw[to_1]  (CO.center)	-- +(90:1) node (Od) {O};
 	\draw[to_1i] (CO.30)		-- +(90:1);
 	\draw[to_3]  (zero.center)	-- ++(150:1) node {NH$_{\mbox{3}}^{\mbox{+}}$};
-	\draw[to_2]  (zero.center)	-- ++(270:1) node(Cb){}
+	\draw[to_2,#1]  (zero.center)	-- ++(270:1) node(Cb){}
 	        -- ++(330:1) node (Cc) {} (Cb.center)
 	        -- +(210:1) node {OH};
 	\end{scope}
 }
-\newcommand{\Methionine}[1]{
-\begin{scope}[scale=0.5]	% Methionine
-\path (#1) node (zero) {};
+
+\DeclareDocumentCommand{\Methionine}{ O{red} O{0.5} m }{
+\begin{scope}[scale=#2]	% Methionine
+\path (#3) node (zero) {};
 \draw[to_2]  (zero.center)	-- ++(30:1) node (CO) {}
         -- +(330:1) node [anchor=base] {O$^{\mbox{-}}$};
 \draw[to_1]  (CO.center)	-- +(90:1) node (Od) {O};
 \draw[to_1i] (CO.30)		-- +(90:1);
 \draw[to_3]  (zero.center)	-- ++(150:1) node {NH$_{\mbox{3}}^{\mbox{+}}$};
-\draw[to_1]  (zero.center)	-- ++(270:1) node(Cb){}
+\draw[to_1,#1]  (zero.center)	-- ++(270:1) node(Cb){}
         -- ++(330:1) node (Cc) {}
         -- ++(30:1) node (Cd) {S};
-\draw[from_1] (Cd.center)	-- +(330:1);
+\draw[from_1,#1] (Cd.center)	-- +(330:1);
 \end{scope}
 }
-\newcommand{\Isoleucine}[1]{
-	\begin{scope}[scale=0.5]	% Isoleucine
-	\path (#1) node (zero) {};
+
+\DeclareDocumentCommand{\Isoleucine}{ O{red} O{0.5} m }{
+	\begin{scope}[scale=#2]	% Isoleucine
+	\path (#3) node (zero) {};
 	\draw[to_2]  (zero.center)	-- ++(30:1) node (CO) {}
 	        -- +(330:1) node [anchor=base] {O$^{\mbox{-}}$};
 	\draw[to_1]  (CO.center)	-- +(90:1) node (Od) {O};
 	\draw[to_1i] (CO.30)		-- +(90:1);
 	\draw[to_3]  (zero.center)	-- ++(150:1) node {NH$_{\mbox{3}}^{\mbox{+}}$};
-	\draw	     (zero.center)	-- ++(270:1) node(Cb){}
+	\draw[#1]	     (zero.center)	-- ++(270:1) node(Cb){}
 	        -- ++(330:1) node (Cc) {}
 	        -- +(30:1) node (Cd) {} (Cb.center)
 	        -- +(210:1) node (Ce) {};
 	\end{scope}
 }
 
-\newcommand{\GlutamicAcid}[1]{
-\begin{scope}[scale=0.5]	% Glutamic acid
-	\path (#1) node (zero) {};
+\DeclareDocumentCommand{\GlutamicAcid}{ O{red} O{0.5} m }{
+\begin{scope}[scale=#2]	% Glutamic acid
+	\path (#3) node (zero) {};
 	\draw[to_2]  (zero.center)	-- ++(30:1) node (CO) {}
 	        -- +(330:1) node [anchor=base] {O$^{\mbox{-}}$};
 	\draw[to_1]  (CO.center)  	-- +(90:1) node (Od) {O};
 	\draw[to_1i] (CO.30)  		-- +(90:1);
 	\draw[to_3]  (zero.center) 	-- ++(150:1) node {NH$_{\mbox{3}}^{\mbox{+}}$};
-	\draw[to_1i] (zero.center) 	-- ++(270:1) node(Cb){}
+	\draw[to_1i,#1] (zero.center) 	-- ++(270:1) node(Cb){}
 	        -- ++(330:1) node (Cc) {}
 	        -- ++(270:1) node (Cd) {}
 	        -- ++(330:1) node (NH) {OH};
-	\draw[to_1]  (Cd.center) 	-- +(210:1) node (O) {};
-	\draw[to_1i] (Cd.270) 		-- (O.300);
-	\path (O.center) node {O};
+	\draw[to_1,#1]  (Cd.center) 	-- +(210:1) node (O) {};
+	\draw[to_1i,#1] (Cd.270) 		-- (O.300);
+	\path[#1] (O.center) node {O};
 	\end{scope}
 }
-\newcommand{\AsparticAcid}[1]{
-	\begin{scope}[scale=0.5]	% Aspartic acid
-	\path (#1) node (zero) {};
+
+\DeclareDocumentCommand{\AsparticAcid}{ O{red} O{0.5} m }{
+	\begin{scope}[scale=#2]	% Aspartic acid
+	\path (#3) node (zero) {};
 	\draw[to_2]  (zero.center)	-- ++(30:1) node (CO) {}
 	        -- +(330:1) node [anchor=base] {O$^{\mbox{-}}$};
 	\draw[to_1]  (CO.center) 	-- +(90:1) node (Od) {O};
 	\draw[to_1i] (CO.30)		-- +(90:1);
 	\draw[to_3]  (zero.center)	-- ++(150:1) node {NH$_{\mbox{3}}^{\mbox{+}}$};
-	\draw[to_2]  (zero.center)	-- ++(270:1) node(Cb){}
+	\draw[to_2,#1]  (zero.center)	-- ++(270:1) node(Cb){}
 	        -- ++(330:1) node (Cc) {}
 	        -- +(30:1) node (Cd) {OH};
-	\draw[to_1i] (Cc.center)	-- +(270:1) node (O) {};
-	\draw[to_1]  (Cc.210)		-- (O.150);
-	\path (O.center) node {O};
+	\draw[to_1i,#1] (Cc.center)	-- +(270:1) node (O) {};
+	\draw[to_1,#1]  (Cc.210)		-- (O.150);
+	\path[#1] (O.center) node {O};
 	\end{scope}
 }
-\newcommand{\Glycine}[1]{
-	\begin{scope}[scale=0.5]	% Glycine
-	\path (#1) node (zero) {};
+
+\DeclareDocumentCommand{\Glycine}{ O{red} O{0.5} m }{
+	\begin{scope}[scale=#2]	% Glycine
+	\path (#3) node (zero) {};
 	\draw[to_2]  (zero.center)	-- ++(30:1) node (CO) {}
 	        -- +(330:1) node [anchor=base] {O$^{\mbox{-}}$};
 	\draw[to_1]  (CO.center)	-- +(90:1) node (Od) {O};
@@ -150,217 +155,225 @@
 	\end{scope}
 }
 
-\newcommand{\Alanine}[1]{
-	\begin{scope}[scale=0.5]	% Alanine
-	\path (#1) node (zero) {};
+\DeclareDocumentCommand{\Alanine}{ O{red} O{0.5} m }{
+	\begin{scope}[scale=#2]	% Alanine
+	\path (#3) node (zero) {};
 	\draw[to_2]  (zero.center)	-- ++(30:1) node (CO) {}
 	        -- +(330:1) node [anchor=base] {O$^{\mbox{-}}$};
 	\draw[to_1]  (CO.center)	-- +(90:1) node (Od) {O};
 	\draw[to_1i] (CO.30)		-- +(90:1);
 	\draw[to_3]  (zero.center)	-- ++(150:1) node {NH$_{\mbox{3}}^{\mbox{+}}$};
-	\draw	     (zero.center)	-- ++(270:1) node(Cb){};
+	\draw[#1]	     (zero.center)	-- ++(270:1) node(Cb){};
 	\end{scope}
 }
-\newcommand{\Valine}[1]{
-	\begin{scope}[scale=0.5]	% Valine
-	\path (#1) node (zero) {};
+
+\DeclareDocumentCommand{\Valine}{ O{red} O{0.5} m }{
+	\begin{scope}[scale=#2]	% Valine
+	\path (#3) node (zero) {};
 	\draw[to_2]  (zero.center)	-- ++(30:1) node (CO) {}
 	        -- +(330:1) node [anchor=base] {O$^{\mbox{-}}$};
 	\draw[to_1]  (CO.center)	-- +(90:1) node (Od) {O};
 	\draw[to_1i] (CO.30)		-- +(90:1);
 	\draw[to_3]  (zero.center)	-- ++(150:1) node {NH$_{\mbox{3}}^{\mbox{+}}$};
-	\draw (zero.center)		-- ++(270:1) node(Cb){}
+	\draw[#1] (zero.center)		-- ++(270:1) node(Cb){}
 	        -- ++(330:1) node (Cc) {};
 	\end{scope}
 }
-\newcommand{\Glutamine}[1]{
-	\begin{scope}[scale=0.5]	% Glutamine
-	\path (#1) node (zero) {};
+
+\DeclareDocumentCommand{\Glutamine}{ O{red} O{0.5} m }{
+	\begin{scope}[scale=#2]	% Glutamine
+	\path (#3) node (zero) {};
 	\draw[to_2]  (zero.center)	-- ++(30:1) node (CO) {}
 	        -- +(330:1) node [anchor=base] {O$^{\mbox{-}}$};
 	\draw[to_1]  (CO.center)	-- +(90:1) node (Od) {O};
 	\draw[to_1i] (CO.30)		-- +(90:1);
 	\draw[to_2]  (zero.center)	-- ++(150:1) node {NH$_{\mbox{3}}^{\mbox{+}}$};
-	\draw[to_3]  (zero.center)	-- ++(270:1) node(Cb){}
+	\draw[to_3,#1]  (zero.center)	-- ++(270:1) node(Cb){}
 	        -- ++(330:1) node (Cc) {}
 	        -- ++(270:1) node (Cd) {}
 	        -- ++(330:1) node (NH) {NH$_{\mbox{2}}$};
-	\draw[to_1]  (Cd.center)	-- +(210:1) node (O) {};
-	\draw[to_1i] (Cd.270)		-- (O.300);
-	\path (O.center) node {O};
+	\draw[to_1,#1]  (Cd.center)	-- +(210:1) node (O) {};
+	\draw[to_1i,#1] (Cd.270)		-- (O.300);
+	\path[#1] (O.center) node {O};
 	\end{scope}
 }
-\newcommand{\Histidine}[1]{
-	\begin{scope}[scale=0.5]	% Histidine
-	\path (#1) node (zero) {};
+
+\DeclareDocumentCommand{\Histidine}{ O{red} O{0.5} m }{
+	\begin{scope}[scale=#2]	% Histidine
+	\path (#3) node (zero) {};
 	\draw[to_2]  (zero.center)	-- ++(30:1) node (CO) {}
 	        -- +(330:1) node [anchor=base] {O$^{\mbox{-}}$};
 	\draw[to_1]  (CO.center)	-- +(90:1) node (Od) {O};
 	\draw[to_1i] (CO.30)		-- +(90:1);
 	\draw[to_3]  (zero.center)	-- ++(150:1) node {NH$_{\mbox{3}}^{\mbox{+}}$};
-	\draw        (zero.center)	-- ++(270:1) node(Cb){}
+	\draw[#1]        (zero.center)	-- ++(270:1) node(Cb){}
 	        -- ++(330:1) node(Cc){};
-	\draw[to_2]  (Cc.center)	-- ++(108-1*72:1) node (Cd) {}
+	\draw[to_2,#1]  (Cc.center)	-- ++(108-1*72:1) node (Cd) {}
 	        -- ++(108-2*72:1) node (Ce) {NH};
-	\draw[from_1,to_1] (Ce.center)	-- ++(108-3*72:1) node (Cf) {}
+	\draw[from_1,to_1,#1] (Ce.center)	-- ++(108-3*72:1) node (Cf) {}
 	        -- ++(108-4*72:1) node (Cg) {};
-	\draw[from_1] (Cg.center)	-- (Cc.center);
-	\draw         (Cc.198+2*72)	-- (Cd.198+1*72);
-	\draw[from_1] (Cg.72)		-- (Cf.198+4*72);
-	\draw (Cg.center) node {N};
+	\draw[from_1,#1] (Cg.center)	-- (Cc.center);
+	\draw[#1]         (Cc.198+2*72)	-- (Cd.198+1*72);
+	\draw[from_1,#1] (Cg.72)		-- (Cf.198+4*72);
+	\draw[#1] (Cg.center) node {N};
 	\end{scope}
 }
 
-\newcommand{\Proline}[1]{
-	\begin{scope}[scale=0.5]	% Proline
-	\path (#1) node (zero) {};
+\DeclareDocumentCommand{\Proline}{ O{red} O{0.5} m }{
+	\begin{scope}[scale=#2]	% Proline
+	\path (#3) node (zero) {};
 	\draw[to_2]  (zero.center)	-- ++(30:1) node (CO) {}
 	        -- +(330:1) node [anchor=base] {O$^{\mbox{-}}$};
 	\draw[to_1]  (CO.center)	-- +(90:1) node (Od) {O};
 	\draw[to_1i] (CO.30)		-- +(90:1);
 	\draw[to_2]  (zero.center)	-- ++(150:1) node (nh) {NH$_{\mbox{2}}^+$};
-	\draw        (zero.center)	-- ++(270:1) node(Cb){};
+	\draw[#1]        (zero.center)	-- ++(270:1) node(Cb){};
 	\path        (Cb.center)	-- +(150:1) node (x) {};
 	\path        (x.center)  	+(170:1) node (Cd) {};
 	\path        (x.center)  	+(250:1) node (Cc) {};
-	\draw[to_3]  (Cb.center)	-- (Cc.center)
+	\draw[to_3,#1]  (Cb.center)	-- (Cc.center)
 	        -- (Cd.center)
 	        -- (nh.center);
 	\end{scope}
 }
-\newcommand{\Leucine}[1]{
-	\begin{scope}[scale=0.5]	% Leucine
-	\path (#1) node (zero) {};
+
+\DeclareDocumentCommand{\Leucine}{ O{red} O{0.5} m }{
+	\begin{scope}[scale=#2]	% Leucine
+	\path (#3) node (zero) {};
 	\draw[to_2]  (zero.center)	-- ++(30:1) node (CO) {}
 	        -- +(330:1) node [anchor=base] {O$^{\mbox{-}}$};
 	\draw[to_1]  (CO.center)	-- +(90:1) node (Od) {O};
 	\draw[to_1i] (CO.30)		-- +(90:1);
 	\draw[to_3]  (zero.center)	-- ++(150:1) node {NH$_{\mbox{3}}^{\mbox{+}}$};
-	\draw (zero.center)		-- ++(270:1) node(Cb){}
+	\draw[#1] (zero.center)		-- ++(270:1) node(Cb){}
 	        -- ++(330:1) node (Cc) {}
 	        -- +(30:1) node (Cd) {} (Cc.center)
 	        -- +(270:1) node (Ce) {};
 	\end{scope}
 }
-\newcommand{\Tyrosine}[1]{
-	\begin{scope}[scale=0.5]	% Tyrosine
-	\path (#1) node (zero) {};
+
+\DeclareDocumentCommand{\Tyrosine}{ O{red} O{0.5} m }{
+	\begin{scope}[scale=#2]	% Tyrosine
+	\path (#3) node (zero) {};
 	\draw[to_2]  (zero.center)	-- ++(30:1) node (CO) {}
 	        -- +(330:1) node [anchor=base] {O$^{\mbox{-}}$};
 	\draw[to_1]  (CO.center)	-- +(90:1) node (Od) {O};
 	\draw[to_1i] (CO.30)		-- +(90:1);
 	\draw[to_3]  (zero.center)	-- ++(150:1) node {NH$_{\mbox{3}}^{\mbox{+}}$};
-	\draw 	     (zero.center)	-- ++(270:1) node(Cb){};
-	\draw	     (Cb.center)	-- ++(330:1) node (Cc) {}
+	\draw[#1] 	     (zero.center)	-- ++(270:1) node(Cb){};
+	\draw[#1]	     (Cb.center)	-- ++(330:1) node (Cc) {}
 	        -- ++(30:1) node (Cd) {}
 	        -- ++(330:1) node (Ce) {}
 	        -- ++(270:1) node (Cf) {}
 	        -- ++(210:1) node (Cg) {}
 	        -- ++(150:1) node (Ch) {}
 	        -- ++(90:1);
-	\draw        (Cc.330)		-- (Cd.270);
-	\draw        (Ce.210)		-- (Cf.150);
-	\draw        (Cg.90)		-- (Ch.30);
-	\draw[to_1i] (Cf.center)	-- +(330:1) node (OH) {OH};
+	\draw[#1]        (Cc.330)		-- (Cd.270);
+	\draw[#1]        (Ce.210)		-- (Cf.150);
+	\draw[#1]        (Cg.90)		-- (Ch.30);
+	\draw[to_1i,#1] (Cf.center)	-- +(330:1) node (OH) {OH};
 	\end{scope}
 }
 
-\newcommand{\Tryptophane}[1]{
-	\begin{scope}[scale=0.5]	% Tryptophane
-	\path (#1) node (zero) {};
+\DeclareDocumentCommand{\Tryptophane}{ O{red} O{0.5} m }{
+	\begin{scope}[scale=#2]	% Tryptophane
+	\path (#3) node (zero) {};
 	\draw[to_2]  (zero.center)	-- ++(30:1) node (CO) {}
 	        -- +(330:1) node [anchor=base] {O$^{\mbox{-}}$};
 	\draw[to_1]  (CO.center)	-- +(90:1) node (Od) {O};
 	\draw[to_1i] (CO.30)		-- +(90:1);
 	\draw[to_3]  (zero.center)	-- ++(150:1) node {NH$_{\mbox{3}}^{\mbox{+}}$};
-	\draw 	     (zero.center)	-- ++(270:1) node(Cb){}
+	\draw[#1] 	     (zero.center)	-- ++(270:1) node(Cb){}
 	        -- ++(330:1) node(Cc){};
-	\draw[to_2]  (Cc.center)	-- ++(108-1*72:1) node (Cd) {}
+	\draw[to_2,#1]  (Cc.center)	-- ++(108-1*72:1) node (Cd) {}
 	        -- ++(108-2*72:1) node (Ce) {NH};
-	\draw[from_1](Ce.center)	-- ++(108-3*72:1) node (Cf) {}
+	\draw[from_1,#1](Ce.center)	-- ++(108-3*72:1) node (Cf) {}
 	        -- ++(108-4*72:1) node (Cg) {};
-	\draw 	     (Cg.center)	-- (Cc.center);
-	\draw        (Cc.198+2*72)	-- (Cd.198+1*72);
-	\draw 	     (Cg.72)		-- (Cf.198+4*72);
-	\draw	     (Cg.center)	-- ++(240:1) node (Ch) {}
+	\draw[#1] 	     (Cg.center)	-- (Cc.center);
+	\draw[#1]        (Cc.198+2*72)	-- (Cd.198+1*72);
+	\draw[#1] 	     (Cg.72)		-- (Cf.198+4*72);
+	\draw[#1]	     (Cg.center)	-- ++(240:1) node (Ch) {}
 	        -- ++(300:1) node (Ci) {}
 	        -- ++(0:1) node (Cj) {}
 	        -- ++(60:1) node (Ck) {}
 	        -- ++(120:1) node (Cl) {};
-	\draw	     (Ch.0)		-- (Ci.60);
-	\draw	     (Cj.120)		-- (Ck.180);
+	\draw[#1]	     (Ch.0)		-- (Ci.60);
+	\draw[#1]	     (Cj.120)		-- (Ck.180);
 	\end{scope}
 }
-\newcommand{\Cysteine}[1]{
-	\begin{scope}[scale=0.5]	% Cysteine
-	\path (#1) node (zero) {};
+
+\DeclareDocumentCommand{\Cysteine}{ O{red} O{0.5} m }{
+	\begin{scope}[scale=#2]	% Cysteine
+	\path (#3) node (zero) {};
 	\draw[to_2]  (zero.center)	-- ++(30:1) node (CO) {}
 	        -- +(330:1) node [anchor=base] {O$^{\mbox{-}}$};
 	\draw[to_1]  (CO.center)	-- +(90:1) node (Od) {O};
 	\draw[to_1i] (CO.30)		-- +(90:1);
 	\draw[to_3]  (zero.center)	-- ++(150:1) node {NH$_{\mbox{3}}^{\mbox{+}}$};
-	\draw[to_2]  (zero.center)	-- ++(270:1) node(Cb){}
+	\draw[to_2,#1]  (zero.center)	-- ++(270:1) node(Cb){}
 	        -- ++(210:1) node (Cc) {SH};
 	\end{scope}
 }
 
-\newcommand{\Selenocysteine}[1]{
-	\begin{scope}[scale=0.5]	% Selenocysteine
-	\path (#1) node (zero) {};
+\DeclareDocumentCommand{\Selenocysteine}{ O{red} O{0.5} m }{
+	\begin{scope}[scale=#2]	% Selenocysteine
+	\path (#3) node (zero) {};
 	\draw[to_2]  (zero.center)	-- ++(30:1) node (CO) {}
 	        -- +(330:1) node [anchor=base] {O$^{\mbox{-}}$};
 	\draw[to_1]  (CO.center)	-- +(90:1) node (Od) {O};
 	\draw[to_1i] (CO.30)		-- +(90:1);
 	\draw[to_3]  (zero.center)	-- ++(150:1) node {NH$_{\mbox{3}}^{\mbox{+}}$};
-	\draw[to_2]  (zero.center)	-- ++(270:1) node(Cb){}
+	\draw[to_2,#1]  (zero.center)	-- ++(270:1) node(Cb){}
 	        -- ++(210:1) node (Cc) {SeH};
 	\end{scope}
 }
-\newcommand{\SerineT}[1]{
-	\begin{scope}[scale=0.5]	% Serine
-	\path (#1) node (zero) {};
+\DeclareDocumentCommand{\SerineT}{ O{red} O{0.5} m }{
+	\begin{scope}[scale=#2]	% Serine
+	\path (#3) node (zero) {};
 	\draw[to_2]  (zero.center)	-- ++(30:1) node (CO) {}
 	        -- +(330:1) node [anchor=base] {O$^{\mbox{-}}$};
 	\draw[to_1]  (CO.center)	-- +(90:1) node (Od) {O};
 	\draw[to_1i] (CO.30)		-- +(90:1);
 	\draw[to_3]  (zero.center)	-- ++(150:1) node {NH$_{\mbox{3}}^{\mbox{+}}$};
-	\draw[to_2]  (zero.center)	-- ++(270:1) node(Cb){}
+	\draw[to_2,#1]  (zero.center)	-- ++(270:1) node(Cb){}
 	        -- ++(330:1) node (Cc) {OH};
 	\end{scope}
 }
-\newcommand{\LeucineT}[1]{
-	\begin{scope}[scale=0.5]	% Leucine
-	\path (#1) node (zero) {};
+
+\DeclareDocumentCommand{\LeucineT}{ O{red} O{0.5} m }{
+	\begin{scope}[scale=#2]	% Leucine
+	\path (#3) node (zero) {};
 	\draw[to_2]  (zero.center)	-- ++(30:1) node (CO) {}
 	        -- +(330:1) node [anchor=base] {O$^{\mbox{-}}$};
 	\draw[to_1]  (CO.center)	-- +(90:1) node (Od) {O};
 	\draw[to_1i] (CO.30)		-- +(90:1);
 	\draw[to_3]  (zero.center)	-- ++(150:1) node {NH$_{\mbox{3}}^{\mbox{+}}$};
-	\draw 	     (zero.center)	-- ++(270:1) node(Cb){}
+	\draw[#1] 	     (zero.center)	-- ++(270:1) node(Cb){}
 	        -- ++(210:1) node (Cc) {}
 	        -- +(150:1) node (Cd) {} (Cc.center)
 	        -- +(270:1) node (Ce) {};
 	\end{scope}
 }
-\newcommand{\Phenylalanine}[1]{
-	\begin{scope}[scale=0.5]	% Phenylalanine
-	\path (#1) node (zero) {};
+
+\DeclareDocumentCommand{\Phenylalanine}{ O{red} O{0.5} m }{
+	\begin{scope}[scale=#2]	% Phenylalanine
+	\path (#3) node (zero) {};
 	\draw[to_2]  (zero.center)	-- ++(30:1) node (CO) {}
 	        -- +(330:1) node [anchor=base] {O$^{\mbox{-}}$};
 	\draw[to_1]  (CO.center)	-- +(90:1) node (Od) {O};
 	\draw[to_1i] (CO.30)		-- +(90:1);
 	\draw[to_3]  (zero.center)	-- ++(150:1) node {NH$_{\mbox{3}}^{\mbox{+}}$};
-	\draw	     (zero.center)	-- ++(270:1) node(Cb){};
-	\draw	     (Cb.center)	-- ++(210:1) node (Cc) {}
+	\draw[#1]	     (zero.center)	-- ++(270:1) node(Cb){};
+	\draw[#1]	     (Cb.center)	-- ++(210:1) node (Cc) {}
 	        -- ++(150:1) node (Cd) {}
 	        -- ++(210:1) node (Ce) {}
 	        -- ++(270:1) node (Cf) {}
 	        -- ++(330:1) node (Cg) {}
 	        -- ++(30:1) node (Ch) {}
 	        -- ++(90:1);
-	\draw	     (Cc.210)		-- (Cd.270);
-	\draw	     (Ce.330)		-- (Cf.30);
-	\draw	     (Cg.90)		-- (Ch.150);
+	\draw[#1]	     (Cc.210)		-- (Cd.270);
+	\draw[#1]	     (Ce.330)		-- (Cf.30);
+	\draw[#1]	     (Cg.90)		-- (Ch.150);
 	\end{scope}
 }
 
