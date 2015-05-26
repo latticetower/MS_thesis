@@ -44,6 +44,12 @@ def group_all_elements(data):
 def read_pdb_info(filename, chain1= 'L', chain2 = 'H'):
     parser = PDBParser()
     structure = parser.get_structure('', filename)
+    if chain2 == None:
+        chain_names = map(lambda x: x.id, structure[0])
+        if len(chain_names) != 2:
+            print "there are more than 2 chains, can't decide"
+        if chain1 != None:
+            chain2 = chain_names[1] if chain1 == chain_names[0] else chain_names[0]
     return (
         list(structure[0][chain1].get_atoms()),
         list(structure[0][chain2].get_atoms()) # ,
@@ -61,6 +67,12 @@ def read_dssp_info(filename,
     structure = parser.get_structure('', filename)
     model = structure[0]
     dssp = DSSP(model, filename, dssp='mkdssp')
+    if chain2 == None:
+        chain_names = map(lambda x: x.id, structure[0])
+        if len(chain_names) != 2:
+            print "there are more than 2 chains, can't decide"
+        if chain1 != None:
+            chain2 = chain_names[1] if chain1 == chain_names[0] else chain_names[0]
     for chain in (chain1, chain2):
         data = sorted([
                 (key_transf1(key), value)
@@ -346,20 +358,20 @@ def extend_to_coils(interface_triangles,
                     surface,
                     get_res_seq = lambda x: x.get_parent().get_id()[1]
                     ):
-    logging.debug("coils extension started")
+    #logging.debug("coils extension started")
     if len(interface_triangles) == 0:
         return interface_triangles
     g = np.vectorize(lambda x: int(get_res_seq(surface[0][x])))
     result =  np.unique(g(interface_triangles))
     coil_fragments = set()
     distinct_aa = set()
-    logging.debug("print chains information")
+    #logging.debug("print chains information")
     #print chain_info
     for aa_id in result:
         #print "aa_id "
         #print aa_id
         coil = [c for c in chain_info if aa_id >= c[0] and aa_id <= c[1] ]
-        logging.debug("aa {0}: {1}".format(aa_id, coil))
+        #logging.debug("aa {0}: {1}".format(aa_id, coil))
         #print coil
         if len(coil) > 0:
             for c in coil:
@@ -373,7 +385,7 @@ def extend_to_coils(interface_triangles,
 
 def main_func(pdb_filename, chain1, chain2):
     pair_of_chains = read_pdb_info(pdb_filename, chain1, chain2)
-    chains_ss_info = read_dssp_info(pdb_filename)
+    chains_ss_info = read_dssp_info(pdb_filename, chain1, chain2)
     #print chains_ss_info
     surface1 = process_chain(pair_of_chains[0])
     surface2 = process_chain(pair_of_chains[1])
@@ -384,7 +396,7 @@ def main_func(pdb_filename, chain1, chain2):
     triangles = find_interface_triangles(surface1, surface2, cutoff)
     #print(to_aa(triangles, surface1))
     triangles = extend_interface_1(triangles, surface1)
-    print(to_aa(triangles, surface1))#this returns interface aminoacids with atoms located near surface2
+    #print(to_aa(triangles, surface1))#this returns interface aminoacids with atoms located near surface2
     def check_edge(x1, x2):
         dist = (x1 - x2) - (get_radius(x1.element) + get_radius(x2.element))
         return dist > 0
@@ -395,11 +407,16 @@ def main_func(pdb_filename, chain1, chain2):
     G = DTGraph(surface1)
     nodes = np.setdiff1d(G.find_pockets(triangles, check_edge, distance_func), triangles)
     #nodes = G.find_pockets(triangles, check_edge)
-    print(nodes)
-    aa_with_coils = extend_to_coils(triangles, chains_ss_info[chain1], surface1)
+    #print(nodes)
+    aa_with_coils = extend_to_coils(nodes, chains_ss_info[chain1], surface1)
     #print aa_with_coils
     #    if (len(nodes) > 0):
-    return to_aa(aa_with_coils, surface1) #this retuns all aminoacids forming pockets except ones shown previously
+    return np.unique(np.union1d(
+        np.union1d(
+            to_aa(aa_with_coils, surface1),
+            to_aa(nodes, surface1)),
+        to_aa(triangles, surface1)
+    )) #this retuns all aminoacids forming pockets except ones shown previously
     #C = CHGraph(surface1)
 
 if __name__ == "__main__":

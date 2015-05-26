@@ -33,6 +33,7 @@ def fetch_pdb(pdbCode, pdb_dir):
             else:
                 print "warning: %s not valid.\n"%pdbCode
             os.remove(filename)
+    return outFile
 
 if __name__ == "__main__":
     pdb_dir = "pdb_folder"
