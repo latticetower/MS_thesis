@@ -354,7 +354,7 @@ def extend_to_coils(interface_triangles,
     coil_fragments = set()
     distinct_aa = set()
     logging.debug("print chains information")
-    print chain_info
+    #print chain_info
     for aa_id in result:
         #print "aa_id "
         #print aa_id
@@ -371,13 +371,9 @@ def extend_to_coils(interface_triangles,
             distinct_aa.add(k)
     return np.unique(np.asarray(list(distinct_aa)))
 
-
-
-if __name__ == "__main__":
-    logging.basicConfig(filename="logs/" + os.path.splitext(os.path.basename(__file__))[0] + ".log", level=logging.DEBUG)
-    logging.debug("============\nCalled simple script")
-    pair_of_chains = read_pdb_info(os.path.abspath('../test_data/2OSL.pdb'))
-    #chains_ss_info = read_dssp_info(os.path.abspath('../test_data/2OSL.pdb'))
+def main_func(pdb_filename, chain1, chain2):
+    pair_of_chains = read_pdb_info(pdb_filename, chain1, chain2)
+    chains_ss_info = read_dssp_info(pdb_filename)
     #print chains_ss_info
     surface1 = process_chain(pair_of_chains[0])
     surface2 = process_chain(pair_of_chains[1])
@@ -391,7 +387,6 @@ if __name__ == "__main__":
     print(to_aa(triangles, surface1))#this returns interface aminoacids with atoms located near surface2
     def check_edge(x1, x2):
         dist = (x1 - x2) - (get_radius(x1.element) + get_radius(x2.element))
-        #print(dist)
         return dist > 0
     def distance_func(x1, x2):
         return x1 - x2
@@ -401,9 +396,15 @@ if __name__ == "__main__":
     nodes = np.setdiff1d(G.find_pockets(triangles, check_edge, distance_func), triangles)
     #nodes = G.find_pockets(triangles, check_edge)
     print(nodes)
-    #aa_with_coils = extend_to_coils(triangles, chains_ss_info['L'], surface1)
+    aa_with_coils = extend_to_coils(triangles, chains_ss_info[chain1], surface1)
     #print aa_with_coils
     #    if (len(nodes) > 0):
-    #print(to_aa(nodes, surface1))#this retuns all aminoacids forming pockets except ones shown previously
-    print("end of processing")
+    return to_aa(aa_with_coils, surface1) #this retuns all aminoacids forming pockets except ones shown previously
     #C = CHGraph(surface1)
+
+if __name__ == "__main__":
+    logging.basicConfig(filename="logs/" + os.path.splitext(os.path.basename(__file__))[0] + ".log", level=logging.DEBUG)
+    logging.debug("============\nCalled simple script")
+    res = main_func(os.path.abspath('../test_data/2OSL.pdb'), 'L', 'H')
+    print res
+    print("end of processing")
