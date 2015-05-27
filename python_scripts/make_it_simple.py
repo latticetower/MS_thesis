@@ -48,6 +48,7 @@ def read_pdb_info(filename, chain1= 'L', chain2 = 'H'):
         chain_names = map(lambda x: x.id, structure[0])
         if len(chain_names) != 2:
             print "there are more than 2 chains, can't decide"
+            return None
         if chain1 != None:
             chain2 = chain_names[1] if chain1 == chain_names[0] else chain_names[0]
     return (
@@ -71,6 +72,7 @@ def read_dssp_info(filename,
         chain_names = map(lambda x: x.id, structure[0])
         if len(chain_names) != 2:
             print "there are more than 2 chains, can't decide"
+            return None
         if chain1 != None:
             chain2 = chain_names[1] if chain1 == chain_names[0] else chain_names[0]
     for chain in (chain1, chain2):
@@ -115,6 +117,14 @@ def get_triangles(l) : return [tuple({l[i], l[j], l[k]}) for i in range(0, len(l
 def find_interface_triangles(surface1, surface2, cutoff):
     triangles = surface1[1].convex_hull[np.any(surface2[2].query(
         surface1[1].points[surface1[1].convex_hull], 1, 0, 2, cutoff
+        )[0] < cutoff, axis = 1)]
+    return triangles
+
+#method returns set of all atoms from surface1, whose points lay within given cutoff near surface2
+def find_all_by_cutoff(surface1, surface2, cutoff):
+    #TODO: check and write it
+    triangles = surface1[1].convex_hull[np.any(surface2[2].query(
+        surface1[1].points, 1, 0, 2, cutoff
         )[0] < cutoff, axis = 1)]
     return triangles
 
@@ -385,7 +395,11 @@ def extend_to_coils(interface_triangles,
 
 def main_func(pdb_filename, chain1, chain2):
     pair_of_chains = read_pdb_info(pdb_filename, chain1, chain2)
+    if pair_of_chains == None:
+        return None
     chains_ss_info = read_dssp_info(pdb_filename, chain1, chain2)
+    if chains_ss_info == None:
+        return None
     #print chains_ss_info
     surface1 = process_chain(pair_of_chains[0])
     surface2 = process_chain(pair_of_chains[1])
@@ -418,6 +432,31 @@ def main_func(pdb_filename, chain1, chain2):
         to_aa(triangles, surface1)
     )) #this retuns all aminoacids forming pockets except ones shown previously
     #C = CHGraph(surface1)
+
+
+def find_by_cutoff(pdb_filename, chain1, chain2):
+    pair_of_chains = read_pdb_info(pdb_filename, chain1, chain2)
+    if pair_of_chains == None:
+        return None
+    chains_ss_info = read_dssp_info(pdb_filename, chain1, chain2)
+    if chains_ss_info == None:
+        return None
+    #print chains_ss_info
+    surface1 = process_chain(pair_of_chains[0])
+    surface2 = process_chain(pair_of_chains[1])
+    cutoff = 5.0
+    #while cutoff < 42.0:
+    #    print(cutoff)
+    #    cutoff += 1
+    triangles = find_all_by_cutoff(surface1, surface2, cutoff)
+    def check_edge(x1, x2):
+        dist = (x1 - x2) - (get_radius(x1.element) + get_radius(x2.element))
+        return dist > 0
+    def distance_func(x1, x2):
+        return x1 - x2
+    return to_aa(triangles, surface1)
+    #this retuns all aminoacids forming pockets except ones shown previously
+
 
 if __name__ == "__main__":
     logging.basicConfig(filename="logs/" + os.path.splitext(os.path.basename(__file__))[0] + ".log", level=logging.DEBUG)
