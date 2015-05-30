@@ -40,6 +40,7 @@ def group_all_elements(data):
         grouped_data[key].add(pos)
     return grouped_data
 
+#todo: add water molecules filtering
 @timed
 def read_pdb_info(filename, chain1= 'L', chain2 = 'H'):
     parser = PDBParser()
@@ -52,11 +53,18 @@ def read_pdb_info(filename, chain1= 'L', chain2 = 'H'):
         if chain1 != None:
             chain2 = chain_names[1] if chain1 == chain_names[0] else chain_names[0]
     return (
-        list(structure[0][chain1].get_atoms()),
-        list(structure[0][chain2].get_atoms()) # ,
+        [atom for atom in structure[0][chain1].get_atoms() if atom.get_parent().get_id()[0]!='W'],
+        [atom for atom in structure[0][chain2].get_atoms() if atom.get_parent().get_id()[0]!='W'],
+        len(structure[0][chain1]) # ,
         #list(map(lambda x : (x.get_vector()._ar), structure[0]['L'].get_atoms())),
         #list(map(lambda x : (x.get_vector()._ar), structure[0]['H'].get_atoms()))
     )
+
+@timed
+def read_pdb_chains_info(filename):
+    parser = PDBParser()
+    structure = parser.get_structure('', filename)
+    return [ chain.get_id() for chain in structure[0] ]
 
 @timed
 def read_dssp_info(filename,
@@ -393,7 +401,7 @@ def extend_to_coils(interface_triangles,
             distinct_aa.add(k)
     return np.unique(np.asarray(list(distinct_aa)))
 
-def main_func(pdb_filename, chain1, chain2):
+def main_func(pdb_filename, chain1, chain2, cutoff = 5.0):
     pair_of_chains = read_pdb_info(pdb_filename, chain1, chain2)
     if pair_of_chains == None:
         return None
@@ -403,10 +411,6 @@ def main_func(pdb_filename, chain1, chain2):
     #print chains_ss_info
     surface1 = process_chain(pair_of_chains[0])
     surface2 = process_chain(pair_of_chains[1])
-    cutoff = 5.0
-    #while cutoff < 42.0:
-    #    print(cutoff)
-    #    cutoff += 1
     triangles = find_interface_triangles(surface1, surface2, cutoff)
     #print(to_aa(triangles, surface1))
     triangles = extend_interface_1(triangles, surface1)
@@ -423,31 +427,48 @@ def main_func(pdb_filename, chain1, chain2):
     #nodes = G.find_pockets(triangles, check_edge)
     #print(nodes)
     aa_with_coils = extend_to_coils(nodes, chains_ss_info[chain1], surface1)
+    chain_length = pair_of_chains[2]
+    print(np.union1d(
+        to_aa(aa_with_coils, surface1),
+        to_aa(nodes, surface1)))
+    print(to_aa(triangles, surface1))
     #print aa_with_coils
     #    if (len(nodes) > 0):
-    return np.unique(np.union1d(
+    return (np.unique(np.union1d(
         np.union1d(
             to_aa(aa_with_coils, surface1),
             to_aa(nodes, surface1)),
         to_aa(triangles, surface1)
-    )) #this retuns all aminoacids forming pockets except ones shown previously
+        )), #this retuns all aminoacids forming pockets except ones shown previously
+        chain_length
+    )
     #C = CHGraph(surface1)
 
-
-def find_by_cutoff(pdb_filename, chain1, chain2):
+def main_func1(pdb_filename, chain1, chain2, cutoff = 5.0):
     pair_of_chains = read_pdb_info(pdb_filename, chain1, chain2)
     if pair_of_chains == None:
         return None
     chains_ss_info = read_dssp_info(pdb_filename, chain1, chain2)
     if chains_ss_info == None:
         return None
-    #print chains_ss_info
     surface1 = process_chain(pair_of_chains[0])
     surface2 = process_chain(pair_of_chains[1])
-    cutoff = 5.0
-    #while cutoff < 42.0:
-    #    print(cutoff)
-    #    cutoff += 1
+    triangles = find_interface_triangles(surface1, surface2, cutoff)
+    chain_length = 0
+    return (to_aa(triangles, surface1), #this retuns all aminoacids forming pockets except ones shown previously
+        chain_length
+    )
+
+
+def find_by_cutoff(pdb_filename, chain1, chain2, cutoff=5.0):
+    pair_of_chains = read_pdb_info(pdb_filename, chain1, chain2)
+    if pair_of_chains == None:
+        return None
+    chains_ss_info = read_dssp_info(pdb_filename, chain1, chain2)
+    if chains_ss_info == None:
+        return None
+    surface1 = process_chain(pair_of_chains[0])
+    surface2 = process_chain(pair_of_chains[1])
     triangles = find_all_by_cutoff(surface1, surface2, cutoff)
     def check_edge(x1, x2):
         dist = (x1 - x2) - (get_radius(x1.element) + get_radius(x2.element))
@@ -461,6 +482,6 @@ def find_by_cutoff(pdb_filename, chain1, chain2):
 if __name__ == "__main__":
     logging.basicConfig(filename="logs/" + os.path.splitext(os.path.basename(__file__))[0] + ".log", level=logging.DEBUG)
     logging.debug("============\nCalled simple script")
-    res = main_func(os.path.abspath('../test_data/2OSL.pdb'), 'L', 'H')
+    (res,) = main_func(os.path.abspath('../test_data/2OSL.pdb'), 'L', 'H')
     print res
     print("end of processing")
