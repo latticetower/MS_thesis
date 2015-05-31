@@ -119,13 +119,13 @@ if __name__ == "__main__":
         for chain1 in unprocessed_data[pdb].keys():
             lchain = unprocessed_data[pdb][chain1]
             total_hotspots = np.array([x.PDB_res for x in lchain])
-            found_hotspots = np.asarray([])
+            found_hotspots = np.array([])
             ehra_regions = dict()
             for chain2 in chains:
                 if chain2 != chain1:
                     res = main_func(filename, chain1, chain2)
                     ehra_regions[chain2] = np.array([y.get_id()[1] for y in res[0] if y.get_id()[0]!='W'])
-                    result3 = np.setdiff1d(ehra_regions[chain2], total_hotspots)
+                    result3 = np.intersect1d(ehra_regions[chain2], total_hotspots)
                     found_hotspots = np.union1d(found_hotspots, np.intersect1d(ehra_regions[chain2], total_hotspots))
                     table_data2.append(TableLine(pdb,
                         chain1, chain2, res[1], len(ehra_regions[chain2]),

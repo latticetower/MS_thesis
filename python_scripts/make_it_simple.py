@@ -428,17 +428,22 @@ def main_func(pdb_filename, chain1, chain2, cutoff = 5.0):
     #print(nodes)
     aa_with_coils = extend_to_coils(nodes, chains_ss_info[chain1], surface1)
     chain_length = pair_of_chains[2]
-    print(np.union1d(
+    nn1 = np.union1d(
         to_aa(aa_with_coils, surface1),
-        to_aa(nodes, surface1)))
-    print(to_aa(triangles, surface1))
+        to_aa(nodes, surface1))
+    nn2 = to_aa(triangles, surface1)
     #print aa_with_coils
     #    if (len(nodes) > 0):
+    if len(nn1) == 0:
+        if len(nn2) == 0:
+            return (nn1, chain_length)
+        return (nn2, chain_length)
+    else:
+        if len(nn2) == 0:
+            return (nn1, chain_length)
     return (np.unique(np.union1d(
-        np.union1d(
-            to_aa(aa_with_coils, surface1),
-            to_aa(nodes, surface1)),
-        to_aa(triangles, surface1)
+        nn1,
+        nn2
         )), #this retuns all aminoacids forming pockets except ones shown previously
         chain_length
     )
