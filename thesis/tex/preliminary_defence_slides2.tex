@@ -1,0 +1,371 @@
+\documentclass[12pt, xcolor={dvipsnames}]{beamer}
+\mode<presentation>{
+  \usetheme{Madrid}
+  % or ...
+  \usecolortheme[named=OliveGreen]{structure}
+  \setbeamercovered{transparent}
+  % or whatever (possibly just delete it)
+}
+% -- Add this section to your LaTeX doc
+% Remember to use "pdflatex -shell-escape myfile.tex"
+% or it won't allow LaTeX to call any command-line
+% programs!
+\usepackage{graphicx}
+
+\graphicspath{{../images/}}
+\newcounter{smilescounter}
+\setcounter{smilescounter}{1}
+\newcommand{\smiles}[1]{
+\immediate\write18{obabel -:"#1" -O ../images/SMILES/smilesimg\arabic{smilescounter}.png}
+\centering\includegraphics[width=0.1\textwidth]{../images/SMILES/smilesimg\arabic{smilescounter}.png}
+\addtocounter{smilescounter}{1}
+}
+% -- End of section 
+\newcommand{\Ala}{C[C@@H](N)C(=O)O }
+\newcommand{\Arg}{N[C@@H](CCCNC(=N)N)C(=O)O }
+\newcommand{\Asn}{N[C@@H](CC(=O)N)C(=O)O }
+\newcommand{\Asp}{NC(CC(O)=O)C(O)=O}
+\newcommand{\Cys}{C([C@@H](C(=O)O)N)S} %
+\newcommand{\Glu}{C(CC(=O)O)C(C(=O)O)N}
+\newcommand{\Gln}{O=C(N)CCC(N)C(=O)O}
+\newcommand{\Gly}{C(C(=O)O)N}
+\newcommand{\His}{O=C(O)[C@@H](N)Cc1cncn1}
+\newcommand{\Ile}{CC[C@H](C)[C@@H](C(=O)O)N}
+\newcommand{\Leu}{CC(C)C[C@@H](C(=O)O)N}
+\newcommand{\Lys}{C(CCN)CC(C(=O)O)N}
+\newcommand{\Met}{CSCCC(C(=O)O)N}
+\newcommand{\Phe}{N[C@@H](Cc1ccccc1)C(=O)O } %fix
+\newcommand{\Pro}{OC(=O)C1CCCN1}
+\newcommand{\Ser}{C([C@@H](C(=O)O)N)O}
+\newcommand{\Thr}{C[C@H]([C@@H](C(=O)O)N)O}
+\newcommand{\Trp}{c1ccc2c(c1)c(c[nH]2)C[C@@H](C(=O)O)N}
+\newcommand{\Tyr}{N[C@@H](Cc1ccc(O)cc1)C(O)=O}
+\newcommand{\Val}{CC(C)[C@@H](C(=O)O)N}
+\newcommand{\Sec}{O=C(O)[C@@H](N)C[SeH]}
+\newcommand{\Pyl}{O=C(NCCCC[C@@H](C(=O)O)N)}
+
+
+\usepackage[T2A,T1]{fontenc}
+\usepackage[utf8x]{inputenc}
+
+\usepackage[russian]{babel}
+
+\usepackage{graphics}
+\usepackage{appendixnumberbeamer}
+
+\usepackage{wrapfig}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows, graphs}
+\input{aminoacids.tex}
+
+
+
+
+\setlength{\parskip}{\baselineskip} 
+%\usepackage[T1]{fontenc}
+% or whatever
+
+%\usepackage[latin1]{inputenc}
+% or whatever
+
+%\usepackage{times}
+%\usepackage[T1]{fontenc}
+% Or whatever. Note that the encoding and the font should match. If T1
+% does not look nice, try deleting the line with the fontenc.
+
+
+\title[] % (optional, use only with long paper titles)
+{Анализ поверхности взаимодействия белков и поиск наиболее значительных позиций методом in silico Ala-scan}
+
+%subtitle
+%{Include Only If Paper Has a Subtitle}
+
+\author[] % (optional, use only with lots of authors)
+{
+  \texorpdfstring{
+	\begin{columns}
+	\column{.55\linewidth}
+		Магистрант:\\
+		Научный руководитель:
+	\column{.45\linewidth}
+		Татьяна Малыгина, СПбАУ\\
+		Павел Яковлев, BIOCAD
+	\end{columns}
+%	\\[30pt]
+%    \begin{columns}
+%        \column{.55\linewidth}
+%        Место прохождения практики:
+%        \column{.45\linewidth}
+%        BIOCAD
+%    \end{columns}
+   }
+   {\& }
+}
+
+% - Give the names in the same order as the appear in the paper.
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+
+%\institute[Universities of Somewhere and %Elsewhere] % (optional, but mostly needed)
+%{
+%  \inst{1}%
+%  кафедра МиИТ, СПбАУ
+%}
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in your street address.
+
+\date[DIPLOMA 2015] % (optional, should be abbreviation of conference name)
+{СПбАУ, 2015}
+% - Either use conference name or its abbreviation.
+% - Not really informative to the audience, more for people (including
+%   yourself) who are reading the slides online
+
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+
+%\beamerdefaultoverlayspecification{<+->}
+\setbeamertemplate{footline}[frame number]
+
+\begin{document}
+
+% слайд 1
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% слайд 2
+\begin{frame}{Белок-белковое взаимодействие I}
+\textbf{Первичная структура} белка задается последовательностью (\textbf{цепочкой}) аминокислот:
+
+\resizebox{\textwidth}{!}{
+%\input{aa3_5.tex}
+\includegraphics{aa3_1.eps}
+}
+
+%\textbf{Вторичная структура} задается укладкой цепочки аминокислот в пространственные структуры, \textbf{третичная структура} - расположением этих структур в пространстве в случае, когда белок содержит только одну цепь.
+
+%Когда белок состоит из нескольких цепей, говорят о его \textbf{четвертичной структуре}.
+
+Когда мы рассматриваем несколько цепочек в составе одного белка или несколько белков, образующих комплекс, мы говорим о \textbf{белок-белковом взаимодействии}.
+\end{frame}
+
+% слайд 3
+\begin{frame}{Белок-белковое взаимодействие II}
+\resizebox{\textwidth}{!}{
+%\input{aa3_5.tex}
+\includegraphics{ppi.eps}
+}
+
+\end{frame}
+
+%слайд 4
+\begin{frame}{Дизайн лекарств: проблемы}
+Пусть есть комплекс из двух белков (например, антитело и эпитоп).
+
+\textbf{Вопрос 1}: можно ли изменить что-то в его структуре, чтобы усилить связь между компонентами комплекса?
+
+\textbf{Вопрос 2}: насколько специфична одна из компонент комплекса?  Можно ли подобрать один из белков так, чтобы комплекс был более устойчивым? Насколько заменяема каждая из компонент?
+
+Ответить нам поможет \textbf{аланиновое сканирование} (аланиновый мутагенез).
+\end{frame}
+
+%слайд 5
+\begin{frame}{Аланиновое сканирование}
+
+\begin{columns}
+\begin{column}{0.5\textwidth}
+Аланиновое сканирование (ала-скан) - метод для определения аминокислот в составе белка, играющих важную роль в сохранении его функций, стабильности или формы.
+\begin{center}
+\resizebox{!}{0.5\textwidth}{
+\includegraphics{intro/ala_scan.eps}
+}
+\end{center}
+\end{column}
+\begin{column}{0.5\textwidth}
+\begin{center}
+\resizebox{!}{\textwidth}{
+\ttfamily
+\footnotesize
+\aapicture
+}
+\end{center}
+\end{column}
+
+\end{columns}
+
+
+\end{frame}
+
+%слайд 6
+\begin{frame}{Ala-scan in silico}
+Проблемы ala-scan in vitro/in vivo (в лаборатории):
+\begin{itemize}
+\item Большое пространство поиска.
+\item Сложность синтеза библиотек: необходим индивидуальный подход!
+\item Высокая стоимость.
+\end{itemize}
+Компьютерное моделирование (in silico)  решает эти проблемы. %Такие решения используют (на этапе мутагенеза): 
+%\begin{itemize}
+%\item решения уравнения Пуассона-Больцмана (MM-PBSA)
+%\item метод возмущения свободной энергии
+%\item обобщенный метод Борна
+%\item метод Монте-Карло
+%\end{itemize}
+
+\textbf{Цель работы }- построить алгоритм выбора аминокислот для компьютерного аланинового сканирования.
+\end{frame}
+%слайд 7
+\begin{frame}{Стандартные методы решения задачи}
+\begin{block}{1. Отсечка по расстоянию}
+\begin{itemize}
+\item выбираются все аминокислоты,
+удаленные от атомов парной цепочки не далее, чем на фиксированную величину.
+\end{itemize}
+
+\textbf{Плюсы:} быстро работает, легко реализовать.
+
+\textbf{Минусы:} вблизи интерфейса расположены не все энергетически значимые аминокислоты.
+\end{block}
+\begin{block}{2. Выбор по гомологии}
+\begin{itemize}
+\item проводится предсказание позиций, в которых расположены энергетически важные аминокислоты.
+\end{itemize}
+\textbf{Плюсы:} широкий и гибкий класс методов.
+
+\textbf{Минусы:} зависит от выбора базы, не  работает при дизайне de novo.
+\end{block}
+\end{frame}
+
+%слайд 8
+\begin{frame}{Биологическое обоснование}
+\begin{block}{Энергетически значимые аминокислоты:}
+\begin{itemize}
+\item часто находятся вблизи интерфейса взаимодействия белков и в этом случае  консервативны с точки зрения эволюции белков;
+\item могут находиться в глубине карманов;
+\item могут находиться на подвижных участках вторичной структуры белка - $\beta$-поворотах и петлях.
+\end{itemize}
+\end{block}
+\end{frame}
+% слайд 9
+\begin{frame}{Алгоритм выбора регионов}
+\textbf{На входе} {PDB-файл}: получаем координаты атомов в пространстве и информацию об их типе.
+\begin{block}{Этапы алгоритма}
+\begin{enumerate}
+\item \textbf{Предварительная обработка}: строим триангуляцию Делоне по центрам атомов и двойственный граф. 
+\item \textbf{Выбор начального множества треугольников}.
+\item \textbf{Поиск карманов}.
+\item Переходим от элементов триангуляции к позициям аминокислот
+\item \textbf{Добавление петель и $\beta$-поворотов}: используем информацию из PDB-файла или алгоритм DSSP.
+\end{enumerate}
+
+\end{block}
+ \textbf{На выходе}: набор позиций аминокислот для аланинового сканирования.
+\end{frame}
+%слайд 10
+\begin{frame}{Результаты}
+\begin{itemize}
+\item построен скрипт на python, реализующий выбор протяженных регионов для аланинового сканирования с возможностью предварительной маскировки и совместимый с протоколом аланинового сканирования пакета Rosetta;
+\item плагин для PyMol;
+\item проведено тестирование работы алгоритма на наборе данных экспериментального аланинового сканирования Kortemme\&Baker.
+\end{itemize}
+\end{frame}
+\begin{frame}{Результаты II}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+PDB & Цепь & P+N & TP+FP & TP & TP+FN & FN & TPR & ACC & MCC\\
+\hline
+1A22 & A & 206 & 114 & 29 & 29 & 0 & 1.00 & 0.5874 & 0.3636\\
+1A22 & B & 235 & 177 & 36 & 36 & 0 & 1.00 &
+0.4000 & 0.2435
+\\
+1BXI & A & 123 & 70& 29& 30& 1 & 0.97 &
+0.6585 & 0.4560
+\\
+1DFJ & I & 491 & 255& 11& 14& 3 & 0.79 &
+0.4969 & 0.0913
+\\
+1F47 & A & 33 & 17& 9& 9& 0 & 1.00 &
+0.7576 & 0.5941
+\\
+1FC2 & C & 45 & 44& 3& 3& 0 & 1.00 &
+0.0889 & 0.0403
+\\
+2PTC & I & 93 & 55& 1& 1& 0 & 1.00 &
+0.4194 & 0.0867\\
+\hline
+\end{tabular}
+\end{frame}
+\begin{frame}{Пример работы алгоритма: структура 1DFJ}
+\begin{center}
+\resizebox{0.9\textwidth}{!}{
+\includegraphics{algorithm/1DFJ.png}
+}
+\end{center}
+\end{frame}
+%слайд 11
+\begin{frame}
+Спасибо за внимание!
+\end{frame}
+
+\appendix
+\begin{frame}
+Дополнительные слайды
+\end{frame}
+%\begin{frame}{Outline}
+%  \tableofcontents
+  % You might wish to add the option [pausesections]
+%\end{frame}
+
+
+\begin{frame}{Эксперимент}
+\begin{itemize}
+\item Рассмотрим базу данных с информацией о результатах эспериментов по аланиновому сканированию ASEdb.
+\item Найдем объекты со ссылкой на Protein Data Bank.
+\item Среди всех таких объектов, найдем те, в которых есть аминокислоты, мутация которых приводит к существенному изменению свободной энергии комплекса ($\geq 1$ ккал/моль)
+\item Посмотрим, всегда ли они удалены от интерфейса в пределах стандартно используемой отсечки (в качестве примера возьмем расстояние, не превышающее 8 \AA{}).
+\end{itemize}
+\end{frame}
+\begin{frame}{Результаты эксперимента}
+Комплекс человеческого гормона роста и рецептора человеческого гормона роста\footnote{идентификатор структуры в Protein Data Bank -- 3hhr}
+%1. картинка с примером
+\begin{center}
+\resizebox{!}{0.5\textheight}{
+\includegraphics{intro/image7.png}
+}
+\end{center}
+\end{frame}
+
+\begin{frame}{Выбор регионов для сканирования II}{Поиск по гомологии}
+
+ASEdb: 76/101 корректных записей о белках, из них много 3hhr.
+
+Еще одна замечательная база данных:
+\begin{center}
+\resizebox{!}{0.6\textheight}{
+\includegraphics{exp2.png}
+}
+\end{center}
+\end{frame}
+
+\begin{frame}{Выбор регионов для сканирования II}{Выводы. Основная задача.}
+
+Выводы: эффективного и универсального метода способа найти ЭГО -- не придумали.
+
+Будем решать эту задачу. Для этого попробуем по полученной картинке понять, что еще необходимо учесть:
+%1. картинка с примером
+\begin{center}
+\resizebox{!}{0.5\textheight}{
+\includegraphics{intro/image7.png}
+}
+\end{center}
+\end{frame}
+
+
+
+
+
+
+\end{document}
+
