@@ -7,7 +7,7 @@ import logging
 import os
 
 from benchmarkers import *
-
+from utils import *
 ######################################
 # actual functions
 ######################################
@@ -52,10 +52,14 @@ def read_pdb_info(filename, chain1= 'L', chain2 = 'H'):
             return None
         if chain1 != None:
             chain2 = chain_names[1] if chain1 == chain_names[0] else chain_names[0]
+    chain1_data = [atom for atom in structure[0][chain1].get_atoms() if atom.get_parent().get_id()[0] != 'W']
+    chain2_data = [atom for atom in structure[0][chain2].get_atoms() if atom.get_parent().get_id()[0] != 'W']
+    chain1_residues = {atom.get_parent().get_id()[1] for atom in chain1_data}
+    #print chain1_residues
     return (
-        [atom for atom in structure[0][chain1].get_atoms() if atom.get_parent().get_id()[0]!='W'],
-        [atom for atom in structure[0][chain2].get_atoms() if atom.get_parent().get_id()[0]!='W'],
-        len(structure[0][chain1]) # ,
+        chain1_data,
+        chain2_data,
+        len(chain1_residues) # ,
         #list(map(lambda x : (x.get_vector()._ar), structure[0]['L'].get_atoms())),
         #list(map(lambda x : (x.get_vector()._ar), structure[0]['H'].get_atoms()))
     )
@@ -162,18 +166,19 @@ def comb_index(n, k):
     return index.reshape(-1, k)
 
 class DTNode:
+    @accumulated
     def __init__(self, points):
         self.points = points
         self.points_set = set()
         for p in points:
             self.points_set.add(p)
-        assert(len(points)==3)
-        assert(len(self.points_set)==3)
+        #assert(len(points)==3)
+        #assert(len(self.points_set)==3)
         #print(self.points)
     def intersect(self, other):
         return np.intersect1d(self.points, other.points)
     def __eq__(self, other):
-        assert(len(self.points) == len(other.points) == 3)
+        #assert(len(self.points) == len(other.points) == 3)
         cond3 = len(np.setdiff1d(self.points, other.points)) == 0
         return isinstance(other, DTNode) and isinstance(self, DTNode) and cond3
     def __ne__(self, other):
@@ -188,39 +193,46 @@ def get_radius(atom_name):
     #return 1.5
     #TODO: raise exception if atom is unknown
     #TODO: process situations where hydrogen doesn't appear in pdb file
+
 class DTGraph:
+    @timed
     def __init__(self, surface):
         self.surface = surface
         self.path_result = False
         self.nodes_map = {}
         self.visited = {}
         self.nearest_triangles = {}
-        idx = comb_index(4, 3)
-        idx2 = comb_index(4, 2)
-        idx2_3 = comb_index(3, 2)
+        self.idx = np.array([[0, 1, 2], [0, 1, 3], [0, 2, 3], [1, 2, 3]])
+        #comb_index(4, 3)
+        #print idx
+        #idx2 = comb_index(4, 2)
+        self.idx2 = np.array([[0, 1], [0, 2], [0, 3], [1, 2], [1, 3], [2, 3]])
+        #idx2_3 = comb_index(3, 2)
+        self.idx2_3 = np.array([[0, 1], [0, 2], [1, 2]])
         self.ch_neighbours = {}
         #print(surface[1].convex_hull)
         self.ch_nodes = set()
         for t in surface[1].convex_hull:
             node = DTNode(t)
             self.ch_nodes.add(node)
-            for x in t[idx2_3]:
+            for x in t[self.idx2_3]:
                 if tuple(set(x)) not in self.ch_neighbours:
                     self.ch_neighbours[tuple(set(x))] = []
                 self.ch_neighbours[tuple(set(x))].append(node)
         for node in self.ch_nodes:
             self.nearest_triangles[node] = node
-        for k in surface[1].simplices:
-            assert(len(k) == 4)
-            tetrahedra_nodes = np.asarray([DTNode(m) for m in k[idx]])
-            for [p0, p1] in tetrahedra_nodes[idx2]:
+        """
+        for tetrahedra in surface[1].simplices:
+            assert(len(tetrahedra) == 4)
+            tetrahedra_nodes = np.asarray([DTNode(m) for m in tetrahedra[self.idx]])
+            for [p0, p1] in tetrahedra_nodes[self.idx2]:
                 assert(p0 != p1)
                 t_edge = np.vectorize(lambda x: surface[0][x])(p0.intersect(p1))
                 assert(len(t_edge) == 2)
-                if not p0 in self.visited:
-                    self.visited[p0] = False
-                if not p1 in self.visited:
-                    self.visited[p1] = False
+                #if not p0 in self.visited:
+                self.visited[p0] = False
+                #if not p1 in self.visited:
+                self.visited[p1] = False
                 #if check_edge(*t_edge):
                 if not p0 in self.nodes_map:
                     self.nodes_map[p0] = {}
@@ -228,10 +240,38 @@ class DTGraph:
                     self.nodes_map[p1] = {}
                 self.nodes_map[p0][p1] = t_edge
                 self.nodes_map[p1][p0] = t_edge
+        """
         for s in self.ch_nodes:
             self.visited[s] = True #to avoid selection of all outer non-convex area #won't help
+    #helper method to build graph and init data
+    def build_graph(self, check_edge, distance_func):
+        self.nodes_map = {}
+        self.edges_checker = {}
+        for tetrahedra in self.surface[1].simplices:
+            #assert(len(k) == 4)
+            tetrahedra_nodes = np.asarray([DTNode(m) for m in tetrahedra[self.idx]])
+            for [node0, node1] in tetrahedra_nodes[self.idx2]:
+                #assert(p0 != p1)
+                t_edge = tuple(set(node0.intersect(node1)))
+                #print node0.intersect(node1)
+                #assert(len(t_edge) == 2)
+                #if not p0 in self.visited:
+                self.visited[node0] = False
+                self.visited[node1] = False
+                #if check_edge(*t_edge):
+                if not node0 in self.nodes_map:
+                    self.nodes_map[node0] = {}
+                if not node1 in self.nodes_map:
+                    self.nodes_map[node1] = {}
+                if not t_edge in self.edges_checker:
+                    self.edges_checker[t_edge] = check_edge(*t_edge)
+                condition = self.edges_checker[t_edge]
+                if condition:
+                    self.nodes_map[node0][node1] = t_edge
+                    self.nodes_map[node1][node0] = t_edge
+        #print 1
     def is_ch_simplex(self, node):
-        assert(isinstance(node, DTNode))
+        #assert(isinstance(node, DTNode))
         return node in self.ch_nodes
     def dist(self, node1, node2, distance_func):
         #print(node1)
@@ -275,26 +315,28 @@ class DTGraph:
             return []
         result = set() #start_node
         for next_node in self.nodes_map[start_node]:
-            edge = self.nodes_map[start_node][next_node]
-            if next_node in self.visited:
+            #edge = self.nodes_map[start_node][next_node]
+            if next_node in self.visited: #TODO: remember what it means
                 self.find_nearest_node(next_node, distance_func)
-                if check_edge(*edge) and not self.is_ch_simplex(next_node) and self.check_dist(next_node):
+                #check_edge(*edge) and
+                if not self.is_ch_simplex(next_node) and self.check_dist(next_node):
                     if not self.visited[next_node]:
                         if not next_node in self.queue:
                             self.queue.append(next_node)
         result.add(start_node)
         return result
     def get_neighbours(self, start_nodes):
-        idx2_3 = comb_index(3, 2)
-        result = np.unique(np.asarray([k for x in start_nodes for pair in x.points[idx2_3] for k in self.ch_neighbours[tuple(set(pair))] if k != x]))
+        result = np.unique(np.asarray([k for x in start_nodes for pair in x.points[self.idx2_3] for k in self.ch_neighbours[tuple(set(pair))] if k != x and not k in start_nodes]))
         #print len(result)
         #print len(start_nodes)
-        result = set([x for x in result if not x in start_nodes])
+        result = {x for x in result}
         #print len(result)
         return result
+    @timed
     def find_pockets(self, triangles, check_edge, distance_func):
-        self.start_nodes = set([DTNode(triangle) for triangle in triangles])
+        self.start_nodes = {DTNode(triangle) for triangle in triangles}
         self.neighbour_nodes = self.get_neighbours(self.start_nodes)
+        self.build_graph(check_edge, distance_func)
         #print(len(self.start_nodes))
         #print(len(self.neighbour_nodes))
         self.queue = [DTNode(triangle) for triangle in triangles]
@@ -307,7 +349,7 @@ class DTGraph:
         result = np.asarray([x.points for x in data])
         if(len(result) == 0):
             return result
-        return (result)
+        return result
     # this version of pocket finder should use limited Dijkstra's search:
     #
     #def find_pockets2(self, triangles, check_edge):
@@ -318,12 +360,12 @@ class CHNode:
         self.points_set = set()
         for p in points:
             self.points_set.add(p)
-        assert(len(points) == 2)
-        assert(len(self.points_set) == 2)
+        #assert(len(points) == 2)
+        #assert(len(self.points_set) == 2)
     def intersect(self, other):
         return np.intersect1d(self.points, other.points)
     def __eq__(self, other):
-        assert(len(self.points) == len(other.points) == 2)
+        #assert(len(self.points) == len(other.points) == 2)
         #try:
         cond2 = len(np.setdiff1d(self.points, other.points)) == 0
         return isinstance(other, CHNode) and isinstance(self, CHNode) and cond2
@@ -401,7 +443,8 @@ def extend_to_coils(interface_triangles,
             distinct_aa.add(k)
     return np.unique(np.asarray(list(distinct_aa)))
 
-def main_func(pdb_filename, chain1, chain2, cutoff = 5.0):
+@timed
+def main_func(pdb_filename, chain1, chain2, cutoff = 3.5, sas_radius=0.0):
     pair_of_chains = read_pdb_info(pdb_filename, chain1, chain2)
     if pair_of_chains == None:
         return None
@@ -415,22 +458,30 @@ def main_func(pdb_filename, chain1, chain2, cutoff = 5.0):
     #print(to_aa(triangles, surface1))
     triangles = extend_interface_1(triangles, surface1)
     #print(to_aa(triangles, surface1))#this returns interface aminoacids with atoms located near surface2
-    def check_edge(x1, x2):
-        dist = (x1 - x2) - (get_radius(x1.element) + get_radius(x2.element))
+    # custom function: returns True if can travel from one triangle to another
+    def check_edge(p1, p2):
+        x1 = surface1[0][p1]
+        x2 = surface1[0][p2]
+        dist = (x1 - x2) - (get_radius(x1.element) + get_radius(x2.element) + sas_radius*2)
         return dist > 0
     def distance_func(x1, x2):
         return x1 - x2
     #check_edge = lambda x1, x2 : (get_radius(x1.element) + get_radius(x2.element) < x1 - x2)
     #check_edge2 = lambda x1, x2 : True
     G = DTGraph(surface1)
-    nodes = np.setdiff1d(G.find_pockets(triangles, check_edge, distance_func), triangles)
+    pockets = G.find_pockets(triangles, check_edge, distance_func)
+    print "pockets"
+    print pockets
+    nodes = diff(pockets, triangles)
+    print "nodes"
+    print nodes
     #nodes = G.find_pockets(triangles, check_edge)
     #print(nodes)
-    aa_with_coils = extend_to_coils(nodes, chains_ss_info[chain1], surface1)
+    aa_with_coils = extend_to_coils(pockets, chains_ss_info[chain1], surface1)
     chain_length = pair_of_chains[2]
     nn1 = np.union1d(
         to_aa(aa_with_coils, surface1),
-        to_aa(nodes, surface1))
+        to_aa(pockets, surface1))
     nn2 = to_aa(triangles, surface1)
     #print aa_with_coils
     #    if (len(nodes) > 0):
@@ -469,24 +520,31 @@ def find_by_cutoff(pdb_filename, chain1, chain2, cutoff=5.0):
     pair_of_chains = read_pdb_info(pdb_filename, chain1, chain2)
     if pair_of_chains == None:
         return None
-    chains_ss_info = read_dssp_info(pdb_filename, chain1, chain2)
-    if chains_ss_info == None:
-        return None
+    #chains_ss_info = read_dssp_info(pdb_filename, chain1, chain2)
+    #if chains_ss_info == None:
+    #    return None
     surface1 = process_chain(pair_of_chains[0])
     surface2 = process_chain(pair_of_chains[1])
-    triangles = find_all_by_cutoff(surface1, surface2, cutoff)
-    def check_edge(x1, x2):
-        dist = (x1 - x2) - (get_radius(x1.element) + get_radius(x2.element))
-        return dist > 0
-    def distance_func(x1, x2):
-        return x1 - x2
-    return to_aa(triangles, surface1)
+    pairs = surface1[2].query_ball_tree(surface2[2], cutoff)
+    chain_length = pair_of_chains[2]
+    #print pairs
+    atoms = [surface1[0][i] for i in range(0,len(surface1[2].data)) if len(pairs[i]) > 0]
+    return (np.unique(np.asarray(list({atom.get_parent() for atom in atoms}))),
+        chain_length
+        )
+    #triangles = find_all_by_cutoff(surface1, surface2, cutoff)
+    #def check_edge(x1, x2):
+    #    dist = (x1 - x2) - (get_radius(x1.element) + get_radius(x2.element))
+    #    return dist > 0
+    #def distance_func(x1, x2):
+    #    return x1 - x2
+    #return to_aa(triangles, surface1)
     #this retuns all aminoacids forming pockets except ones shown previously
 
 
 if __name__ == "__main__":
     logging.basicConfig(filename="logs/" + os.path.splitext(os.path.basename(__file__))[0] + ".log", level=logging.DEBUG)
     logging.debug("============\nCalled simple script")
-    (res,) = main_func(os.path.abspath('../test_data/2OSL.pdb'), 'L', 'H')
-    print res
+    res = main_func(os.path.abspath('../test_data/2OSL.pdb'), 'L', 'H')
+    print res[0]
     print("end of processing")
