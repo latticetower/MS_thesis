@@ -22,14 +22,18 @@ colorlinks=true % цветные гиперссылки
 
 \usepackage{wrapfig}
 \usepackage{tikz}
+\usetikzlibrary{positioning,decorations.pathreplacing,shapes}
+
 \input{aminoacids.tex}
+\input{algorithm_scheme.tex}
 \usepackage{algpseudocode}
 \ifpdf\usepackage{epstopdf}\fi
 
 % Номера страниц снизу и по центру
 \pagestyle{footcenter}
 \chapterpagestyle{footcenter}
-
+%\usepackage{microtype}
+%\usepackage[hmargin=1.5cm,vmargin=1cm]{geometry}
 % Точка с запятой в качестве разделителя между номерами цитирований
 %\setcitestyle{semicolon}
 
@@ -95,7 +99,7 @@ colorlinks=true % цветные гиперссылки
 \pagebreak
 
 %\input{ackn}
-%\input{abstract}
+\input{abstract}
 
 % Содержание
 \tableofcontents
@@ -109,7 +113,7 @@ colorlinks=true % цветные гиперссылки
 \input{chapter3}
 
 % Заключение
-%\input{conclusion}
+\input{conclusion}
 
 
 % Список литературы

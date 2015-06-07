@@ -1,0 +1,47 @@
+\usepackage{tikz}
+\usepackage{xparse}
+
+\DeclareDocumentCommand{\algoscheme}{  }{
+
+\begin{tikzpicture}[%
+  % common options for blocks:
+  block/.style = {draw, fill=green!30, align=center, anchor=west,
+              minimum height=0.65cm, inner sep=0},
+  % common options for the circles:
+  ball/.style = {circle, draw, align=center, anchor=north, inner sep=0},
+  line/.style     = { draw, thick, ->, shorten >=2pt },
+  ]
+
+% draw the sieves
+\node[block,anchor=north,text width=6.4cm] (tray1) at (0,0) {PDB-файл
+   {\begin{itemize}
+   \item координаты атомов в пространстве и их тип;\\[-5pt]
+   \item информация о вторичной структуре.
+   \end{itemize}}
+   };
+
+\node[block,below right = of tray1,text width=7.4cm] (tray2) {Построение триангуляции Делоне и двойственного графа};
+   
+\node[block,below = of tray2,text width=7.4cm] (tray3) {Выбор начальных треугольников на границе триангуляции};
+
+\node[block,below = of tray3,text width=7.4cm] (tray4) {Поиск карманов};
+
+\node[block,below = of tray4,text width=7.4cm] (tray5) {Добавление петель и $\beta$-поворотов};
+
+\node[block,below left = of tray5,text width=5.4cm] (tray6) {Позиции для аланинового сканирования};
+
+\node[block, below = of tray6,text width=5.4cm] (tray7) {rosetta alascan protocol};
+\node[block, below right= of tray6,text width=4.4cm] (tray8) {PyMOL}; 
+
+
+\begin{scope} [every path/.style=line]
+\path (tray1) -- (tray2); 
+\path (tray2) -- (tray3);
+\path (tray3) -- (tray4); 
+\path (tray4) -- (tray5); 
+\path (tray5) -- (tray6); 
+\path (tray6) -- (tray7);
+\path (tray6) -- (tray8);  
+\end{scope}
+\end{tikzpicture}
+}

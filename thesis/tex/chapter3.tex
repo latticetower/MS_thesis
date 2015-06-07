@@ -1,5 +1,10 @@
 \graphicspath{{../images/algorithm/}}
 \chapter{Экспериментальные результаты}
+\section{Поиск и обработка исходных данных для оценки работы алгоритма}
+\cite{asedb2001}
+
+\cite{kortemme_alascan_datasets}
+\cite{sdr1}
 %\todo{глава не готова}
 \section{Пример работы итеративного алгоритма выбора протяженных регионов}
 Для оценки корректности работы алгоритма на каждом из этапов проводился визуальный контроль выбираемых аминокислот с использованием средств визуализации приложения PyMol ~\cite{pymol}.
@@ -14,28 +19,63 @@
 \item красным цветом выделены участки цепочки, которые были добавлены в результате добавления петель, частично попавших в выделенный регион на одном из предыдущих этапов.
 \end{itemize}
 
+\begin{figure}
+%\resizebox{0.8\textwidth}{!}{
+\includegraphics[width=\linewidth]{loops1.png}
+%}
 
-\resizebox{0.8\textwidth}{!}{
-\includegraphics{loops1.png}
-}
+\caption{\small{[Computation of tunnels in protein molecules using
+Delaunay triangulation, P.Medek, et al., 2007]
+ }}
+\label{fig:loops1}
+\end{figure}
 
-\resizebox{0.8\textwidth}{!}{
-\includegraphics{loops2.png}
-}
+
+\begin{figure}
+%\resizebox{0.8\textwidth}{!}{
+\includegraphics[width=\linewidth]{loops2.png}
+%}
+
+\caption{\small{[Computation of tunnels in protein molecules using
+Delaunay triangulation, P.Medek, et al., 2007]
+ }}
+\label{fig:loops2}
+\end{figure}
+
+
 
 На последнем из приведенных скриншотов в нижней части изображения видна петля, которая удалена от интерфейса взаимодействия, но при этом один из атомов ее аминокислот по удачному стечению обстоятельств попал в множество отобранных треугольников выпуклой оболочки, за счет чего петля попала целиком.
 
 %\todo{И это наводит на мысль о том, что изначальный выбор аминокислот не так хорош. Возможно, стоит использовать граф Габриэля? }
 
-\resizebox{0.8\textwidth}{!}{
-\includegraphics{loops3.png}
-}
+
+\begin{figure}
+%\resizebox{0.8\textwidth}{!}{
+\includegraphics[width=\linewidth]{loops3.png}
+%}
+
+\caption{\small{[Computation of tunnels in protein molecules using
+Delaunay triangulation, P.Medek, et al., 2007]
+ }}
+\label{fig:loops3}
+\end{figure}
+
+
 
 %Посередине петля полностью желтая - но это из-за способа, которым добавлялись карманы.
 
-\resizebox{0.8\textwidth}{!}{
-\includegraphics{loops4.png}
-}
+
+\begin{figure}
+%\resizebox{0.8\textwidth}{!}{
+\includegraphics[width=\linewidth]{loops4.png}
+%}
+
+\caption{\small{[Computation of tunnels in protein molecules using
+Delaunay triangulation, P.Medek, et al., 2007]
+ }}
+\label{fig:loops4}
+\end{figure}
+
 
 \newpage
 %\section{Протокол аланинового сканирования}
@@ -46,7 +86,10 @@
 %В работе \cite{kortemme2002} показано, что (сказать про функцию энергии для компьютерного моделирования аланинового сканирования)
 
 %\todo{-описание того, в какой части предполагается использовать модиф регионы}
-%\vspace{10cm}\newpage
+%\vspace{10cm}
+
+
+\newpage
 \section{Пример работы на структурах с известными результатами  экспериментального аланинового сканирования}
 %Уже обработанные данные есть здесь: \cite{kortemme_alascan_datasets}
 
@@ -68,7 +111,10 @@
 %\todo{сделать табличку по данным asedb и bid, и для того, что нет (хотспоты искать с помощью протокола аланинового сканирования, в табличке рисовать циферки). если есть амк, которые не нашлись,}
 %\vspace{10cm}
 Был проведен поиск регионов для структур, содержащихся в наборе данных для бенчмаркинга Kortemme \& Baker \cite{kortemme_alascan_datasets} (без учета воды, изначальный набор атомов выпуклой оболочки определялся со значением отсечки по расстоянию 5 \AA{}). Результаты работы скрипта для двухцепочечных структур приведены в таблице:
-
+\begin{table}[h]
+\begin{center}
+	\caption{Сравнение вычисленных синтенных блоков}
+	\label{tab:comparison}
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
 \hline
  PDB & chain & P+N & TP+FP & TP & TP+FN & FN & TPR & ACC & MCC\\
@@ -95,6 +141,8 @@
 0.4194 & 0.0867\\
 \hline
 \end{tabular}
+\end{center}
+\end{table}
 \\[10pt]
 Расшифровка: 
 \begin{itemize}
@@ -108,24 +156,43 @@
 \end{itemize}
 
 На следующем скриншоте приведена цепочка A структуры 1BXI, с выделенными на ней областями. Красным цветом показаны элементы вторичной структуры, попавшие в выделенный регион, желтым цветом изображена аминокислота, которая является энергетически значимой, но которая в выделенный регион не попала.
- 
-\resizebox{0.8\textwidth}{!}{
-\includegraphics{1BXI.png}
-}
+
+\begin{figure}
+
+%\resizebox{0.8\textwidth}{!}{
+\includegraphics[width=\linewidth]{1BXI.png}
+%}
+\caption{\small{[Computation of tunnels in protein molecules using
+Delaunay triangulation, P.Medek, et al., 2007]
+ }}
+\label{fig:1BXI}
+
+\end{figure}
 
 В случае второй структуры, у которой в выделенный протяженный регион попали не все энергетически значимые аминокислоты (1DFJ), скриншот выглядит так (энергетически значимые аминокислоты, не попавшие в регион - красные, выделенный регион - желтым цветом, остальная часть цепочки показана голубым цветом):
 
-\resizebox{0.8\textwidth}{!}{
-\includegraphics{1DFJ.png}
-}
+
+\begin{figure}[h]
+%\resizebox{0.8\textwidth}{!}{
+\includegraphics[width=\linewidth]{1DFJ.png}
+%}
+
+\caption{\small{Структура с идентификатором  1DFJ в Protein Data Bank
+ }}
+\label{fig:1DFJ}
+\end{figure}
+
+
 
 Такой результат объясняется тем, что интерфейс взаимодействия расположен в кармане, а также текущим способом поиска карманов, используемым в алгоритме.
 
 В остальных случаях для двух цепочек энергетически горячие аминокислоты нашлись все (TPR=1). Маленькие значения точности (ACC) и коэффициента корреляции Мэтьюса можно объяснить тем, что для начального выбора атомных центров-вершин выпуклой оболочки берется фиксированная отсечка по расстоянию, что может приводить в отдельных случаях к выбору в состав региона для сканирования большей части цепочки или всей цепочки.
 
 С файлами, которые содержали более 2 цепочек, была проведена аналогичная процедура с усложнением: энергетически значимые аминокислоты сгруппированы по цепочкам, для каждой из этих цепочек парная цепочка, относительно которой выбирался регион, была определена как одна из оставшихся цепочек. Корректные результаты работы приведены в таблице (расшифровка граф аналогична расшифровке в предыдущем случае):
-
-\resizebox{0.7\textwidth}{!}{
+\begin{table}
+\begin{center}
+	\caption{Сравнение вычисленных синтенных блоков}
+\resizebox{\linewidth}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
 pdb & chain1 & chain2 & P+N & TP+FP & TP+FN & TP & TPR & ACC & MCC \\
@@ -164,6 +231,8 @@ pdb & chain1 & chain2 & P+N & TP+FP & TP+FN & TP & TPR & ACC & MCC \\
 \hline
 \end{tabular}
 }
+\end{center}
+\end{table}
 \\[10pt]
 
 Видно, что TPR -высокий, это означает, что в большинстве случаев все энергетически важные аминокислоты попали в выбранный протяженный регион. Точность низкая потому, что в состав протяженного региона попали больше половины аминокислот цепочки.
