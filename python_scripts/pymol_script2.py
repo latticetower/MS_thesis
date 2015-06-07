@@ -24,8 +24,8 @@ DESCRIPTION
     # Your code goes here
     #
     #print(dir(make_it_simple))
-    logging.basicConfig(filename="/logs/runner_" + os.path.splitext(os.path.basename(__file__))[0] + ".log",
-            level=logging.DEBUG)
+    #logging.basicConfig(filename="/logs/runner_" + os.path.splitext(os.path.basename(__file__))[0] + ".log",
+    #        level=logging.DEBUG)
     cutoff = float(cutoff)
     cmd.h_add(ch1)
     cmd.h_add(ch2)
@@ -44,18 +44,25 @@ DESCRIPTION
     from chempy import cpv
     check_edge = lambda x1, x2 : x1.vdw + x2.vdw < cpv.distance(x1.coord, x2.coord)
     check_edge2 = lambda x1, x2 : True
-    def check_edge3(x1, x2):
+    def check_edge3(p1, p2):
+        x1 = surface1[0][p1]
+        x2 = surface1[0][p2]
         #print("{0} <> {1} ({2}, {3}) ".format(cpv.distance(x1.coord, x2.coord), (x1.vdw + x2.vdw + 1.4*2),x1.coord))
         dist = cpv.distance(x1.coord, x2.coord) - (x1.vdw + x2.vdw + 1.4*2)
         #print(dist)
         return dist > 0
+    def check_simplex(triangle):
+        from alpha_shapes import check_triangle2
+        points = np.vectorize(lambda x: surface1[0][x])(triangle)
+        return check_triangle2(*points, 1.4)
     G = DTGraph(surface1)
     #nodes = G.find_pockets(triangles, check_edge3)
     #print(nodes)
     def distance_func(x1, x2):
         from chempy import cpv
         return cpv.distance(x1.coord, x2.coord)
-    nodes = np.setdiff1d(G.find_pockets(triangles, check_edge3, distance_func), triangles)
+    from utils import diff, union
+    nodes = diff(G.find_pockets(triangles, check_edge3, distance_func, check_simplex), triangles)
     #cmd.select("EHRA_interface", )
     #print(to_aa2(triangles, surface1))
     str = "(%s)" % " or ".join(["(chain {0} and resi {1} and resn {2} and name {3})".format(
@@ -67,7 +74,7 @@ DESCRIPTION
         for aa_info in to_aa2(nodes, surface1)])
     cmd.select("EHRA_triang", str)
     print(chains_ss_info.keys())
-    aa_with_coils = extend_to_coils(triangles, chains_ss_info[ch1[0]], surface1, lambda x: x.resi)
+    aa_with_coils = extend_to_coils(union(nodes, triangles), chains_ss_info[ch1[0]], surface1, lambda x: x.resi)
     print aa_with_coils
     str = "(%s)" % " or ".join(["(chain {0} and resi {1})".format(
             ch1[0],

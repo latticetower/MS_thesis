@@ -34,8 +34,8 @@ import csv, optparse
 from rcsb_loader import fetch_pdb
 import numpy as np
 
-def print_not_found(pdb, chain1, n1, n2, result3, chain2 = ''):
-    output = open("results/ehra_{0}_{1}_{2}_not_found.txt".format(pdb, chain1, chain2), 'w')
+def print_not_found(pdb, chain1, n1, n2, result3, name = "", chain2 = ''):
+    output = open("results/ehra_{0}_{1}_{2}_{3}_not_found.txt".format(pdb, chain1, chain2, name), 'w')
     output.write("{0}: {1} - {2}\n ehra aa:\n".format(pdb, chain1, chain2))
     output.write("\t".join(map(str, n1))+"\nhotspots: \n")
     output.write("\t".join(map(str, n2))+"\nnot found:\n")
@@ -53,6 +53,8 @@ if __name__ == "__main__":
         help = 'the csv file containing mutations information')
     parser.add_option('--pdb_folder', dest="pdb_folder", default="temp_pdb",
         help = "folder for saving pdb files from rcsb server")
+    parser.add_option('--prefix', dest="file_prefix", default="",
+        help="prefix for filenames")
     (options,args) = parser.parse_args()
     with open(options.csv) as infile:
         reader = csv.DictReader(infile)
@@ -99,15 +101,15 @@ if __name__ == "__main__":
             logging.debug("Not found hotspots: {}".format(len(result3)))
             logging.debug(result3)
             if len(result3) > 0:
-                print_not_found(pdb, chain, n1, n2, result3)
+                print_not_found(pdb, chain, n1, n2, result3, options.file_prefix)
             table_data.append(TableLine(pdb,
                 chain, '-', res[1], len(n1),
                 0, len(result2), len(n2), len(result3), 'ehra'))
-    correct_output = open('ehra_results_2chains.txt', 'w')
+    correct_output = open("ehra_results_2chains_{0}.txt".format(options.file_prefix), 'w')
     for tl in table_data:
         correct_output.write("\t".join(map(str, list(tl))) + "\n")
     correct_output.close()
-    incorrect_output = open('morethan2chains.txt', 'w')
+    incorrect_output = open("morethan2chains_{0}.txt".format(options.file_prefix), 'w')
     for pdb in unprocessed_data.keys():
         incorrect_output.write(pdb + "\n")
     incorrect_output.close()
@@ -118,26 +120,39 @@ if __name__ == "__main__":
         chains = read_pdb_chains_info(filename)
         for chain1 in unprocessed_data[pdb].keys():
             lchain = unprocessed_data[pdb][chain1]
-            total_hotspots = np.array([x.PDB_res for x in lchain])
+            total_hotspots = np.unique(np.array([x.PDB_res for x in lchain]))
             found_hotspots = np.array([])
             ehra_regions = dict()
             for chain2 in chains:
                 if chain2 != chain1:
                     res = main_func(filename, chain1, chain2)
-                    ehra_regions[chain2] = np.array([y.get_id()[1] for y in res[0] if y.get_id()[0]!='W'])
-                    result3 = np.intersect1d(ehra_regions[chain2], total_hotspots)
+                    ehra_regions[chain2] = np.array([str(y.get_id()[1]) for y in res[0] if y.get_id()[0]!='W'])
+                    result3 = np.unique(np.intersect1d(ehra_regions[chain2], total_hotspots))
                     found_hotspots = np.union1d(found_hotspots, np.intersect1d(ehra_regions[chain2], total_hotspots))
                     table_data2.append(TableLine(pdb,
                         chain1, chain2, res[1], len(ehra_regions[chain2]),
-                        0, 0, len(total_hotspots), len(result3), 'ehra'))
+                        0, 0, len(total_hotspots), len(result3), "ehra{}".format(options.file_prefix)))
+                    if len(total_hotspots) < len(result3):
+                        print "total is less than found"
+                        print "-----"
+                        print ", ".join(res[0])
+                        print "total"
+                        print ", ".join(map(str, total_hotspots))
+                        print "-----=="
+                        print ", ".join(map(str, ehra_regions[chain2]))
+                        print "-----"
+                        print ", ".join(result3)
+                        print "end of output"
                     #print res
             table_data2.append(TableLine(pdb, chain1, '-',
-                res[1], 0, 0,0, len(total_hotspots), len(found_hotspots), 'ehra total'))
-            if len(found_hotspots) < len(total_hotspots):
-                print_not_found(pdb, chain1, total_hotspots, np.unique(np.asarray([x for l in ehra_regions.values() for x in l])), found_hotspots, 'multi')
+                res[1], 0, 0,0, len(total_hotspots), len(found_hotspots), "ehra total"))
+            if len(found_hotspots) != len(total_hotspots):
+                print_not_found(pdb, chain1, total_hotspots,
+                    np.unique(np.asarray([x for l in ehra_regions.values() for x in l])),
+                    found_hotspots, "", "multi_{0}".format(options.file_prefix))
             #print data
         print chains
-    correct_output = open('ehra_results_multichain.txt', 'w')
+    correct_output = open("ehra_results_multichain{0}.txt".format(options.file_prefix), 'w')
     for tl in table_data2:
         correct_output.write("\t".join(map(str, list(tl))) + "\n")
     correct_output.close()

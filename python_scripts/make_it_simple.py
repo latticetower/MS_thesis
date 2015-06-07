@@ -116,6 +116,7 @@ def process_atom_chain(points, points_no = 0):
     from scipy.spatial import Delaunay, KDTree
     p0 = points[: (points_no if points_no > 0 else len(points))]
     p = np.array(map(lambda x : (x.coord), p0))
+    print p
     tri = Delaunay(p)
     tree = KDTree(p)
     return (p0, tri, tree, p)
@@ -200,7 +201,7 @@ class DTGraph:
         self.surface = surface
         self.path_result = False
         self.nodes_map = {}
-        self.visited = {}
+        self.visited = set()
         self.nearest_triangles = {}
         self.idx = np.array([[0, 1, 2], [0, 1, 3], [0, 2, 3], [1, 2, 3]])
         #comb_index(4, 3)
@@ -241,34 +242,35 @@ class DTGraph:
                 self.nodes_map[p0][p1] = t_edge
                 self.nodes_map[p1][p0] = t_edge
         """
-        for s in self.ch_nodes:
-            self.visited[s] = True #to avoid selection of all outer non-convex area #won't help
+        self.visited.update(self.ch_nodes) #to avoid selection of all outer non-convex area #won't help
     #helper method to build graph and init data
-    def build_graph(self, check_edge, distance_func):
+    @timed
+    def build_graph(self, check_edge, distance_func, check_simplex):
         self.nodes_map = {}
         self.edges_checker = {}
+        self.simplex_checker = {}
         for tetrahedra in self.surface[1].simplices:
             #assert(len(k) == 4)
             tetrahedra_nodes = np.asarray([DTNode(m) for m in tetrahedra[self.idx]])
             for [node0, node1] in tetrahedra_nodes[self.idx2]:
-                #assert(p0 != p1)
                 t_edge = tuple(set(node0.intersect(node1)))
-                #print node0.intersect(node1)
-                #assert(len(t_edge) == 2)
-                #if not p0 in self.visited:
-                self.visited[node0] = False
-                self.visited[node1] = False
-                #if check_edge(*t_edge):
                 if not node0 in self.nodes_map:
                     self.nodes_map[node0] = {}
                 if not node1 in self.nodes_map:
                     self.nodes_map[node1] = {}
                 if not t_edge in self.edges_checker:
                     self.edges_checker[t_edge] = check_edge(*t_edge)
-                condition = self.edges_checker[t_edge]
-                if condition:
+                if not tuple(node0.points_set) in self.simplex_checker:
+                    self.simplex_checker[tuple(node0.points_set)] = check_simplex(tuple(node0.points_set))
+                if not tuple(node1.points_set) in self.simplex_checker:
+                    self.simplex_checker[tuple(node1.points_set)] = check_simplex(tuple(node1.points_set))
+                #condition = self.simplex_checker[tuple(node0.points_set)] #self.edges_checker[t_edge]
+                if self.simplex_checker[tuple(node0.points_set)]:
                     self.nodes_map[node0][node1] = t_edge
+                if self.simplex_checker[tuple(node1.points_set)]:
                     self.nodes_map[node1][node0] = t_edge
+                    #self.nodes_map[node0][node1] = t_edge
+                    #self.nodes_map[node1][node0] = t_edge
         #print 1
     def is_ch_simplex(self, node):
         #assert(isinstance(node, DTNode))
@@ -305,47 +307,50 @@ class DTGraph:
         if len(self.queue) == 0:
             return []
         while True:
-            start_node = self.queue.pop(0)
-            if not self.visited[start_node] or self.is_ch_simplex(start_node):
+            start_node = self.queue.pop()
+            if not start_node in self.visited or self.is_ch_simplex(start_node):
                 break
             if (len(self.queue)==0):
                 return []
-        self.visited[start_node] = True
+        self.visited.add(start_node)
         if not start_node in self.nodes_map:
             return []
-        result = set() #start_node
+        #result = set() #start_node
+        nodes = set()
         for next_node in self.nodes_map[start_node]:
             #edge = self.nodes_map[start_node][next_node]
-            if next_node in self.visited: #TODO: remember what it means
-                self.find_nearest_node(next_node, distance_func)
-                #check_edge(*edge) and
-                if not self.is_ch_simplex(next_node) and self.check_dist(next_node):
-                    if not self.visited[next_node]:
-                        if not next_node in self.queue:
-                            self.queue.append(next_node)
-        result.add(start_node)
-        return result
+            self.find_nearest_node(next_node, distance_func)
+            #check_edge(*edge) and
+            if not self.is_ch_simplex(next_node) and self.check_dist(next_node):
+                if not next_node in self.visited:
+                    #if not next_node in self.queue:
+                    nodes.add(next_node)
+        #for node in nodes:
+        #if not next_node in self.queue:
+        self.queue.update(nodes)
+        #result.add(start_node)
+        return start_node
     def get_neighbours(self, start_nodes):
         result = np.unique(np.asarray([k for x in start_nodes for pair in x.points[self.idx2_3] for k in self.ch_neighbours[tuple(set(pair))] if k != x and not k in start_nodes]))
         #print len(result)
         #print len(start_nodes)
-        result = {x for x in result}
+        #result = {x for x in result}
         #print len(result)
         return result
     @timed
-    def find_pockets(self, triangles, check_edge, distance_func):
+    def find_pockets(self, triangles, check_edge, distance_func, check_simplex):
         self.start_nodes = {DTNode(triangle) for triangle in triangles}
         self.neighbour_nodes = self.get_neighbours(self.start_nodes)
-        self.build_graph(check_edge, distance_func)
+        self.build_graph(check_edge, distance_func, check_simplex)
         #print(len(self.start_nodes))
         #print(len(self.neighbour_nodes))
-        self.queue = [DTNode(triangle) for triangle in triangles]
+        self.queue = {DTNode(triangle) for triangle in triangles}
         data = set()
         while (len(self.queue) > 0):
             #print("".join(["T" if self.visited[DTNode(t)] else "F" for t in triangles]))
             #print("".join(["T" if self.visited[t] else "F" for t in self.queue]))
-            for x in self.get_path_fragment(check_edge, distance_func):
-                data.add(x)
+            x = self.get_path_fragment(check_edge, distance_func)
+            data.add(x)
         result = np.asarray([x.points for x in data])
         if(len(result) == 0):
             return result
@@ -444,7 +449,7 @@ def extend_to_coils(interface_triangles,
     return np.unique(np.asarray(list(distinct_aa)))
 
 @timed
-def main_func(pdb_filename, chain1, chain2, cutoff = 3.5, sas_radius=0.0):
+def main_func(pdb_filename, chain1, chain2, cutoff = 5.0, sas_radius=1.4):
     pair_of_chains = read_pdb_info(pdb_filename, chain1, chain2)
     if pair_of_chains == None:
         return None
@@ -464,12 +469,16 @@ def main_func(pdb_filename, chain1, chain2, cutoff = 3.5, sas_radius=0.0):
         x2 = surface1[0][p2]
         dist = (x1 - x2) - (get_radius(x1.element) + get_radius(x2.element) + sas_radius*2)
         return dist > 0
+    def check_simplex(triangle):
+        from alpha_shapes import check_triangle
+        points = np.vectorize(lambda x: surface1[0][x])(triangle)
+        return check_triangle(*points, r=sas_radius)
     def distance_func(x1, x2):
         return x1 - x2
     #check_edge = lambda x1, x2 : (get_radius(x1.element) + get_radius(x2.element) < x1 - x2)
     #check_edge2 = lambda x1, x2 : True
     G = DTGraph(surface1)
-    pockets = G.find_pockets(triangles, check_edge, distance_func)
+    pockets = G.find_pockets(triangles, check_edge, distance_func, check_simplex)
     print "pockets"
     print pockets
     nodes = diff(pockets, triangles)
