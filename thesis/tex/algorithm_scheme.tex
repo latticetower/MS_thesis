@@ -13,16 +13,18 @@
   ]
 
 % draw the sieves
-\node[block,anchor=north,text width=6.4cm] (tray1) at (0,0) {PDB-файл
+\node[block,anchor=north,text width=6.4cm] (tray0) at (0,0) {PDB-файл
    {\begin{itemize}
    \item координаты атомов в пространстве и их тип;\\[-5pt]
    \item информация о вторичной структуре.
    \end{itemize}}
    };
 
-\node[block,below right = of tray1,text width=7.4cm] (tray2) {Построение триангуляции Делоне и двойственного графа};
+\node[block, below = of tray0,text width=7.4cm] (tray1) {маскировка части позиций};
+
+\node[block,below right = of tray1,text width=7.4cm] (tray2) {Построение тетраэдризации Делоне и двойственного графа};
    
-\node[block,below = of tray2,text width=7.4cm] (tray3) {Выбор начальных треугольников на границе триангуляции};
+\node[block,below = of tray2,text width=7.4cm] (tray3) {Выбор начальных треугольников на границе тетраэдризации};
 
 \node[block,below = of tray3,text width=7.4cm] (tray4) {Поиск карманов};
 
@@ -35,6 +37,7 @@
 
 
 \begin{scope} [every path/.style=line]
+\path (tray0) -- (tray1); 
 \path (tray1) -- (tray2); 
 \path (tray2) -- (tray3);
 \path (tray3) -- (tray4); 
