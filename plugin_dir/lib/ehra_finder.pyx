@@ -52,7 +52,6 @@ def find_regions(pdb_filename, chain1, chain2, cutoff = 5.0, sas_radius = 1.4):
     #print "pockets {0}".format(pockets)
     nodes = diff(pockets, triangles)
     #print "nodes {0}".format(nodes)
-    #nodes = G.find_pockets(triangles, check_edge)
     #print(nodes)
     aa_with_coils = extend_to_coils(pockets, chains_ss_info[chain1], surface1)
     chain_length = pair_of_chains[2]

@@ -75,7 +75,6 @@ class EHRADialog(tkSimpleDialog.Dialog):
             fetch_pdb(pdbCode, os.path.dirname(saveDialogResult))
             #self.pdb_file_path.__str__ = saveDialogResult
         #fetch_pdb(pdbCode)
-        print 1
     def apply(self):
         import string
         pdb_file = self.pdb_file
