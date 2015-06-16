@@ -9,11 +9,15 @@ import os
 from benchmarkers import *
 from utils import *
 
-def get_chain_atoms_without_water(structure, chain):
-    return [atom for atom in structure[0][chain].get_atoms() if atom.get_parent().get_id()[0] != 'W']
+def get_chain_atoms_without_water_and_masked_aa(structure, chain, masked_aminoacids = []):
+    return [
+        atom for atom in structure[0][chain].get_atoms()
+            if atom.get_parent().get_id()[0] != 'W' and
+                not atom.get_parent().get_id()[1] in masked_aminoacids
+        ]
 
 @timed
-def read_pdb_info(filename, chain1= 'L', chain2 = 'H'):
+def read_pdb_info(filename, chain1= 'L', chain2 = 'H', masked_aminoacids = []):
     parser = PDBParser()
     structure = parser.get_structure('', filename)
     if chain2 == None:
@@ -23,8 +27,8 @@ def read_pdb_info(filename, chain1= 'L', chain2 = 'H'):
             return None
         if chain1 != None:
             chain2 = chain_names[1] if chain1 == chain_names[0] else chain_names[0]
-    chain1_data = get_chain_atoms_without_water(structure, chain1)
-    chain2_data = get_chain_atoms_without_water(structure, chain2)
+    chain1_data = get_chain_atoms_without_water_and_masked_aa(structure, chain1, masked_aminoacids)
+    chain2_data = get_chain_atoms_without_water_and_masked_aa(structure, chain2)
     chain1_residues = {atom.get_parent().get_id()[1] for atom in chain1_data}
     #print chain1_residues
     return (
@@ -58,7 +62,7 @@ def group_elements(data):
     if last_key > 0:
         protein_coils.append((start_coil_pos, last_key))
     return protein_coils
-    
+
 @timed
 def read_dssp_info(filename,
                     chain1= 'L', chain2 = 'H',

@@ -25,11 +25,6 @@ def diff(a, b):
     if b == [] or len(b.shape) < 2: return a
     return foo2(a, b, np.setdiff1d)
 
-#print unique_a
-#print union(A, B)
-#print intersect(A, B)
-#print diff(A, B)
-
 
 #other
 def get_radius(atom_name):

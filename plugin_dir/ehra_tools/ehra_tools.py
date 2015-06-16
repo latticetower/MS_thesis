@@ -77,6 +77,9 @@ class EHRADialog(tkSimpleDialog.Dialog):
     def apply(self):
         import string
         pdb_file = self.pdb_file
+        if pdb_file == None:
+            print "select pdb file!"
+            return
         chain1 = self.ch1.get()
         chain2 = self.ch2.get() #string.atoi(
         sas_radius = string.atof(self.sas_radius.get())
@@ -89,6 +92,7 @@ class EHRADialog(tkSimpleDialog.Dialog):
         cmd.save(pdb_file)
         from ehra_finder import find_regions
         print "Processing, please wait..."
+        print (chain1, chain2)
         res = find_regions(pdb_file, chain1, chain2, cutoff, sas_radius)
         str = "chain %s and (%s)" % ('L', " or ".join(["resi {0}".format(
                 aa_info.get_id()[1]

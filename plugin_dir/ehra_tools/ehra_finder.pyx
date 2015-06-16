@@ -24,8 +24,8 @@ def to_aa(triangles, surface):
     return np.unique(g(triangles))
 
 @timed
-def find_regions(pdb_filename, chain1, chain2, cutoff = 5.0, sas_radius = 1.4):
-    pair_of_chains = read_pdb_info(pdb_filename, chain1, chain2)
+def find_regions(pdb_filename, chain1, chain2, cutoff = 5.0, sas_radius = 1.4, masked_aminoacids = []):
+    pair_of_chains = read_pdb_info(pdb_filename, chain1, chain2, masked_aminoacids)
     if pair_of_chains == None:
         return None
     chains_ss_info = read_dssp_info(pdb_filename, chain1, chain2)
